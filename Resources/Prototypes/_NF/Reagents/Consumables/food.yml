@@ -31,3 +31,24 @@
   - !type:PlantAdjustHealth
     amount: 0.5
   pricePerUnit: 10
+
+- type: reagent
+  id: Gravy
+  name: reagent-name-gravy
+  group: Foods
+  desc: reagent-desc-gravy
+  physicalDesc: reagent-physical-desc-saucey
+  flavor: meaty
+  color: "#8B4430"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.6
+      - !type:AdjustReagent
+        reagent: Protein
+        amount: 0.2
+      - !type:SatiateThirst
+        factor: -0.1 #salty

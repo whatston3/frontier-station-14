@@ -24,3 +24,29 @@
     price: 750
 #  - type: StealTarget
 #    stealGroup: FoodMeatCat
+
+- type: entity
+  name: pate
+  parent: FoodMeatBase
+  id: FoodMeatPate
+  description: A paste made of finely minced and spiced liver.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - meaty
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meat.rsi
+      state: pate
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 10
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: Protein
+            Quantity: 2
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat

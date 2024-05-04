@@ -10,7 +10,411 @@
     ClothingHeadMailCarrier: 1
     FoodMeatCat: 1
 
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeGrilledCheese
+  name: grilled cheese recipe
+  result: FoodBreadGrilledCheese
+  time: 10
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodCheeseSlice: 1
+Food
+- type: microwaveMealRecipe
+  id: RecipeCroqueMadame
+  name: croque madame recipe
+  result: FoodBreadCroqueMadame
+  time: 10
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodCheeseSlice: 1
+    FoodMeatBacon: 1
+    FoodEgg: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFrancesinha
+  name: francesinha recipe
+  result: FoodBreadFrancesinha
+  time: 15
+  reagents:
+    Blackpepper: 5
+    Beer: 5
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodCheeseSlice: 1
+    FoodMeatBacon: 1
+    FoodMeatRaw: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBLT
+  name: blt sandwich recipe
+  result: FoodBreadBLT
+  time: 10
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodMeatBacon: 1
+    FoodCabbage: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTNT
+  name: tnt sandwich recipe
+  result: FoodBreadTNT
+  time: 10
+  reagents:
+    Enzyme: 5 #for the natto
+  solids:
+    FoodBreadPlainSlice: 2
+    FoodTofuSlice: 1
+    FoodSoybeans: 1
+    FoodTomato: 1
+
+#Slices Only
+
+#Italian
+
+- type: microwaveMealRecipe
+  id: RecipeLasagne
+  name: lasagne recipe
+  result: FoodMealLasagne
+  time: 30
+  solids:
+    FoodNoodlesBoiled: 2
+    FoodTomato: 2
+    FoodMeatBacon: 1
+    FoodGarlic: 1
+    FoodMozzarella: 2
+
+- type: microwaveMealRecipe
+  id: RecipeTofuLasagne
+  name: tofu lasagne recipe
+  result: FoodMealTofuLasagne
+  time: 30
+  solids:
+    FoodNoodlesBoiled: 2
+    FoodTomato: 2
+    FoodTofuSlice: 1
+    FoodGarlic: 1
+    FoodMozzarella: 2
+
+#Pies
+
+- type: microwaveMealRecipe
+  id: RecipePearCustardPie
+  name: pear custard pie recipe
+  result: FoodPiePearCustard
+  time: 15
+  reagents:
+    Milk: 5
+    Sugar: 5
+  solids:
+    FoodDoughPie: 1
+    FoodPear: 3
+    FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipePumpkinPie
+  name: pumpkin pie recipe
+  result: FoodPiePumpkin
+  time: 15
+  reagents:
+    Milk: 5
+    Cream: 5 #whipped cream
+    Sugar: 5
+  solids:
+    FoodDoughPie: 1
+    FoodPumpkin: 1
+    FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFlan
+  name: flan recipe
+  result: FoodPieFlan
+  time: 15
+  reagents:
+    Cream: 10
+    Sugar: 10
+    Egg: 12
+  solids:
+    FoodDoughPie: 1
+    FoodPlateTin: 1
+
+#Tarts
+
 #Other
+
+- type: microwaveMealRecipe
+  id: RecipeMashedPotatoes
+  name: mashed potatoes recipe
+  result: FoodMealMashedPotatoes
+  time: 15
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  solids:
+    FoodPotato: 1
+    FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipePate
+  name: pâté recipe
+  result: FoodMeatPate
+  time: 10
+  reagents:
+    TableSalt: 5
+    Blackpepper: 5
+  solids:
+    OrganAnimalLiver: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFoodBakedPateSlice
+  name: pâté crostini recipe
+  result: FoodBakedPateCrostini
+  time: 5
+  solids:
+    FoodMeatPate: 1
+    FoodBreadBaguetteSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipePoutine
+  name: poutine recipe
+  result: FoodMealPoutine
+  time: 5
+  reagents:
+    Gravy: 5
+  solids:
+    FoodMealFries: 1
+    FoodCheeseCurds: 1
+
+- type: microwaveMealRecipe
+  id: RecipeDonkPocketCasserole
+  name: donk pocket casserole recipe
+  result: FoodMealDonkPocketCasserole
+  time: 20
+  solids:
+    FoodDonkPocketWarm: 3
+    FoodSoupMushroom: 1
+    FoodCorn: 2
+    FoodPeaPod: 2
+
+- type: microwaveMealRecipe
+  id: RecipeFriedEgg
+  name: fried egg recipe
+  result: FoodMealFriedEgg
+  time: 5
+  reagents:
+    TableSalt: 1 #consistency with fried egg food
+    Blackpepper: 1
+  solids:
+    FoodEgg: 1
+
+- type: microwaveMealRecipe
+  id: RecipeOmelette
+  name: cheese omelette recipe
+  result: FoodMealOmelette
+  time: 10
+  reagents:
+    Milk: 5 # avoid a failed mcguffin with a raw dough slice turning into a cheese omelette
+  solids:
+    FoodEgg: 2
+    FoodCheese: 1
+
+- type: microwaveMealRecipe
+  id: RecipeWellington
+  name: wellington recipe
+  result: FoodBakedWellington
+  time: 30
+  solids:
+    FoodMeatRaw: 3
+    FoodDoughFlat: 1
+    FoodButter: 1
+    FoodMushroom: 1
+    FoodOnionSlice: 1
+    FoodMeatPate: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBelleHelene
+  name: belle helene recipe
+  result: FoodMealBelleHelene
+  time: 15
+  reagents:
+    Sugar: 5
+    Water: 5
+    IceCream: 5
+  solids:
+    FoodPear: 1
+    FoodSnackChocolateBar: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBananasFoster
+  name: bananas foster recipe
+  result: FoodMealBananasFoster
+  time: 15
+  reagents:
+    Sugar: 10
+    Rum: 5
+    IceCream: 10
+  solids:
+    FoodBanana: 2
+    FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipeNapoleon
+  name: napoleon recipe
+  result: FoodBakedNapoleon
+  time: 15
+  reagents:
+    RawEgg: 6
+    Cream: 10
+    Sugar: 10
+  solids:
+    FoodDoughFlat: 1
+    FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipeWaterloo
+  name: waterloo recipe
+  result: FoodBakedWaterloo
+  time: 20
+  solids:
+    FoodBakedNapoleon: 1
+    FoodBakedWellington: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFullEnglish
+  name: full english recipe
+  result: FoodMealFullEnglish
+  time: 20
+  solids:
+    FoodEgg: 2
+    FoodMealFries: 1
+    FoodTomato: 1
+    FoodBreadPlainSlice: 1
+    FoodSoybeans: 1
+    FoodMushroom: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFishChips
+  name: fish and chips recipe
+  result: FoodMealFishChips
+  time: 15
+  reagents:
+    Vinegar: 5
+  solids:
+    FoodMeatFish: 1
+    FoodMealFries: 1
+    FoodPeaPod: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCoqAuVin
+  name: coq au vin recipe
+  result: FoodSoupCoqAuVin
+  time: 30
+  reagents:
+    Wine: 10
+    Cognac: 5
+  solids:
+    FoodMeatChicken: 1
+    FoodMushroom: 1
+    FoodCarrot: 1
+    FoodButter: 1
+    Bowl: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCassoulet
+  name: duck cassoulet recipe
+  result: FoodMealDuckCassoulet
+  time: 30
+  reagents:
+    Wine: 10
+    OliveOil: 5
+  solids:
+    FoodOnion: 1
+    FoodCarrot: 1
+    FoodSoybeans: 3
+    FoodMeatDuck: 1
+
+- type: microwaveMealRecipe
+  id: RecipeRoastDinner
+  name: roast dinner recipe
+  result: FoodMealRoastDinner
+  time: 15
+  reagents:
+    Gravy: 5
+  solids:
+    FoodMeatRaw: 1
+    FoodMashedPotatoes: 1
+    FoodPeaPod: 1
+    FoodPlate: 1
+
+- type: microwaveMealRecipe
+  id: RecipeChickenDinner
+  name: chicken dinner recipe
+  result: FoodMealChickenDinner
+  time: 15
+  reagents:
+    Gravy: 5
+  solids:
+    FoodMeatChicken: 1
+    FoodMashedPotatoes: 1
+    FoodPeaPod: 1
+    FoodPlate: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTofuPeaCurry
+  name: tofu pea curry recipe
+  result: FoodSoupTofuPea
+  time: 15
+  reagents:
+    MilkOat: 10
+    Blackpepper: 5 #Substitute for other spices
+  solids:
+    FoodTofuSlice: 2
+    FoodPeaPod: 2
+    FoodBowl: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCranachan
+  name: cranachan recipe
+  result: FoodMealCranachan
+  time: 10
+  reagents:
+    Oats: 5
+    Whiskey: 5
+    Cream: 10
+  solids:
+    FoodBerries: 1
+
+- type: microwaveMealRecipe
+  id: RecipeOatSquareBatch
+  name: oat squares recipe
+  result: FoodBakedOatSquares
+  time: 25
+  reagents:
+    Oats: 15
+    Sugar: 10
+    Milk: 5
+    Egg: 6
+  solids:
+    FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTiramisu
+  name: tiramisu recipe
+  result: FoodBakedTiramisu
+  time: 20
+  reagents:
+    Sugar: 10
+    Cream: 10
+    Coffee: 5
+    CocoaPowder: 5
+    Egg: 18
+  solids:
+    FoodBakedCookieSugar: 3 # stand-in for ladyfingers
+
+# NOT ACTUAL FOOD
 
 - type: microwaveMealRecipe
   id: RecipeCatCrispy

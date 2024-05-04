@@ -28,3 +28,415 @@
     color: "#FFFFCC"
     radius: 1.25
     energy: 0.75
+
+- type: entity
+  name: pâté slice
+  parent: FoodMealBase
+  id: FoodBakedPateSlice
+  description: A toasted crostini with smooth pâté spread on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - meaty
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: pateslice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: Tag
+    tags:
+    - Meat
+  
+  - type: entity
+  name: lasagne
+  parent: FoodMealBase
+  id: FoodBakedLasagne
+  description: A meaty, cheesy, layered pasta dish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pasta
+      - meaty
+      - cheesy
+      - tomato
+      - garlic
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meals.rsi
+    state: lasagne
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedLasagneSlice
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: lasagne slice
+  parent: FoodMealBase
+  id: FoodBakedLasagneSlice
+  description: A portion of a meaty, cheesy, layered pasta dish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pasta
+      - meaty
+      - cheesy
+      - tomato
+      - garlic
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meals.rsi
+    state: lasagne-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: tofu lasagne
+  parent: FoodMealBase
+  id: FoodBakedTofuLasagne
+  description: A cheesy, layered, vegetarian pasta dish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pasta
+      - tofu
+      - cheesy
+      - tomato
+      - garlic
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meals.rsi
+    state: tofulasagne
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedTofuLasagneSlice
+  -
+
+- type: entity
+  name: tofu lasagne slice
+  parent: FoodMealBase
+  id: FoodBakedTofuLasagneSlice
+  description: A portion of a cheesy, layered, vegetarian pasta dish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pasta
+      - tofu
+      - cheesy
+      - tomato
+      - garlic
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/meals.rsi
+    state: tofulasagne-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+
+- type: entity
+  name: wellington
+  parent: FoodBakedBase
+  id: FoodMealWellington
+  description: Roast meat and duxelles encased in golden, flaky puff pastry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - mushroom
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: wellington
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedWellingtonSlice
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: wellington slice
+  parent: FoodBakedBase
+  id: FoodBakedWellingtonSlice
+  description: A portion of roast meat and duxelles encased in golden, flaky puff pastry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - mushroom
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: wellington-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: napoleon
+  parent: FoodBakedBase
+  id: FoodBakedNapoleon
+  description: Roast meat and duxelles encased in golden, flaky puff pastry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+      - buttery
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: napoleon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedNapoleonSlice
+
+- type: entity
+  name: napoleon slice
+  parent: FoodBakedBase
+  id: FoodBakedNapoleonSlice
+  description: A portion of roast meat and duxelles encased in golden, flaky puff pastry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+      - buttery
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: wellington-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+
+- type: entity
+  name: waterloo
+  parent: FoodBakedBase
+  id: FoodBakedWaterloo
+  description: Both entree and dessert, the flavors here fight each other.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - sweet
+      - gunpowder
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: waterloo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedWaterlooSlice
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: waterloo slice
+  parent: FoodBakedBase
+  id: FoodBakedWaterlooSlice
+  description: Both entree and dessert, the flavors here fight each other.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - sweet
+      - gunpowder
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: waterloo-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: tiramisu
+  parent: FoodBakedBase
+  id: FoodBakedTiramisu
+  description: Both entree and dessert, the flavors here fight fiercely.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - sweet
+      - gunpowder
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: waterloo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedTiramisuSlice
+
+- type: entity
+  name: waterloo slice
+  parent: FoodBakedBase
+  id: FoodBakedTiramisuSlice
+  description: Both entree and dessert, the flavors here fight fiercely.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - buttery
+      - sweet
+      - gunpowder
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: waterloo-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+
+- type: entity
+  name: oat squares
+  parent: FoodBakedBase
+  id: FoodBakedOatSquareBatch
+  description: Dense and hearty, these make a filling snack.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - oats
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: oatsquare-batch
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 78
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Theobromine
+          Quantity: 18
+  - type: SliceableFood
+    count: 6
+    slice: FoodBakedOatSquare
+
+- type: entity
+  name: oat square
+  parent: FoodBakedBase
+  id: FoodBakedOatSquare
+  description: Dense and hearty, this makes a filling snack.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - oats
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/misc.rsi
+    state: oatsquare
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3

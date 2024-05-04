@@ -66,3 +66,326 @@
       groups:
         Brute: 1
   - type: FriedTrait
+
+- type: entity
+  name: mashed potatoes
+  parent: FoodMealBase
+  id: FoodMealMashedPotatoes
+  description: Smooth, buttery, and heaped tall.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - potato
+        - butter
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: mashedpotatoes
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+
+- type: entity
+  name: poutine
+  parent: FoodMealBase
+  id: FoodMealPoutine
+  description: Vive le Québec libre.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - cheesy
+        - potatoes
+        - meaty
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: poutine
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: donk pocket casserole
+  parent: FoodMealBase
+  id: FoodMealDonkPocketCasserole
+  description: At least it's a hot dish?
+  components:
+    - type: FlavorProfile
+      flavors:
+        - donk
+        - creamy
+        - vegetables
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: donkcasserole
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+# Tastes like donk, Minnesota
+
+- type: entity
+  name: full english
+  parent: FoodMealBase
+  id: FoodMealFullEnglish
+  description: Ah, 'at's a full English breakfast, innit?
+  components:
+    - type: FlavorProfile
+      flavors:
+        - egg
+        - potato
+        - meaty
+        - bread
+        - tomato
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: fullenglish
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: fish and chips
+  parent: FoodMealBase
+  id: FoodMealFishChips
+  description: Battered fish, hot chips and mushy peas.  Cor.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - fish
+        - oily
+        - peas
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: fishchips
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: duck cassoulet
+  parent: FoodMealBase
+  id: FoodMealDuckCassoulet
+  description: Slow cooked beans and duck meat in a rich broth.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - duck
+        - savory
+        - soy # stand-in for "beans"
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: duckcassoulet
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: roast dinner
+  parent: FoodMealBase
+  id: FoodMealRoastDinner
+  description: Sunday already?
+  components:
+    - type: FlavorProfile
+      flavors:
+        - meaty
+        - potatoes
+        - butter
+        - peas
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: roastdinner
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: chicken dinner
+  parent: FoodMealBase
+  id: FoodMealChickenDinner
+  description: Winner winner.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - chicken
+        - potatoes
+        - butter
+        - peas
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: chickendinner
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: belle Hélène
+  parent: FoodMealBase
+  id: FoodMealBelleHelene
+  description: Escoffier would be proud.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - pears
+        - sweet
+        - icecream
+        - chocolate
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: bellehelene
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: bananas foster
+  parent: FoodMealBananasFoster
+  id: FoodMealBananasFoster
+  description: What, no fireball?
+  components:
+    - type: FlavorProfile
+      flavors:
+        - banana
+        - icecream
+        - whiskey # should be brown sugar, molasses is about right
+        - rum
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: bananasfoster
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: cranachan
+  parent: FoodMealCranachan
+  id: FoodMealCranachan
+  description: A boozy berry oat trifle with a tricky name.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - banana
+        - icecream
+        - whiskey # should be brown sugar, molasses is about right
+        - rum
+    - type: Sprite
+      sprite: _NF/Objects/Consumable/Food/meals.rsi
+      state: bellehelene
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 6
+          - ReagentId: Flavorol
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit

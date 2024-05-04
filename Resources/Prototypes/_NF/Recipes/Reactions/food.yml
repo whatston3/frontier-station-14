@@ -1,0 +1,16 @@
+# Gravy: heat a combination of ground meat (no drippings), flour and salt.
+- type: reaction
+  id: Gravy
+  minTemp: 355 # 82 deg C, a decent simmer (and higher than protein breakdown)
+  impact: Low
+  reactants:
+    Protein:
+      amount: 2
+    Fat:
+      amount: 2
+    Flour:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Gravy: 6

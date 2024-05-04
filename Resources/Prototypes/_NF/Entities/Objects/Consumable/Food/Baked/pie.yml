@@ -1,0 +1,117 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
+
+# Pie
+
+- type: entity
+  name: pear custard pie
+  parent: FoodPieBase
+  id: FoodPiePearCustard
+  description: A pie made of sweet, soft pears and custard.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pear
+  - type: Sprite
+    layers:
+    - state: tin
+    - state: pear
+  - type: SliceableFood
+    slice: FoodPiePearCustardSlice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: slice of pear custard pie
+  parent: FoodPieSliceBase
+  id: FoodPiePearCustardSlice
+  description: A portion of a pie made of sweet, soft pears and custard.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pear
+  - type: Sprite
+    layers:
+    - state: plain-slice
+    - state: alpha-slice-filling
+      color: "#fff2cc"
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: pumpkin pie
+  parent: FoodPieBase
+  id: FoodPiePumpkin
+  description: Spiced, pureed pumpkin and cream.  Tastes like autumn.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pumpkin
+  - type: Sprite
+    layers:
+    - state: tin
+    - state: pumpkin
+    - state: whippedcream
+  - type: SliceableFood
+    slice: FoodPiePumpkinSlice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: slice of pumpkin pie
+  parent: FoodPieSliceBase
+  id: FoodPiePumpkinSlice
+  description: Spiced, pureed pumpkin and cream.  Tastes like autumn.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - pumpkin
+  - type: Sprite
+    layers:
+    - state: pumpkinpie-slice
+    - state: whippedcream
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: flan
+  parent: FoodPieBase
+  id: FoodPieFlan
+  description: A creamy custard tart with caramel on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    layers:
+    - state: tin
+    - state: baklava
+  - type: SliceableFood
+    slice: FoodPieFlanSlice
+
+- type: entity
+  name: slice of flan
+  parent: FoodPieSliceBase
+  id: FoodPieFlanSlice
+  description: A portion of a creamy custard tart with caramel on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    state: flan-slice
+
+# No Slice

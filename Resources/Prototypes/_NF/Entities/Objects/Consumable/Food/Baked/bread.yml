@@ -1,0 +1,134 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
+
+# Sandwich
+
+- type: entity
+  name: grilled cheese sandwich
+  parent: FoodBreadSliceBase
+  id: FoodBreadGrilledCheese
+  description: Filled with melty cheese, goes great with tomato soup.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - cheesy
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: grilledcheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment #keeping it somewhat consistent with the meat itself
+          Quantity: 9
+        - ReagentId: Flavorol
+          Quantity: 3
+
+- type: entity
+  name: croque madame
+  parent: FoodBreadSliceBase
+  id: FoodBreadCroqueMadame
+  description: An elevated ham and cheese sandwich with an egg on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - cheesy
+      - meaty
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: croquemadame
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment #keeping it somewhat consistent with the meat itself
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: francesinha
+  parent: FoodBreadSliceBase
+  id: FoodBreadFrancesinha
+  description: A meat and cheese sandwich soaking in a spicy tomato and beer sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - cheesy
+      - meaty
+      - peppery
+      - tomato
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: francesinha
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment #keeping it somewhat consistent with the meat itself
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: BLT sandwich
+  parent: FoodBreadSliceBase
+  id: FoodBreadBLT
+  description: Crisp bacon, juicy tomato, and crunchy lettuce between two slices of bread.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - bacon
+      - tomato
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: blt
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment #keeping it somewhat consistent with the meat itself
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: TNT sandwich
+  parent: FoodBreadSliceBase
+  id: FoodBreadTNT
+  description: Tofu, natto, and tomato together in a vegan take on a BLT.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - tofu
+      - slimy
+      - tomato
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
+    state: tnt
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment #keeping it somewhat consistent with the meat itself
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4

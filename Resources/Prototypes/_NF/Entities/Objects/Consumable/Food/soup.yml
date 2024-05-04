@@ -1,0 +1,73 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
+
+# Salad
+
+# Rice
+
+# Misc
+
+# Soup
+
+- type: entity
+  name: tofu pea curry
+  parent: FoodBowlBase
+  id: FoodSoupTofuPeaCurry
+  description: A mild vegan curry with tofu and peas.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - curry
+      - tofu
+      - peas
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: tofupea
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Protein
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 2
+          - ReagentId: Flavorol
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Soup
+
+- type: entity
+  name: coq au vin
+  parent: FoodBowlBase
+  id: FoodSoupCoqAuVin
+  description: Slow cooked chicken in a savoury wine-flavoured broth.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chicken
+      - wine
+      - vegetables
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: coqauvin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Protein
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 2
+          - ReagentId: Flavorol
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Soup
