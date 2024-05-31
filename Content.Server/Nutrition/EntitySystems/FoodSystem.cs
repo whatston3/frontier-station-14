@@ -70,7 +70,7 @@ public sealed class FoodSystem : EntitySystem
 
     public const float MaxFeedDistance = 1.0f;
 
-    private static readonly string[] ToxinReagents = { "Toxin", "CarpoToxin", "Mold", "Amatoxin", "SulfuricAcid", "Bungotoxin", "Gastrotoxin" };
+    private static readonly string[] ToxinReagents = { "Toxin", "CarpoToxin", "Mold", "Amatoxin", "SulfuricAcid", "Bungotoxin", "GastroToxin" };
 
     public override void Initialize()
     {
