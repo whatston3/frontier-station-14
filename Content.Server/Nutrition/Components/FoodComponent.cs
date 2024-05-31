@@ -81,12 +81,6 @@ public sealed partial class FoodComponent : Component
     /// <summary>
     ///     Frontier - Nasty food, used for goblins to know if they can eat it or not
     /// </summary>
-    [DataField, ViewVariables] // Frontier
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // Frontier
     public string[] Quality = { "Normal" };
-
-    /// <summary>
-    ///     Frontier - Edited by the system to find the final quility results
-    /// </summary>
-    [DataField, ViewVariables] // Frontier
-    public string FinalQuality = "Normal";
 }
