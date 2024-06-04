@@ -5,10 +5,6 @@
   suffix: Non-lethal
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeLightRifle
-    capacity: 10
     proto: CartridgeLightRifleRubber
 
 # Frontier
