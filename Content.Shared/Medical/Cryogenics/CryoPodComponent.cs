@@ -34,20 +34,20 @@ public sealed partial class CryoPodComponent : Component
     public TimeSpan? NextInjectionTime;
 
     /// <summary>
-    /// Frontier modified
     /// How many units of each reagent to transfer per tick from the beaker to the mob?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("beakerTransferAmount")]
-    public float BeakerTransferAmount = .25f;
+    public float BeakerTransferAmount = .25f; // Frontier: 1<0.25
 
+    // Frontier: more efficient cryogenics (#1443)
     /// <summary>
-    /// Frontier 
     /// How potent (multiplier) the reagents are when transferred from the beaker to the mob.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("PotencyAmount")]
     public float PotencyMultiplier = 2f;
+    // End Frontier
 
     /// <summary>
     ///     Delay applied when inserting a mob in the pod.
