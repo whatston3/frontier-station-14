@@ -9,9 +9,9 @@ using Content.Shared.Verbs;
 namespace Content.Server._NF.Security.Systems;
 
 /// <summary>
-/// This handles...
+/// This system handles contraband appraisal messages and will inform a user of how much an item is worth for trade-in in FUCs.
 /// </summary>
-public sealed class ContrabandGunSystem : EntitySystem
+public sealed class ContrabandPriceGunSystem : EntitySystem
 {
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -19,11 +19,11 @@ public sealed class ContrabandGunSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ContrabandGunComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<ContrabandGunComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+        SubscribeLocalEvent<ContrabandPriceGunComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<ContrabandPriceGunComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
     }
 
-    private void OnUtilityVerb(EntityUid uid, ContrabandGunComponent component, GetVerbsEvent<UtilityVerb> args)
+    private void OnUtilityVerb(EntityUid uid, ContrabandPriceGunComponent component, GetVerbsEvent<UtilityVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Using == null)
             return;
@@ -34,14 +34,11 @@ public sealed class ContrabandGunSystem : EntitySystem
         if (!TryComp<ContrabandComponent>(args.Target, out var contraband))
             return;
 
-        // Calc contraband points
-        var price = contraband.Value;
-
         var verb = new UtilityVerb()
         {
             Act = () =>
             {
-                _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result", ("object", Identity.Entity(args.Target, EntityManager)), ("price", $"{price:F2}")), args.User, args.User);
+                _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result", ("object", Identity.Entity(args.Target, EntityManager)), ("price", contraband.Value)), args.User, args.User);
                 _useDelay.TryResetDelay((uid, useDelay));
             },
             Text = Loc.GetString("contraband-price-gun-verb-text"),
@@ -51,7 +48,7 @@ public sealed class ContrabandGunSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private void OnAfterInteract(EntityUid uid, ContrabandGunComponent component, AfterInteractEvent args)
+    private void OnAfterInteract(EntityUid uid, ContrabandPriceGunComponent component, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target == null || args.Handled)
             return;
@@ -60,15 +57,9 @@ public sealed class ContrabandGunSystem : EntitySystem
             return;
 
         if (TryComp<ContrabandComponent>(args.Target, out var contraband))
-        {
-            //double price = _pricingSystem.GetPrice(args.Target.Value);
-            double price = contraband.Value;
-            _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result", ("object", Identity.Entity(args.Target.Value, EntityManager)), ("price", $"{price:F2}")), args.User, args.User);
-        }
+            _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result", ("object", Identity.Entity(args.Target.Value, EntityManager)), ("price", contraband.Value)), args.User, args.User);
         else
-        {
-            _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result-none"), args.User, args.User);
-        }
+            _popupSystem.PopupEntity(Loc.GetString("contraband-price-gun-pricing-result-none", ("object", Identity.Entity(args.Target.Value, EntityManager))), args.User, args.User);
 
         _useDelay.TryResetDelay((uid, useDelay));
         args.Handled = true;
