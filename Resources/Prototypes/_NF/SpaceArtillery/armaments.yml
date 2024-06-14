@@ -264,11 +264,11 @@
   - type: UserInterface #internal radar idea will probably get scrapped
     interfaces:
         enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
+          type: RadarConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
         enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionSpaceArtilleryShowRadar
+          toggleAction: ActionSpaceArtilleryShowRadar
   - type: RadarConsole
 
 - type: entity
