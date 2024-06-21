@@ -103,7 +103,23 @@ public sealed class RoleLoadout
             // If you put invalid ones first but that's your fault for not using sensible defaults
             if (loadouts.Count < groupProto.MinLimit)
             {
-                for (var i = 0; i < Math.Min(groupProto.MinLimit, groupProto.Loadouts.Count); i++)
+                // Frontier: apply fallbacks as first defaults if they exist.
+                for (var i = 0; i < groupProto.Fallbacks.Count && loadouts.Count < groupProto.MinLimit; i++)
+                {
+                    if (!protoManager.TryIndex(groupProto.Fallbacks[i], out var loadoutProto))
+                        continue;
+
+                    var defaultLoadout = new Loadout()
+                    {
+                        Prototype = loadoutProto.ID,
+                    };
+
+                    if (loadouts.Contains(defaultLoadout))
+                        continue;
+                }
+                // End Frontier
+
+                for (var i = 0; i < groupProto.Loadouts.Count && loadouts.Count < groupProto.MinLimit; i++) // Frontier: fixed bounds check, go through options until we build a complete set
                 {
                     if (!protoManager.TryIndex(groupProto.Loadouts[i], out var loadoutProto))
                         continue;
