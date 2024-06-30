@@ -9,27 +9,28 @@ shipyard-record-paper-name = {$vessel_name} {$time}
 #
 #      Additional notes:
 
-shipyard-record-paper-content =  l[color=blue]◥█▄  █  ®[/color]                                                               [color= #009100][italic]Frontier Automated[/italic][/color]
-      l[color=blue]   █  ▀█◣[/color]                                                          [color= #009100][italic]Vessel Reporting System[/italic][/color]
-      l__________________________________________________________________
-      l
-      l[head=2]               Ship Deployment Report[/head]
-      l__________________________________________________________________
-      l
-      l[bold]Ship ID:[/bold] {$vessel_name}
-      l
-      l[bold]Time Deployed:[/bold] {$time}
-      l
-      l[bold]Captain Name:[/bold] {$vessel_owner_name}
-      l                [italic]Species:[/italic] {$vessel_owner_species}
-      l                [italic]Gender:[/italic] {$vessel_owner_gender}
-      l                   [italic]Age:[/italic] {$vessel_owner_age}
-      l
-      l                [italic]Fingerprints:[/italic] {$vessel_owner_fingerprints}
-      l                [italic]DNA:[/italic] {$vessel_owner_dna}
-      l__________________________________________________________________
-      l
-      l[color=grey][italic]         This automated report is accurate at the time of reciept.[/italic][/color]
-      l
-      l[color=grey][italic] The above information may change during the course of the shift.[/italic][/color]
-      l__________________________________________________________________
+shipyard-record-paper-content =
+      {"["}color=blue]◥█▄  █  ®[/color]                                                               [color= #009100][italic]Frontier Automated[/italic][/color]
+      {"["}color=blue]   █  ▀█◣[/color]                                                          [color= #009100][italic]Vessel Reporting System[/italic][/color]
+      __________________________________________________________________
+      
+      {"["}head=2]               Ship Deployment Report[/head]
+      __________________________________________________________________
+      
+      {"["}bold]Ship ID:[/bold] {$vessel_name}
+      
+      {"["}bold]Time Deployed:[/bold] {$time}
+      
+      {"["}bold]Captain Name:[/bold] {$vessel_owner_name}
+      {""}                [italic]Species:[/italic] {$vessel_owner_species}
+      {""}                [italic]Gender:[/italic] {$vessel_owner_gender}
+      {""}                   [italic]Age:[/italic] {$vessel_owner_age}
+      {""}
+      {""}                [italic]Fingerprints:[/italic] {$vessel_owner_fingerprints}
+      {""}                [italic]DNA:[/italic] {$vessel_owner_dna}
+      __________________________________________________________________
+      
+      {"["}color=grey][italic]         This automated report is accurate at the time of reciept.[/italic][/color]
+      
+      {"["}color=grey][italic] The above information may change during the course of the shift.[/italic][/color]
+      __________________________________________________________________
