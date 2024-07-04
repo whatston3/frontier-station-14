@@ -111,3 +111,11 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: HTN
+    rootTask:
+      task: LaserTurretCompound
+    blackboard:
+      RotateSpeed: !type:Single
+        3.141
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg

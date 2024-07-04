@@ -1,4 +1,7 @@
 using Content.Server.Interaction;
+using Content.Shared.Physics;
+using Robust.Shared.Physics.Dynamics;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.NPC.HTN.Preconditions;
 
@@ -12,6 +15,10 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 
     [DataField("rangeKey")]
     public string RangeKey = "RangeKey";
+
+    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))] // Frontier: collisionKey for visibility
+    public CollisionGroup CollisionMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable; // Frontier: collisionKey for visibility
+
 
     public override void Initialize(IEntitySystemManager sysManager)
     {
@@ -28,6 +35,6 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
-        return _interaction.InRangeUnobstructed(owner, target, range);
+        return _interaction.InRangeUnobstructed(owner, target, range, collisionMask: CollisionMask); // Add mask
     }
 }
