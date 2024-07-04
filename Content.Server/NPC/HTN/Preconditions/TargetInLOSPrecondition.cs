@@ -16,7 +16,7 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
     [DataField("rangeKey")]
     public string RangeKey = "RangeKey";
 
-    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))] // Frontier: collisionKey for visibility
+    [DataField("collisionMask", customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))] // Frontier: collisionKey for visibility
     public CollisionGroup CollisionMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable; // Frontier: collisionKey for visibility
 
 
