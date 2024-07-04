@@ -16,8 +16,8 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
     [DataField("rangeKey")]
     public string RangeKey = "RangeKey";
 
-    [DataField("collisionMask", customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))] // Frontier: collisionKey for visibility
-    public CollisionGroup CollisionMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable; // Frontier: collisionKey for visibility
+    [DataField("collisionMask", customTypeSerializer: typeof(FlagSerializer<CollisionMask>))] // Frontier: collisionKey for visibility
+    public int CollisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable); // Frontier: collisionKey for visibility
 
 
     public override void Initialize(IEntitySystemManager sysManager)
@@ -35,6 +35,6 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
-        return _interaction.InRangeUnobstructed(owner, target, range, collisionMask: CollisionMask); // Add mask
+        return _interaction.InRangeUnobstructed(owner, target, range, collisionMask: (CollisionGroup)CollisionMask); // Add mask
     }
 }

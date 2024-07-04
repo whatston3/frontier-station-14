@@ -82,9 +82,10 @@
               rangeKey: RangedRange
               collisionMask: # Frontier
                 - Opaque # Frontier
+                - InteractImpassable # Frontier
           operator: !type:GunOperator
             targetKey: Target
-            requireLOS: true
+            requireLOS: true # Frontier
           services:
             - !type:UtilityService
               id: RangedService
