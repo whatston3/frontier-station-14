@@ -5,18 +5,16 @@
 All C# code contributed after 1 July, 2024 23:00:00 UTC should contain the following header:
 
 ```csharp
-/*
- * New Frontiers - This file is licensed under AGPLv3
- * Copyright (c) [Year] New Frontiers Contributors
- * See AGPLv3.txt for details.
- */
+// New Frontiers - This file is licensed under AGPLv3
+// Copyright (c) [Year] New Frontiers Contributors
+// See AGPLv3.txt for details.
 ```
 
 For any changes within MIT licensed(upstream) files, the following marker should be used at the start of the modification
 
 ```csharp
-/* New Frontiers - [Title of changes] - [Description of changes]
-This code is licensed under AGPLv3. See AGPLv3.txt */
+// New Frontiers - [Title of changes] - [Description of changes]
+// This code is licensed under AGPLv3. See AGPLv3.txt
 yourCodeHere();
 // End of modified code
 ```
