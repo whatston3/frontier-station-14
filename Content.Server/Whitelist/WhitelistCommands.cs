@@ -1,3 +1,4 @@
+using System.Linq; // Frontier
 using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Server.Players.JobWhitelist; // Frontier
@@ -14,6 +15,7 @@ namespace Content.Server.Whitelist;
 public sealed class AddWhitelistCommand : LocalizedCommands
 {
     [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!; // Frontier
+    [Dependency] private readonly IPlayerManager _players = default!; // Frontier
     public override string Command => "whitelistadd";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -54,7 +56,11 @@ public sealed class AddWhitelistCommand : LocalizedCommands
     {
         if (args.Length == 1)
         {
-            return CompletionResult.FromHint(Loc.GetString("cmd-whitelistadd-arg-player"));
+            // New Frontiers - Whitelist autosuggest - populates whitelist suggestions with player names
+            // This code is licensed under AGPLv3. See AGPLv3.txt
+            return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _players),
+                Loc.GetString("cmd-whitelistadd-hint-player"));
+            // End of modified code
         }
 
         return CompletionResult.Empty;
@@ -65,6 +71,7 @@ public sealed class AddWhitelistCommand : LocalizedCommands
 public sealed class RemoveWhitelistCommand : LocalizedCommands
 {
     [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!; // Frontier
+    [Dependency] private readonly IPlayerManager _players = default!; // Frontier
     public override string Command => "whitelistremove";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -105,7 +112,11 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
     {
         if (args.Length == 1)
         {
-            return CompletionResult.FromHint(Loc.GetString("cmd-whitelistremove-arg-player"));
+            // New Frontiers - Whitelist autosuggest - populates whitelist suggestions with player names
+            // This code is licensed under AGPLv3. See AGPLv3.txt
+            return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _players),
+                Loc.GetString("cmd-whitelistremove-hint-player"));
+            // End of modified code
         }
 
         return CompletionResult.Empty;
