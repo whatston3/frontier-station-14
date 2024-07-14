@@ -1,4 +1,3 @@
-using System.Linq; // Frontier
 using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Server.Players.JobWhitelist; // Frontier
