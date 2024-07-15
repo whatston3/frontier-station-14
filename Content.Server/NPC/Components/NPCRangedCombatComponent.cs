@@ -61,5 +61,5 @@ public sealed partial class NPCRangedCombatComponent : Component
     /// Frontier: collision mask to check LOS
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public int CollisionMask = (int)(CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
+    public int CollisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
 }

@@ -4,6 +4,7 @@ using Content.Server.NPC.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Physics;
 using Robust.Shared.Audio;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat.Ranged;
@@ -32,6 +33,13 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
     /// </summary>
     [DataField("requireLOS")]
     public bool RequireLOS = false;
+
+    // Frontier: collision mask key
+    /// <summary>
+    /// Key that contains the target entity.
+    /// </summary>
+    [DataField("collisionMaskKey")]
+    public string CollisionMaskKey = default!;
 
     // Like movement we add a component and pass it off to the dedicated system.
 
@@ -70,10 +78,10 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
         }
 
         // Frontier: add collision mask to NPCRangedComponent
-        if (blackboard.TryGetValue<float>("CollisionMask", out var collisionMask, _entManager))
-        {
+        if (blackboard.TryGetValue<float>(CollisionMaskKey, out var collisionMask, _entManager))
             ranged.CollisionMask = (int) collisionMask;
-        }
+        else
+            ranged.CollisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
         // End Frontier
     }
 

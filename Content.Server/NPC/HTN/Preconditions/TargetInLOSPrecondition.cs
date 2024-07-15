@@ -39,11 +39,13 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
-        var collisionMask = (int)blackboard.GetValueOrDefault<float>(CollisionMaskKey, _entManager); // Frontier: check for collision mask
+        var collisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable); // Frontier
+        if (blackboard.TryGetValue<float>(CollisionMaskKey, out var maskFloat, _entManager)) // Frontier: check for collision mask
+            collisionMask = (int) maskFloat; // Frontier: 
 
         var ret = _interaction.InRangeUnobstructed(owner, target, range, collisionMask: (CollisionGroup) collisionMask); // Frontier: add mask
 
-        _sawmill.Error($"TargetInLOSPrecond: IsMet {ret} {collisionMask}!");
+        _sawmill.Error($"TargetInLOSPrecond: IsMet {ret} mask: {collisionMask}!");
         return ret;
     }
 }
