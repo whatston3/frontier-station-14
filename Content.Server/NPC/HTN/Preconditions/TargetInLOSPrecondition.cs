@@ -8,6 +8,7 @@ namespace Content.Server.NPC.HTN.Preconditions;
 public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    private ISawmill _sawmill = default!;
     private InteractionSystem _interaction = default!;
 
     [DataField("targetKey")]
@@ -16,14 +17,14 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
     [DataField("rangeKey")]
     public string RangeKey = "RangeKey";
 
-    [DataField("collisionMask", customTypeSerializer: typeof(FlagSerializer<CollisionMask>))] // Frontier: collisionKey for visibility
-    public int CollisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable); // Frontier: collisionKey for visibility
-
+    [DataField("collisionMaskKey")] // Frontier: configurable LOS mask
+    public string CollisionMaskKey = "CollisionMask"; // Frontier: configurable LOS mask
 
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
         _interaction = sysManager.GetEntitySystem<InteractionSystem>();
+        _sawmill = Logger.GetSawmill("los_precond");
     }
 
     public override bool IsMet(NPCBlackboard blackboard)
@@ -31,10 +32,18 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager))
+        {
+            _sawmill.Error("TargetInLOSPrecond: No Target!");
             return false;
+        }
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
-        return _interaction.InRangeUnobstructed(owner, target, range, collisionMask: (CollisionGroup)CollisionMask); // Add mask
+        var collisionMask = blackboard.GetValueOrDefault<int>(CollisionMaskKey, _entManager); // Frontier: check for collision mask
+
+        var ret = _interaction.InRangeUnobstructed(owner, target, range, collisionMask: (CollisionGroup) collisionMask); // Frontier: add mask
+
+        _sawmill.Error($"TargetInLOSPrecond: IsMet {ret} {collisionMask}!");
+        return ret;
     }
 }

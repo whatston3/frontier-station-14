@@ -1,5 +1,6 @@
 using Content.Server.NPC.Systems;
 using Robust.Shared.Audio;
+using Robust.Shared.Physics.Dynamics;
 
 namespace Content.Server.NPC.Components;
 
@@ -54,4 +55,10 @@ public sealed partial class NPCRangedCombatComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? SoundTargetInLOS;
+
+    /// <summary>
+    /// Frontier: collision mask to check LOS
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int CollisionMask = (int)(CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
 }

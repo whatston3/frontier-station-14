@@ -80,11 +80,10 @@
             - !type:TargetInLOSPrecondition
               targetKey: Target
               rangeKey: RangedRange
-              collisionMask: # Frontier
-                - Opaque # Frontier
-                - InteractImpassable # Frontier
+              collisionMaskKey: CollisionMask
           operator: !type:GunOperator
             targetKey: Target
+            collisionMaskKey: CollisionMask
             requireLOS: true # Frontier
           services:
             - !type:UtilityService

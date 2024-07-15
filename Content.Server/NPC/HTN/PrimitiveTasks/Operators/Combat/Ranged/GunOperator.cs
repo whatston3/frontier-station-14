@@ -68,6 +68,13 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
         {
             ranged.SoundTargetInLOS = losSound;
         }
+
+        // Frontier: add collision mask to NPCRangedComponent
+        if (blackboard.TryGetValue<int>("CollisionMask", out var collisionMask, _entManager))
+        {
+            ranged.CollisionMask = collisionMask;
+        }
+        // End Frontier
     }
 
     public void ConditionalShutdown(NPCBlackboard blackboard)

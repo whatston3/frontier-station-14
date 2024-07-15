@@ -315,6 +315,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                     xform.Coordinates.TryDistance(EntityManager, _transform, targetXform.Coordinates, out var distance) &&
                     distance <= radius + bufferRange)
                 {
+                    Log.Error("TargetInLOS: valid target!");
                     return 1f;
                 }
 

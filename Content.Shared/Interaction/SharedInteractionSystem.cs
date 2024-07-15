@@ -742,11 +742,14 @@ namespace Content.Shared.Interaction
                 targetRot = otherParent.IsValid() ? Transform(otherParent).LocalRotation + otherAngle : otherAngle;
             }
 
+            Log.Error($"SIS: IRU - precond: inRange? {inRange}");
+
             // Do a raycast to check if relevant
             if (inRange)
             {
                 var rayPredicate = GetPredicate(originPos, other, targetPos, targetRot, collisionMask, combinedPredicate);
                 inRange = InRangeUnobstructed(originPos, targetPos, range, collisionMask, rayPredicate, ShouldCheckAccess(origin));
+                Log.Error($"SIS: IRU - after check: inRange? {inRange}");
             }
 
             if (!inRange && popup && _gameTiming.IsFirstTimePredicted)

@@ -201,9 +201,11 @@ namespace Content.Shared.Examine
                     continue;
                 }
 
+                Log.Error($"InRangeUnOccluded!  Occluder: {result.HitEntity}");
                 return false;
             }
 
+            Log.Error($"InRangeUnOccluded!  All good!");
             return true;
         }
 
