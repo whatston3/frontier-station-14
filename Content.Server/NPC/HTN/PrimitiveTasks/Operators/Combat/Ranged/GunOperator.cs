@@ -40,6 +40,7 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
     /// </summary>
     [DataField("collisionMaskKey")]
     public string CollisionMaskKey = default!;
+    private ISawmill _sawmill = default!;
 
     // Like movement we add a component and pass it off to the dedicated system.
 
@@ -63,6 +64,7 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
 
     public override void Startup(NPCBlackboard blackboard)
     {
+        _sawmill = Logger.GetSawmill("gun op");
         base.Startup(blackboard);
         var ranged = _entManager.EnsureComponent<NPCRangedCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         ranged.Target = blackboard.GetValue<EntityUid>(TargetKey);
@@ -82,6 +84,7 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
             ranged.CollisionMask = (int) collisionMask;
         else
             ranged.CollisionMask = (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
+        _sawmill.Error("Startup finished!");
         // End Frontier
     }
 

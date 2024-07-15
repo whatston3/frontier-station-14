@@ -358,17 +358,20 @@ public sealed class HTNSystem : EntitySystem
                 case HTNOperatorStatus.Continuing:
                     break;
                 case HTNOperatorStatus.Failed:
+                    Log.Error("Operation failed!");
                     ShutdownTask(currentOperator, blackboard, status);
                     ShutdownPlan(component);
                     break;
                 // Operator completed so go to the next one.
                 case HTNOperatorStatus.Finished:
+                    Log.Error("Operation finished!");
                     ShutdownTask(currentOperator, blackboard, status);
                     component.Plan.Index++;
 
                     // Plan finished!
                     if (component.Plan.Tasks.Count <= component.Plan.Index)
                     {
+                        Log.Error("Shutting down plan!");
                         ShutdownPlan(component);
                         break;
                     }
