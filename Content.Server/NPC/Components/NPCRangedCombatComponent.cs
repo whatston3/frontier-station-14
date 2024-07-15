@@ -1,4 +1,5 @@
 using Content.Server.NPC.Systems;
+using Content.Shared.Physics; // Frontier: CollisionGroup for LOS checks
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Dynamics;
 

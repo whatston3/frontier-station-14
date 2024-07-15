@@ -134,7 +134,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
                 // For consistency with NPC steering.
-                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, Transform(comp.Target).Coordinates, distance + 0.1f, collisionMask: comp.CollisionMask);
+                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, Transform(comp.Target).Coordinates, distance + 0.1f, collisionMask: (CollisionGroup) comp.CollisionMask);
             }
 
             if (!comp.TargetInLOS)
