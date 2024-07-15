@@ -70,9 +70,9 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
         }
 
         // Frontier: add collision mask to NPCRangedComponent
-        if (blackboard.TryGetValue<int>("CollisionMask", out var collisionMask, _entManager))
+        if (blackboard.TryGetValue<float>("CollisionMask", out var collisionMask, _entManager))
         {
-            ranged.CollisionMask = collisionMask;
+            ranged.CollisionMask = (int) collisionMask;
         }
         // End Frontier
     }

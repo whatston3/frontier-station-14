@@ -39,7 +39,7 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
-        var collisionMask = blackboard.GetValueOrDefault<int>(CollisionMaskKey, _entManager); // Frontier: check for collision mask
+        var collisionMask = (int)blackboard.GetValueOrDefault<float>(CollisionMaskKey, _entManager); // Frontier: check for collision mask
 
         var ret = _interaction.InRangeUnobstructed(owner, target, range, collisionMask: (CollisionGroup) collisionMask); // Frontier: add mask
 

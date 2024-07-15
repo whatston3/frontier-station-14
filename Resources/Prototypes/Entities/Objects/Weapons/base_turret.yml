@@ -119,5 +119,5 @@
         3.141
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
-      CollisionMask: !type:Integer
+      CollisionMask: !type:Single # TODO: fix this type
         1 # Opaque
