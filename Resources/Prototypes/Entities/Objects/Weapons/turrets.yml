@@ -23,6 +23,14 @@
   - type: NpcFactionMember
     factions:
     - ContrabandDetection
+  - type: HTN
+    rootTask:
+      task: StunTurretCompound
+    blackboard:
+      RotateSpeed: !type:Single
+        3.141
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
 
 # Basic laser turrets
 - type: entity
