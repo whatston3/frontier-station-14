@@ -32,14 +32,8 @@ public sealed class ShipyardRecordPaperSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        //SubscribeLocalEvent<ShipyardRecordPaperComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ShipyardRecordPaperComponent, ShipyardRecordPaperTransmitEvent>(SendShuttleRecords);
     }
-
-    /*private void OnMapInit(EntityUid uid, ShipyardRecordPaperComponent component, MapInitEvent args)
-    {
-        SetupPaper(uid, component);
-    }*/
 
     private void SetupPaper(EntityUid uid, ShipyardRecordPaperComponent? component = null, EntityUid? station = null)
     {

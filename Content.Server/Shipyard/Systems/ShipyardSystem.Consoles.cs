@@ -251,23 +251,17 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         _records.Synchronize(station);
 
         //Sends vessel details to all dedicated faxes
-        //Sends vessel details to all dedicated faxes
-        if(_mind.TryGetMind(args.Actor, out var _mindUid, out var _mindComp)
-            && _prefManager.GetPreferences(_mind.GetSession(_mindComp)!.UserId).SelectedCharacter is HumanoidCharacterProfile _profile)
+        if (_mind.TryGetMind(args.Actor, out var actorMindUid, out var actorMindComp)
+            && _prefManager.GetPreferences(_mind.GetSession(actorMindComp)!.UserId).SelectedCharacter is HumanoidCharacterProfile actorProfile)
         {
             var metaData = MetaData((EntityUid) shuttleStation);
             name = metaData.EntityName;
 
-            TryComp<FingerprintComponent>(player, out var _fingerprintComponent);
-            TryComp<DnaComponent>(player, out var _dnaComponent);
+            TryComp<FingerprintComponent>(player, out var playerFingerprintComponent);
+            TryComp<DnaComponent>(player, out var playerDnaComponent);
 
-            var faxQuery = EntityQueryEnumerator<ShipyardRecordPaperComponent>();
-
-            while (faxQuery.MoveNext(out var faxUid, out var recordPaperComp))
-            {
-                var ev = new ShipyardRecordPaperTransmitEvent(name, _profile.Name, _profile.Species, _profile.Gender, _profile.Age, _fingerprintComponent!.Fingerprint!, _dnaComponent!.DNA!, vessel.Category, vessel.Class, vessel.Group, vessel.Price, vessel.Description);
-                RaiseLocalEvent(faxUid, ref ev);
-            }
+            var ev = new ShipyardRecordPaperTransmitEvent(name, actorProfile.Name, actorProfile.Species, actorProfile.Gender, actorProfile.Age, playerFingerprintComponent!.Fingerprint!, playerDnaComponent!.DNA!, vessel.Category, vessel.Class, vessel.Group, vessel.Price, vessel.Description);
+            RaiseLocalEvent(ref ev);
         }
 
 
