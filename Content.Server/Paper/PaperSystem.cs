@@ -278,7 +278,7 @@ namespace Content.Server.Paper
                 info.StampedColor = crayon.Color;
 
             // Try stamp with the info, return false if failed.
-            if (TryStamp(paper, info, "paper_stamp-generic", paperComp))
+            if (TryStamp(paper, info, "paper_stamp-nf-signature", paperComp))
             {
                 // Signing successful, popup time.
                 _popupSystem.PopupEntity(
