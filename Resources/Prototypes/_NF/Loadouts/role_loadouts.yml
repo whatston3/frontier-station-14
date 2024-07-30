@@ -19,6 +19,7 @@
   - ContractorUtility
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 # Mercenary
 - type: roleLoadout
@@ -41,6 +42,7 @@
   - ContractorUtility
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 # Pilot
 - type: roleLoadout
@@ -63,6 +65,7 @@
   - ContractorUtility
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 # Frontier
 - type: roleLoadout
@@ -80,6 +83,7 @@
   - ContractorImplanter
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -96,6 +100,7 @@
   - ContractorImplanter
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -114,6 +119,7 @@
   - ContractorImplanter
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 - type: roleLoadout
   id: JobStationRepresentative
@@ -132,6 +138,7 @@
   - ContractorImplanter
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -150,6 +157,7 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorBureaucracy
 
 # Nfsd
 - type: roleLoadout
