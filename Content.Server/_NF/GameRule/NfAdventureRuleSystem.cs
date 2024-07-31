@@ -163,10 +163,12 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         {
             var seed = _random.Next();
             var offset = GetRandomPOICoord(3000f, 8500f, true);
+            var rotation = _random.NextAngle();
             if (!_map.TryLoad(_mapId, "/Maps/_NF/Dungeon/spaceplatform.yml", out var grids,
                     new MapLoadOptions
                     {
-                        Offset = offset
+                        Offset = offset,
+                        Rotation = rotation
                     }))
             {
                 continue;
@@ -202,7 +204,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
             Vector2i offset = new Vector2i((int) (_random.Next(proto.RangeMin, proto.RangeMax) * _distanceOffset), 0);
             offset = offset.Rotate(rotationOffset);
             rotationOffset += rotation;
-            if (TrySpawnPoiGrid(proto, offset, out var depotUid) && depotUid is { Valid: true } depot)
+            if (TrySpawnPoiGrid(proto, offset, _random.NextAngle(), out var depotUid) && depotUid is { Valid: true } depot)
             {
                 depotStations.Add(depot);
                 AddStationCoordsToSet(offset); // adjust list of actual station coords
@@ -227,7 +229,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
 
             var offset = GetRandomPOICoord(proto.RangeMin, proto.RangeMax, true);
 
-            if (TrySpawnPoiGrid(proto, offset, out var marketUid) && marketUid is { Valid: true } market)
+            if (TrySpawnPoiGrid(proto, offset, _random.NextAngle(), out var marketUid) && marketUid is { Valid: true } market)
             {
                 marketStations.Add(market);
                 marketsAdded++;
@@ -253,7 +255,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
 
             var offset = GetRandomPOICoord(proto.RangeMin, proto.RangeMax, true);
 
-            if (TrySpawnPoiGrid(proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(proto, offset, _random.NextAngle(), out var optionalUid) && optionalUid is { Valid: true } uid)
             {
                 optionalStations.Add(uid);
                 AddStationCoordsToSet(offset);
@@ -273,7 +275,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         {
             var offset = GetRandomPOICoord(proto.RangeMin, proto.RangeMax, true);
 
-            if (TrySpawnPoiGrid(proto, offset, out var requiredUid) && requiredUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(proto, offset, _random.NextAngle(), out var requiredUid) && requiredUid is { Valid: true } uid)
             {
                 requiredStations.Add(uid);
                 AddStationCoordsToSet(offset);
@@ -302,7 +304,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
                 {
                     var offset = GetRandomPOICoord(proto.RangeMin, proto.RangeMax, true);
 
-                    if (TrySpawnPoiGrid(proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+                    if (TrySpawnPoiGrid(proto, offset, _random.NextAngle(), out var optionalUid) && optionalUid is { Valid: true } uid)
                     {
                         uniqueStations.Add(uid);
                         AddStationCoordsToSet(offset);
@@ -313,13 +315,14 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         }
     }
 
-    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, out EntityUid? gridUid)
+    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid)
     {
         gridUid = null;
         if (_map.TryLoad(_mapId, proto.GridPath.ToString(), out var mapUids,
                 new MapLoadOptions
                 {
-                    Offset = offset
+                    Offset = offset,
+                    Rotation = rotation
                 }))
         {
             if (_prototypeManager.TryIndex<GameMapPrototype>(proto.ID, out var stationProto))
