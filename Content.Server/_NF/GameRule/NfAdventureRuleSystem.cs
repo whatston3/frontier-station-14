@@ -163,12 +163,11 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         {
             var seed = _random.Next();
             var offset = GetRandomPOICoord(3000f, 8500f, true);
-            var rotation = _random.NextAngle();
             if (!_map.TryLoad(_mapId, "/Maps/_NF/Dungeon/spaceplatform.yml", out var grids,
                     new MapLoadOptions
                     {
                         Offset = offset,
-                        Rotation = rotation
+                        Rotation = _random.NextAngle()
                     }))
             {
                 continue;
@@ -177,12 +176,11 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
             var mapGrid = EnsureComp<MapGridComponent>(grids[0]);
             _shuttle.AddIFFFlag(grids[0], IFFFlags.HideLabel);
             _console.WriteLine(null, $"dungeon spawned at {offset}");
-            offset = new Vector2i(0, 0);
 
             //pls fit the grid I beg, this is so hacky
             //its better now but i think i need to do a normalization pass on the dungeon configs
             //because they are all offset. confirmed good size grid, just need to fix all the offsets.
-            _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, (Vector2i) offset, seed);
+            _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, new Vector2i(0, 0), seed);
             AddStationCoordsToSet(offset);
         }
     }
