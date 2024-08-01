@@ -157,36 +157,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
 
         base.Started(uid, component, gameRule, args);
 
-<<<<<<< Updated upstream
-        var dungenTypes = _prototypeManager.EnumeratePrototypes<DungeonConfigPrototype>();
-
-        foreach (var dunGen in dungenTypes)
-        {
-            var seed = _random.Next();
-            var offset = GetRandomPOICoord(3000f, 8500f, true);
-            if (!_map.TryLoad(_mapId, "/Maps/_NF/Dungeon/spaceplatform.yml", out var grids,
-                    new MapLoadOptions
-                    {
-                        Offset = offset,
-                        Rotation = _random.NextAngle()
-                    }))
-            {
-                continue;
-            }
-
-            var mapGrid = EnsureComp<MapGridComponent>(grids[0]);
-            _shuttle.AddIFFFlag(grids[0], IFFFlags.HideLabel);
-            _console.WriteLine(null, $"dungeon spawned at {offset}");
-
-            //pls fit the grid I beg, this is so hacky
-            //its better now but i think i need to do a normalization pass on the dungeon configs
-            //because they are all offset. confirmed good size grid, just need to fix all the offsets.
-            _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, new Vector2i(0, 0), seed);
-            AddStationCoordsToSet(offset);
-        }
-=======
         GenerateSpaceDungeons();
->>>>>>> Stashed changes
     }
 
     private void GenerateDepots(List<PointOfInterestPrototype> depotPrototypes, out List<EntityUid> depotStations)
@@ -317,9 +288,6 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         }
     }
 
-<<<<<<< Updated upstream
-    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid)
-=======
     private void GenerateSpaceDungeons()
     {
         var dungeonPrototypes = _prototypeManager.EnumeratePrototypes<SpaceDungeonPrototype>();
@@ -357,8 +325,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         }
     }
 
-    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, out EntityUid? gridUid)
->>>>>>> Stashed changes
+    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid)
     {
         gridUid = null;
         if (_map.TryLoad(_mapId, proto.GridPath.ToString(), out var mapUids,
