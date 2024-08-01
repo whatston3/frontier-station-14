@@ -15,7 +15,7 @@
   supervisors: job-supervisors-sr
   requireAdminNotify: true
   setPreference: true
-  access: # This _more than likely_ needs review - removed all security accesses for now
+  access: # This _more than likely_ needs review
   - Captain
   - HeadOfPersonnel
   - ChiefEngineer
@@ -50,7 +50,7 @@
 - type: startingGear
   id: DirectorOfCareGear
   equipment:
-    id: CMOPDA # TODO: rename
-    ears: ClothingHeadsetCMO
-    pocket1: RubberStampCMO # TODO: rename
-    pocket2: Hypospray # TODO: rename
+    id: DOCPDA
+    ears: ClothingHeadsetDOC
+    pocket1: RubberStampDOC
+    pocket2: Hypospray

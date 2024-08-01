@@ -1,0 +1,53 @@
+- type: loadout
+  id: MedicClothingOuterWinterMed
+  equipment: MedicClothingOuterWinterMed
+
+- type: startingGear
+  id: MedicClothingOuterWinterMed
+  equipment:
+    outerClothing: ClothingOuterWinterMed
+
+- type: loadout
+  id: MedicClothingOuterCoatLabSeniorPhysician
+  equipment: MedicClothingOuterCoatLabSeniorPhysician
+
+- type: startingGear
+  id: MedicClothingOuterCoatLabSeniorPhysician
+  equipment:
+    outerClothing: ClothingOuterCoatLabSeniorPhysician
+
+- type: loadout
+  id: MedicClothingOuterCoatLab
+  equipment: MedicClothingOuterCoatLab
+
+- type: startingGear
+  id: MedicClothingOuterCoatLab
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+- type: loadout
+  id: MedicClothingOuterCoatLabGene
+  equipment: MedicClothingOuterCoatLabGene
+
+- type: startingGear
+  id: MedicClothingOuterCoatLabGene
+  equipment:
+    outerClothing: ClothingOuterCoatLabGene
+
+- type: loadout
+  id: MedicClothingOuterCoatLabChem
+  equipment: MedicClothingOuterCoatLabChem
+
+- type: startingGear
+  id: MedicClothingOuterCoatLabChem
+  equipment:
+    outerClothing: ClothingOuterCoatLabChem
+
+- type: loadout
+  id: MedicClothingOuterCoatLabViro
+  equipment: MedicClothingOuterCoatLabViro
+
+- type: startingGear
+  id: MedicClothingOuterCoatLabViro
+  equipment:
+    outerClothing: ClothingOuterCoatLabViro

@@ -1,0 +1,71 @@
+- type: loadout
+  id: MedicClothingHeadHatParamedicsoft
+  equipment: MedicClothingHeadHatParamedicsoft
+
+- type: startingGear
+  id: MedicClothingHeadHatParamedicsoft
+  equipment:
+    head: ClothingHeadHatParamedicsoft
+
+- type: loadout
+  id: MedicClothingHeadHatBeretSeniorPhysician
+  equipment: MedicClothingHeadHatBeretSeniorPhysician
+
+- type: startingGear
+  id: MedicClothingHeadHatBeretSeniorPhysician
+  equipment:
+    head: ClothingHeadHatBeretSeniorPhysician
+
+- type: loadout
+  id: MedicClothingHeadMirror
+  equipment: MedicClothingHeadMirror
+
+- type: startingGear
+  id: MedicClothingHeadMirror
+  equipment:
+    head: ClothingHeadMirror
+
+- type: loadout
+  id: MedicClothingHeadHatBeretMedic
+  equipment: MedicClothingHeadHatBeretMedic
+
+- type: startingGear
+  id: MedicClothingHeadHatBeretMedic
+  equipment:
+    head: ClothingHeadHatBeretMedic
+
+- type: loadout
+  id: MedicClothingHeadHatSurgcapBlue
+  equipment: MedicClothingHeadHatSurgcapBlue
+
+- type: startingGear
+  id: MedicClothingHeadHatSurgcapBlue
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+- type: loadout
+  id: MedicClothingHeadHatSurgcapGreen
+  equipment: MedicClothingHeadHatSurgcapGreen
+
+- type: startingGear
+  id: MedicClothingHeadHatSurgcapGreen
+  equipment:
+    head: ClothingHeadHatSurgcapGreen
+
+- type: loadout
+  id: MedicClothingHeadHatSurgcapPurple
+  equipment: MedicClothingHeadHatSurgcapPurple
+
+- type: startingGear
+  id: MedicClothingHeadHatSurgcapPurple
+  equipment:
+    head: ClothingHeadHatSurgcapPurple
+
+- type: loadout
+  id: MedicClothingHeadNurseHat
+  equipment: MedicClothingHeadNurseHat
+
+- type: startingGear
+  id: MedicClothingHeadNurseHat
+  equipment:
+    head: ClothingHeadNurseHat

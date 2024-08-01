@@ -315,15 +315,14 @@
   - DirectorOfCareJumpsuit
   - MedicalGlovesNitrile
   - MedicalBackpack
-  - DirectorOfCareOuterClothing
-  - DirectorOfCareShoes
+  - DirectorOfCareOuterClothing # GUH
+  - MedicalShoesLaceup
   - MedicalFace
-  - MedicalGlasses
+  - BrigmedicGlasses # brigmed hud (reskin?)
   - DirectorOfCarePDA
   - MedicalBelt
   - ContractorBoxSurvival
   - ContractorImplanter
-  - MedicalEncryptionKey
   - ContractorFun
   - ContractorTrinkets
 
@@ -335,14 +334,13 @@
   - MedicalGlovesLatex
   - MedicalBackpack
   - ChemistNFOuterClothing
-  - MedicalShoes
+  - MedicalShoesWhite
   - MedicalFace
-  - MedicalGlasses
+  - MedicalGlassesChemical
   - ChemistNFPDA
   - MedicalBelt
   - ContractorBoxSurvival
   - ContractorImplanter
-  - MedicalEncryptionKey
   - ContractorFun
   - ContractorTrinkets
 
@@ -354,14 +352,13 @@
   - MedicalGlovesLatex
   - MedicalBackpack
   - SeniorOfficerOuterClothing
-  - MedicalShoes
+  - MedicalShoesWhite
   - MedicalFace
-  - MedicalGlasses
+  - MedicalGlassesHudMedical
   - MedicPDA
   - MedicalBelt
   - ContractorBoxSurvival
   - ContractorImplanter
-  - MedicalEncryptionKey
   - ContractorFun
   - ContractorTrinkets
 

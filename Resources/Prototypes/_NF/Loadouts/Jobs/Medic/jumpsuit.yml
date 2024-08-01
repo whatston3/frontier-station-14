@@ -1,0 +1,179 @@
+- type: loadout
+  id: MedicClothingUniformJumpsuitMedicalDoctor
+  equipment: MedicClothingUniformJumpsuitMedicalDoctor
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+
+- type: loadout
+  id: MedicClothingUniformJumpskirtMedicalDoctor
+  equipment: MedicalClothingUniformJumpskirtMedicalDoctor
+
+- type: startingGear
+  id: MedicClothingUniformJumpskirtMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitParamedic
+  equipment: MedicClothingUniformJumpsuitParamedic
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitParamedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedic
+
+- type: loadout
+  id: MedicClothingUniformJumpskirtParamedic
+  equipment: MedicClothingUniformJumpskirtParamedic
+
+- type: startingGear
+  id: MedicClothingUniformJumpskirtParamedic
+  equipment:
+    jumpsuit: MedicClothingUniformJumpskirtParamedic
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitSeniorPhysician
+  equipment: MedicClothingUniformJumpsuitSeniorPhysician
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitSeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorPhysician
+
+- type: loadout
+  id: MedicClothingUniformJumpskirtSeniorPhysician
+  equipment: MedicClothingUniformJumpskirtSeniorPhysician
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+
+- type: startingGear
+  id: MedicClothingUniformJumpskirtSeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorPhysician
+
+- type: loadout
+  id: MedicUniformScrubsColorBlue
+  equipment: MedicUniformScrubsColorBlue
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicUniformScrubsColorBlue
+  equipment:
+    jumpsuit: UniformScrubsColorBlue
+
+- type: loadout
+  id: MedicUniformScrubsColorGreen
+  equipment: MedicUniformScrubsColorGreen
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicUniformScrubsColorGreen
+  equipment:
+    jumpsuit: UniformScrubsColorGreen
+
+- type: loadout
+  id: MedicUniformScrubsColorPurple
+  equipment: MedicUniformScrubsColorPurple
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicUniformScrubsColorPurple
+  equipment:
+    jumpsuit: UniformScrubsColorPurple
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitMilitaryParamedic
+  equipment: MedicClothingUniformJumpsuitMilitaryParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMilitaryParamedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryParamedic
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitMilitaryMedicalDoctor
+  equipment: MedicClothingUniformJumpsuitMilitaryMedicalDoctor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMilitaryMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitMilitaryChemistry
+  equipment: MedicClothingUniformJumpsuitMilitaryChemistry
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMilitaryChemistry
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryChemistry
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitMilitaryVirology
+  equipment: MedicClothingUniformJumpsuitMilitaryVirology
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMilitaryVirology
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryVirology
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitMilitaryGenetics
+  equipment: MedicClothingUniformJumpsuitMilitaryGenetics
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMilitaryGenetics
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryGenetics

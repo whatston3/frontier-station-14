@@ -1,0 +1,80 @@
+- type: loadoutGroup
+  id: MedicHead
+  loadouts:
+  - MedicClothingHeadHatBeretSeniorPhysician
+  - MedicClothingHeadMirror
+  - MedicClothingHeadHatBeretMedic
+  - MedicClothingHeadHatSurgcapBlue
+  - MedicClothingHeadHatSurgcapGreen
+  - MedicClothingHeadHatSurgcapPurple
+  - MedicClothingHeadNurseHat
+
+- type: loadoutGroup
+  id: MedicJumpsuit
+  loadouts:
+  - type: loadout
+  id: MedicClothingUniformJumpsuitMedicalDoctor
+  equipment: MedicClothingUniformJumpsuitMedicalDoctor
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+
+- type: loadout
+  id: MedicClothingUniformJumpskirtMedicalDoctor
+  equipment: MedicalClothingUniformJumpskirtMedicalDoctor
+
+- type: startingGear
+  id: MedicClothingUniformJumpskirtMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitParamedic
+  equipment: MedicClothingUniformJumpsuitParamedic
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitParamedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedic
+
+- type: loadout
+  id: MedicClothingUniformJumpskirtParamedic
+  equipment: MedicClothingUniformJumpskirtParamedic
+
+- type: startingGear
+  id: MedicClothingUniformJumpskirtParamedic
+  equipment:
+    jumpsuit: MedicClothingUniformJumpskirtParamedic
+
+- type: loadout
+  id: MedicClothingUniformJumpsuitSeniorPhysician
+  equipment: MedicClothingUniformJumpsuitSeniorPhysician
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+
+- type: startingGear
+  id: MedicClothingUniformJumpsuitSeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorPhysician
+
+- MedicClothingUniformJumpskirtSeniorPhysician
+- MedicUniformScrubsColorBlue
+- MedicUniformScrubsColorGreen
+- MedicUniformScrubsColorPurple
+- MedicClothingUniformJumpsuitMilitaryParamedic
+- MedicClothingUniformJumpsuitMilitaryMedicalDoctor
+- MedicClothingUniformJumpsuitMilitaryChemistry
+- MedicClothingUniformJumpsuitMilitaryVirology
+- MedicClothingUniformJumpsuitMilitaryGenetics

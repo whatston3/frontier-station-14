@@ -52,6 +52,7 @@
   name: loadout-group-contractor-backpack
   loadouts:
   - MedicalClothingShoesColorWhite
+  - MedicalClothingShoesColorBlue
   - MedicalClothingShoesLeather
   - MedicalClothingShoesBootsLaceup
   fallbacks:

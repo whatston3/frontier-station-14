@@ -1,0 +1,17 @@
+- type: loadout
+  id: MedicMedicalPDA
+  equipment: MedicMedicalPDA
+
+- type: startingGear
+  id: MedicMedicalPDA
+  equipment:
+    id: MedicalPDA
+
+- type: loadout
+  id: MedicSeniorPhysicianPDA
+  equipment: MedicSeniorPhysicianPDA
+
+- type: startingGear
+  id: MedicSeniorPhysicianPDA
+  equipment:
+    id: SeniorPhysicianPDA

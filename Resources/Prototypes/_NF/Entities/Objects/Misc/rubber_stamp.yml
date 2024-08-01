@@ -35,3 +35,12 @@
     stampState: "paper_stamp-stc"
   - type: Sprite
     state: stamp-stc
+
+- type: entity
+  name: director of care's rubber stamp
+  parent: RubberStampCMO
+  id: RubberStampDOC
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-doc
