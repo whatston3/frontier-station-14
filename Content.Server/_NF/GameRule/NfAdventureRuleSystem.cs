@@ -157,6 +157,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
 
         base.Started(uid, component, gameRule, args);
 
+<<<<<<< Updated upstream
         var dungenTypes = _prototypeManager.EnumeratePrototypes<DungeonConfigPrototype>();
 
         foreach (var dunGen in dungenTypes)
@@ -183,6 +184,9 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
             _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, new Vector2i(0, 0), seed);
             AddStationCoordsToSet(offset);
         }
+=======
+        GenerateSpaceDungeons();
+>>>>>>> Stashed changes
     }
 
     private void GenerateDepots(List<PointOfInterestPrototype> depotPrototypes, out List<EntityUid> depotStations)
@@ -313,7 +317,48 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         }
     }
 
+<<<<<<< Updated upstream
     private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid)
+=======
+    private void GenerateSpaceDungeons()
+    {
+        var dungeonPrototypes = _prototypeManager.EnumeratePrototypes<SpaceDungeonPrototype>();
+
+        foreach (var dungeon in dungeonPrototypes)
+        {
+            if (!_prototypeManager.TryIndex(dungeon.DungeonConfig, out var dungeonConfig))
+                continue;
+
+            var seed = _random.Next();
+            var offset = GetRandomPOICoord(dungeon.RangeMin, dungeon.RangeMax, true);
+            if (!_map.TryLoad(_mapId, dungeon.GridPath.ToString(), out var grids,
+                    new MapLoadOptions
+                    {
+                        Offset = offset
+                    }))
+            {
+                continue;
+            }
+
+            foreach (var grid in grids)
+            {
+                var meta = EnsureComp<MetaDataComponent>(grid);
+                _meta.SetEntityName(grid, dungeon.Name, meta);
+                _shuttle.SetIFFColor(grid, dungeon.IffColor);
+                _shuttle.AddIFFFlag(grid, IFFFlags.HideLabel);
+            }
+            _console.WriteLine(null, $"dungeon spawned at {offset}");
+
+            //pls fit the grid I beg, this is so hacky
+            //its better now but i think i need to do a normalization pass on the dungeon configs
+            //because they are all offset. confirmed good size grid, just need to fix all the offsets.
+            var mapGrid = EnsureComp<MapGridComponent>(grids[0]);
+            _dunGen.GenerateDungeon(dungeonConfig, grids[0], mapGrid, new Vector2i(0, 0), seed);
+        }
+    }
+
+    private bool TrySpawnPoiGrid(PointOfInterestPrototype proto, Vector2 offset, out EntityUid? gridUid)
+>>>>>>> Stashed changes
     {
         gridUid = null;
         if (_map.TryLoad(_mapId, proto.GridPath.ToString(), out var mapUids,

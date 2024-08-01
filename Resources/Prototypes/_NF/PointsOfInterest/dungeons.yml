@@ -1,0 +1,53 @@
+- type: spaceDungeon
+  id: CaveFactory
+  name: Cave Factory Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#AA00AA"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: CaveFactory
+
+- type: spaceDungeon
+  id: MedSci
+  name: MedSci Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#00AAAA"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: MedSci
+
+- type: spaceDungeon
+  id: FactoryDorms
+  name: Factory Dorms Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#AAAAAA"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: FactoryDorms
+
+- type: spaceDungeon
+  id: LavaMercenary
+  name: Lava Mercenary Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#AA0000"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: LavaMercenary
+
+- type: spaceDungeon
+  id: VirologyLab
+  name: Virology Lab Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#00AA00"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: VirologyLab
+
+- type: spaceDungeon
+  id: SalvageOutpost
+  name: Salvage Outpost Space Dungeon
+  rangeMin: 3000
+  rangeMax: 8000
+  iffColor: "#AAAA00"
+  gridPath: /Maps/_NF/Dungeon/spaceplatform.yml
+  dungeonConfig: SalvageOutpost
