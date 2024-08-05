@@ -8,6 +8,7 @@
     canCollide: false # Passthrough
   - type: Fixtures
     fixtures: {}
+  - type: WallMount # Just in case we don't have it
 
 - type: entity
   id: LockerWallChemistry
