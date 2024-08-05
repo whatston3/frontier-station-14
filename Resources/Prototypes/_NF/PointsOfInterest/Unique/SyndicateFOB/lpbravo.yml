@@ -30,5 +30,3 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Listening Point Bravo'
-        - type: StationJobs
-          availableJobs: {}

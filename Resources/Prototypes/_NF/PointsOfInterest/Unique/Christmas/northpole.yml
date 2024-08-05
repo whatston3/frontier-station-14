@@ -19,3 +19,15 @@
   spawnChance: 0
   gridPath: /Maps/_NF/POI/northpole.yml
 
+- type: gameMap
+  id: NorthPole
+  mapName: "The North Pole"
+  mapPath: /Maps/_NF/POI/northpole.yml
+  minPlayers: 0
+  stations:
+    NorthPole:
+      stationProto: StandardFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "The North Pole"
+

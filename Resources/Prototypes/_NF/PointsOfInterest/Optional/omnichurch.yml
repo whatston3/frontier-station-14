@@ -15,3 +15,15 @@
   rangeMax: 4900
   iffColor: "#ffa600" #yellorange for faction style
   gridPath: /Maps/_NF/POI/beacon.yml
+
+- type: gameMap
+  id: Omnichurch
+  mapName: "Omnichurch Beacon"
+  mapPath: /Maps/_NF/POI/beacon.yml
+  minPlayers: 0
+  stations:
+    Omnichurch:
+      stationProto: StandardFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Omnichurch Beacon"

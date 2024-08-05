@@ -20,7 +20,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: Anomalous Geode
     - type: Transform
       pos: 0.14351851,0.09722221
       parent: invalid

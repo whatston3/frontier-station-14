@@ -15,3 +15,16 @@
   rangeMax: 5600
   iffColor: "#ffa600" #yellorange for faction style
   gridPath: /Maps/_NF/POI/grifty.yml
+
+- type: gameMap
+  id: Griftys
+  mapName: "Grifty's Gas n Grub"
+  mapPath: /Maps/_NF/POI/grifty.yml
+  minPlayers: 0
+  stations:
+    Griftys:
+      stationProto: StandardFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Grifty's Gas n Grub"
+

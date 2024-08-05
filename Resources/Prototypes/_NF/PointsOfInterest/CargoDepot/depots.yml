@@ -17,6 +17,18 @@
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepot.yml
   
+- type: gameMap
+  id: CargoDepot
+  mapName: 'Cargo Depot'
+  mapPath: /Maps/_NF/POI/cargodepot.yml
+  minPlayers: 0
+  stations:
+    CargoDepot:
+      stationProto: MarketFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Cargo Depot'
+  
 - type: pointOfInterest
   id: CargoDepotAlt
   name: Cargo Depot
@@ -26,3 +38,15 @@
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepotalt.yml
   
+- type: gameMap
+  id: CargoDepotAlt
+  mapName: 'Cargo Depot'
+  mapPath: /Maps/_NF/POI/cargodepotalt.yml
+  minPlayers: 0
+  stations:
+    CargoDepotAlt:
+      stationProto: MarketFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Cargo Depot'
+ 

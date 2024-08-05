@@ -41,7 +41,9 @@ public sealed partial class MarketSystem
     /// <param name="entitySoldEvent">The details of the event</param>
     private void OnEntitySoldEvent(ref EntitySoldEvent entitySoldEvent)
     {
-        if (!_entityManager.TryGetComponent<CargoMarketDataComponent>(entitySoldEvent.Grid, out var market))
+        var stationUid = _station.GetOwningStation(entitySoldEvent.Grid);
+        if (stationUid is null ||
+            !_entityManager.TryGetComponent<StationCargoMarketDataComponent>(stationUid, out var market))
             return;
 
         foreach (var sold in entitySoldEvent.Sold)
@@ -57,7 +59,7 @@ public sealed partial class MarketSystem
         }
     }
 
-    private void UpsertMetadata(CargoMarketDataComponent marketDataComponent, EntityUid sold)
+    private void UpsertMetadata(StationCargoMarketDataComponent marketDataComponent, EntityUid sold)
     {
         // Get the MetaDataComponent from the sold entity
         if (!_entityManager.TryGetComponent<MetaDataComponent>(sold, out var metaDataComponent))
@@ -103,7 +105,7 @@ public sealed partial class MarketSystem
     /// </summary>
     /// <param name="marketDataComponent">The MarketDataComponent to update.</param>
     /// <param name="entityStorageComponent">The EntityStorageComponent containing entities to process.</param>
-    private void UpsertEntityStorage(CargoMarketDataComponent marketDataComponent, EntityStorageComponent entityStorageComponent)
+    private void UpsertEntityStorage(StationCargoMarketDataComponent marketDataComponent, EntityStorageComponent entityStorageComponent)
     {
         foreach (var entityUid in entityStorageComponent.Contents.ContainedEntities)
         {
@@ -124,7 +126,7 @@ public sealed partial class MarketSystem
     /// </summary>
     /// <param name="marketDataComponent">The MarketDataComponent to update.</param>
     /// <param name="itemSlotsComponent">The ItemSlotsComponent containing item slots to process.</param>
-    private void UpsertItemSlots(CargoMarketDataComponent marketDataComponent, ItemSlotsComponent itemSlotsComponent)
+    private void UpsertItemSlots(StationCargoMarketDataComponent marketDataComponent, ItemSlotsComponent itemSlotsComponent)
     {
         foreach (var slot in itemSlotsComponent.Slots.Values)
         {
@@ -148,7 +150,7 @@ public sealed partial class MarketSystem
     /// </summary>
     /// <param name="marketDataComponent"></param>
     /// <param name="storageComponent"></param>
-    private void UpsertStorage(CargoMarketDataComponent marketDataComponent, StorageComponent storageComponent)
+    private void UpsertStorage(StationCargoMarketDataComponent marketDataComponent, StorageComponent storageComponent)
     {
         foreach (var entityUid in storageComponent.Container.ContainedEntities.ToArray())
         {
@@ -220,7 +222,9 @@ public sealed partial class MarketSystem
         }
 
         // No data set for market data, can't update cart, no data.
-        if (!_entityManager.TryGetComponent<CargoMarketDataComponent>(gridUid, out var market))
+        var stationUid = _station.GetOwningStation(gridUid);
+        if (stationUid is null ||
+            !_entityManager.TryGetComponent<StationCargoMarketDataComponent>(stationUid, out var market))
             return;
 
         var marketData = market.MarketDataList;
@@ -312,8 +316,9 @@ public sealed partial class MarketSystem
         var cartData = component.CartDataList;
         var marketData = new List<MarketData>();
 
-        var consoleGridUid = Transform(consoleUid).GridUid!.Value;
-        if (TryComp<CargoMarketDataComponent>(consoleGridUid, out var market))
+        var stationUid = _station.GetOwningStation(consoleUid);
+        if (stationUid is not null &&
+            _entityManager.TryGetComponent<StationCargoMarketDataComponent>(stationUid, out var market))
         {
             marketData = market.MarketDataList;
         }

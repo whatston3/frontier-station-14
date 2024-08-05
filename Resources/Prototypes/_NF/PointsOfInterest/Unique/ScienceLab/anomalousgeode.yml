@@ -29,5 +29,3 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Anomalous Geode'
-        - type: StationJobs
-          availableJobs: {}
