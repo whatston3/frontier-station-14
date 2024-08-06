@@ -400,3 +400,20 @@ MobRandomMedicCorpse: DungeonHumanCorpseRandomMedic
 MobRandomScienceCorpse: DungeonHumanCorpseRandomScience
 MobRandomCommandCorpse: DungeonHumanCorpseRandomCommand
 MobRandomSecurityCorpse: DungeonHumanCorpseRandomSecurity
+
+# 2024-08-06
+WarpPointNFFrontier: WarpPointShip
+WarpPointNFBeacon: WarpPointShip
+WarpPointNFLPBravo: WarpPointShip
+WarpPointNFLodge: WarpPointShip
+WarpPointNFPole: WarpPointShip
+WarpPointNFTinnia: WarpPointShip
+WarpPointNFTrade: WarpPointShip
+WarpPointNFLab: WarpPointShip
+WarpPointNFArena: WarpPointShip
+WarpPointNFCargo: WarpPointShip
+WarpPointNFCasino: WarpPointShip
+WarpPointNFCourthouse: WarpPointShip
+WarpPointNFCove: WarpPointShip
+WarpPointNFGrifty: WarpPointShip
+WarpPointNFNfsd: WarpPointShip

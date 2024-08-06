@@ -27,8 +27,8 @@ public sealed class StationRenameWarpsSystems : EntitySystem
 
     private void SyncWarpPoints(EntityUid stationUid)
     {
-        // update all warp points that belong to this station grid
-        var query = EntityQueryEnumerator<WarpPointComponent>();
+        // update all warp points that belong to this station grid - must include paused entities for late station init
+        var query = EntityManager.AllEntityQueryEnumerator<WarpPointComponent>();
         while (query.MoveNext(out var uid, out var warp))
         {
             if (!warp.UseStationName)
