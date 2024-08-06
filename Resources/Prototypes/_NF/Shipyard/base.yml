@@ -19,8 +19,8 @@
   id: StandardFrontierOutpost
   parent:
     - BaseStation
-    - BaseStationJobsSpawning
-    - BaseStationCargo
+    - BaseStationJobsSpawning # Currently unused
+    - BaseStationCargo # Currently unused
     - BaseStationSiliconLawFrontierShips
   noSpawn: true
   components:
@@ -30,7 +30,7 @@
   id: MarketFrontierOutpost
   parent:
     - BaseStation
-    - BaseStationJobsSpawning
+    - BaseStationJobsSpawning # Currently unused
     - BaseStationCargo
     - BaseStationSiliconLawFrontierShips
     - BaseStationCargoMarket
@@ -58,7 +58,7 @@
     - BaseStation
     - BaseStationJobsSpawning
     - BaseStationCargo
-    - BaseStationSiliconLawFrontierShips # TODO: change this with pirate borgs?
+    - BaseStationSiliconLawFrontierShips
     - BaseStationRecords
   noSpawn: true
   components:
@@ -204,3 +204,35 @@
   abstract: true
   components:
     - type: StationSectorServiceHost
+
+- type: entity
+  id: BaseStationCargoMarket
+  abstract: true
+  components:
+    - type: CargoMarketData
+      blacklist:
+        tags:
+          - Trash
+          - Mail
+          - Paper
+        components:
+          - Anchorable # No structures, they won't fit in crates
+          - Food
+          - Currency # No selling money.
+          - SpaceGarbage
+          - Contraband
+          - Gun
+          - Ammo
+          - Drink
+          - GasTank # Default containers won't be empty
+          - Explosive
+          - Actor
+          - Mind # Players
+          - MindContainer # Positronic brains
+          - Body # No corpses
+          - MobPrice # Animals (live or dead) and the like
+          - Artifact # Unique, abusable for research points
+      overrideList:
+        matchParents: true
+        entities:
+          - SheetUranium # Counts as food

@@ -5,6 +5,7 @@ tilemap:
   0: Space
   30: FloorDark
   62: FloorLaundry
+  
   71: FloorOldConcrete
   109: FloorTechMaint3
   115: FloorWhiteMini
@@ -16,7 +17,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Grifty
+      name: Grifty's Gas n Grub
     - type: Transform
       pos: -0.484375,-0.47654724
       parent: invalid

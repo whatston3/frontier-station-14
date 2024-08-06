@@ -22,7 +22,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Tinnia
+      name: Tinnia's Rest
     - type: Transform
       pos: -0.4250002,-0.625
       parent: invalid
