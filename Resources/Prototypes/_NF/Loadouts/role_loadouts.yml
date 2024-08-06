@@ -2,6 +2,7 @@
 - type: roleLoadout
   id: JobContractor
   groups:
+  - GroupTankHarness
   - ContractorHead
   - ContractorNeck
   - ContractorJumpsuit
@@ -25,6 +26,7 @@
 - type: roleLoadout
   id: JobMercenary
   groups:
+  - GroupTankHarness
   - MercenaryHead
   - ContractorNeck
   - MercenaryJumpsuit
@@ -48,6 +50,7 @@
 - type: roleLoadout
   id: JobPilot
   groups:
+  - GroupTankHarness
   - PilotHead
   - PilotNeck
   - PilotJumpsuit
@@ -71,6 +74,7 @@
 - type: roleLoadout
   id: JobValet
   groups:
+  - GroupTankHarness
   - ContractorNeck
   - ValetJumpsuit
   - ContractorBackpack
@@ -88,6 +92,7 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
+  - GroupTankHarness
   - ContractorNeck
   - MailCarrierJumpsuit
   - ContractorGloves
@@ -105,6 +110,7 @@
 - type: roleLoadout
   id: JobStationTrafficController
   groups:
+  - GroupTankHarness
   - StcHead
   - ContractorNeck
   - StcJumpsuit
@@ -124,6 +130,7 @@
 - type: roleLoadout
   id: JobStationRepresentative
   groups:
+  - GroupTankHarness
   - StationRepHead
   - StationRepNeck
   - StationRepJumpsuit
@@ -143,6 +150,7 @@
 - type: roleLoadout
   id: JobSecurityGuard
   groups:
+  - GroupTankHarness
   - SecurityGuardHead
   - SecurityGuardJumpsuit
   - SecurityGuardGloves
@@ -163,6 +171,7 @@
 - type: roleLoadout
   id: JobCadet
   groups:
+  - GroupTankHarness
   - CadetHead
   - CadetJumpsuit
   - NfsdGlovesBrown
@@ -182,6 +191,7 @@
 - type: roleLoadout
   id: JobDeputy
   groups:
+  - GroupTankHarness
   - DeputyHead
   - DeputyJumpsuit
   - NfsdGlovesBrown
@@ -201,6 +211,7 @@
 - type: roleLoadout
   id: JobBrigmedic
   groups:
+  - GroupTankHarness
   - BrigmedicHead
   - BrigmedicNeck
   - BrigmedicJumpsuit
@@ -221,6 +232,7 @@
 - type: roleLoadout
   id: JobDetectiveNF
   groups:
+  - GroupTankHarness
   - DetectiveNFHead
   - DetectiveNFJumpsuit
   - DetectiveNFGloves
@@ -240,6 +252,7 @@
 # - type: roleLoadout # Fix when this is actully used
   # id: JobPrisonGuard
   # groups:
+  # - GroupTankHarness
   # - PrisonGuardHead
   # - PrisonGuardJumpsuit
   # - NfsdGlovesBrown
@@ -259,6 +272,7 @@
 - type: roleLoadout
   id: JobBailiff
   groups:
+  - GroupTankHarness
   - BailiffHead
   - BailiffJumpsuit
   - NfsdGlovesCream
@@ -278,6 +292,7 @@
 - type: roleLoadout
   id: JobSeniorOfficer
   groups:
+  - GroupTankHarness
   - SeniorOfficerHead
   - SeniorOfficerJumpsuit
   - NfsdGlovesCream
@@ -297,6 +312,7 @@
 - type: roleLoadout
   id: JobSheriff
   groups:
+  - GroupTankHarness
   - SheriffHead
   - SheriffNeck
   - SheriffJumpsuit
@@ -318,6 +334,7 @@
 - type: roleLoadout
   id: JobPirate
   groups:
+  - GroupTankHarness
 #  - PirateHead
 #  - PirateNeck
   - PirateJumpsuit
@@ -332,6 +349,7 @@
 - type: roleLoadout
   id: JobPirateFirstMate
   groups:
+  - GroupTankHarness
 #  - PirateHead
 #  - PirateNeck
   - PirateJumpsuit
@@ -346,6 +364,7 @@
 - type: roleLoadout
   id: JobPirateCaptain
   groups:
+  - GroupTankHarness
 #  - PirateHead
 #  - PirateNeck
   - PirateJumpsuit
@@ -362,6 +381,7 @@
 - type: roleLoadout
   id: JobPrisoner
   groups:
+  - GroupTankHarness
 #  - PirateHead
 #  - PirateNeck
   - PrisonerJumpsuit
