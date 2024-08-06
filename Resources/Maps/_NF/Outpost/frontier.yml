@@ -36767,7 +36767,7 @@ entities:
     - type: Transform
       pos: 46.5,16.5
       parent: 2173
-- proto: WarpPointNFFrontier
+- proto: WarpPointShip
   entities:
   - uid: 5714
     components:

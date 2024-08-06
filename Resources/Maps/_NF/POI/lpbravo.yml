@@ -352,7 +352,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: lpbravo
+      id: LPBravo
 - proto: AirlockExternal
   entities:
   - uid: 95
@@ -4603,7 +4603,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-4.5
       parent: 1
-- proto: WarpPointNFLPBravo
+- proto: WarpPointShip
   entities:
   - uid: 189
     components:

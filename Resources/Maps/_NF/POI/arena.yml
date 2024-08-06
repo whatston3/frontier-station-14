@@ -2099,6 +2099,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: ThePit
 - proto: Airlock
   entities:
   - uid: 1679
@@ -20832,7 +20834,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: WarpPointNFArena
+- proto: WarpPointShip
   entities:
   - uid: 2346
     components:

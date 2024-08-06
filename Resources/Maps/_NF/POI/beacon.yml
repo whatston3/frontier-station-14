@@ -817,7 +817,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Beacon
+      id: Omnichurch
 - proto: AirAlarm
   entities:
   - uid: 1358
@@ -8919,7 +8919,7 @@ entities:
     - type: Transform
       pos: -9.5,7.5
       parent: 1
-- proto: WarpPointNFBeacon
+- proto: WarpPointShip
   entities:
   - uid: 1334
     components:

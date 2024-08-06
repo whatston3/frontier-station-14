@@ -799,6 +799,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: SpreaderGrid
+    - type: BecomesStation
+      id: CargoDepot
 - proto: AirAlarm
   entities:
   - uid: 860
@@ -7424,7 +7426,7 @@ entities:
     - type: Transform
       pos: 3.5,-2.5
       parent: 10
-- proto: WarpPointNFCargo
+- proto: WarpPointShip
   entities:
   - uid: 292
     components:

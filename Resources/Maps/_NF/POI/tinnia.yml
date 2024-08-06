@@ -734,6 +734,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: StationTransit
+    - type: BecomesStation
+      id: Tinnia
 - proto: AirCanister
   entities:
   - uid: 1335
@@ -13762,7 +13764,7 @@ entities:
     - type: Transform
       pos: 6.5,9.5
       parent: 1
-- proto: WarpPointNFTinnia
+- proto: WarpPointShip
   entities:
   - uid: 2000
     components:

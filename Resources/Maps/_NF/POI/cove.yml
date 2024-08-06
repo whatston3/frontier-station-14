@@ -1051,6 +1051,8 @@ entities:
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+    - type: BecomesStation
+      id: Cove
 - proto: AccordionInstrument
   entities:
   - uid: 1426
@@ -12903,7 +12905,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,37.5
       parent: 1
-- proto: WarpPointNFCove
+- proto: WarpPointShip
   entities:
   - uid: 327
     components:

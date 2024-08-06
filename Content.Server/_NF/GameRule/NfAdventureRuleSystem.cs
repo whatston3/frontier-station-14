@@ -199,7 +199,9 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
             Vector2i offset = new Vector2i((int) (_random.Next(proto.RangeMin, proto.RangeMax) * state.DistanceOffset), 0);
             offset = offset.Rotate(rotationOffset);
             rotationOffset += rotation;
-            if (TrySpawnPoiGrid(state, proto, offset, _random.NextAngle(), out var depotUid) && depotUid is { Valid: true } depot)
+            string depotName = $"{proto.Name} {(char) ('A' + i)}";
+
+            if (TrySpawnPoiGrid(state, proto, offset, _random.NextAngle(), out var depotUid, overrideName: depotName) && depotUid is { Valid: true } depot)
             {
                 depotStations.Add(depot);
                 AddStationCoordsToSet(state, offset); // adjust list of actual station coords
@@ -346,7 +348,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
         }
     }
 
-    private bool TrySpawnPoiGrid(NfAdventureWorldGenState state, PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid)
+    private bool TrySpawnPoiGrid(NfAdventureWorldGenState state, PointOfInterestPrototype proto, Vector2 offset, Angle rotation, out EntityUid? gridUid, string? overrideName = null)
     {
         gridUid = null;
         if (_map.TryLoad(state.MapId, proto.GridPath.ToString(), out var mapUids,
@@ -356,15 +358,16 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
                     Rotation = rotation
                 }))
         {
+            string entityName = overrideName ?? proto.Name;
             if (_prototypeManager.TryIndex<GameMapPrototype>(proto.ID, out var stationProto))
             {
-                _station.InitializeNewStation(stationProto.Stations[proto.ID], mapUids, proto.Name);
+                _station.InitializeNewStation(stationProto.Stations[proto.ID], mapUids, entityName);
             }
 
             foreach (var grid in mapUids)
             {
                 var meta = EnsureComp<MetaDataComponent>(grid);
-                _meta.SetEntityName(grid, proto.Name, meta);
+                _meta.SetEntityName(grid, entityName, meta);
                 _shuttle.SetIFFColor(grid, proto.IffColor);
                 if (proto.IsHidden)
                 {

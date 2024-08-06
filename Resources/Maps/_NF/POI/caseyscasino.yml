@@ -488,6 +488,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: CaseysCasino
 - proto: AirAlarm
   entities:
   - uid: 1160
@@ -8316,7 +8318,7 @@ entities:
     - type: Transform
       pos: 4.5,-8.5
       parent: 2
-- proto: WarpPointNFCasino
+- proto: WarpPointShip
   entities:
   - uid: 1147
     components:

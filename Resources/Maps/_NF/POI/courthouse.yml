@@ -513,6 +513,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: Courthouse
 - proto: Airlock
   entities:
   - uid: 2
@@ -9173,7 +9175,7 @@ entities:
     - type: Transform
       pos: -4.5,-5.5
       parent: 1
-- proto: WarpPointNFCourthouse
+- proto: WarpPointShip
   entities:
   - uid: 1414
     components:
