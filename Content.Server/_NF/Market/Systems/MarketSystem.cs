@@ -6,6 +6,7 @@ using Content.Shared._NF.Market;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -30,6 +31,7 @@ public sealed partial class MarketSystem: SharedMarketSystem
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
     [Dependency] private readonly EntProtoIdWhitelistSystem _protoIdWhitelist = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     public override void Initialize()
     {
