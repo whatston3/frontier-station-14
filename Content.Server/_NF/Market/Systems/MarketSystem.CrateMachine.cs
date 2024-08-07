@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using Content.Server._NF.Market.Components;
 using Content.Server._NF.Market.Extensions;
+using Content.Shared.Containers.ItemSlots;
 using Content.Server.Power.Components;
+using Content.Server.Storage.Components;
 using Content.Shared._NF.Market;
 using Content.Shared._NF.Market.Components;
 using Content.Shared._NF.Market.Events;
@@ -15,6 +17,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using static Content.Shared._NF.Market.Components.CrateMachineComponent;
+using Content.Shared.Storage;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Robust.Shared.Containers;
 
 namespace Content.Server._NF.Market.Systems;
 
@@ -219,13 +225,61 @@ public sealed partial class MarketSystem
                 var entityList = _stackSystem.SpawnMultiple(stackPrototype.Spawn, data.Quantity, coordinates);
                 foreach (var entity in entityList)
                 {
+                    SanitizeEntity(entity);
                     _storage.Insert(entity, targetCrate);
                 }
             }
             else
             {
                 var spawn = Spawn(data.Prototype, coordinates);
+                SanitizeEntity(spawn);
                 _storage.Insert(spawn, targetCrate);
+            }
+        }
+    }
+
+    private void SanitizeEntity(EntityUid uid)
+    {
+        if (TryComp<EntityStorageComponent>(uid, out var entStorage))
+        {
+            _container.CleanContainer(entStorage.Contents);
+        }
+        if (TryComp<ItemSlotsComponent>(uid, out var itemSlots))
+        {
+            foreach (var slot in itemSlots.Slots.Values)
+            {
+                if (slot.Item is not { Valid: true } entity)
+                    continue;
+
+                QueueDel(entity);
+            }
+        }
+        if (TryComp<StorageComponent>(uid, out var storage))
+        {
+            foreach (var entity in storage.Container.ContainedEntities.ToArray())
+            {
+                QueueDel(entity);
+            }
+        }
+        if (TryComp<SolutionComponent>(uid, out var solution))
+        {
+            solution.Solution.RemoveAllSolution();
+        }
+        if (TryComp<SolutionContainerManagerComponent>(uid, out var scm))
+        {
+            if (scm.Solutions is not null)
+            {
+                foreach (var soln in scm.Solutions.Values)
+                {
+                    soln.RemoveAllSolution();
+                }
+            }
+        }
+        if (TryComp<ContainerManagerComponent>(uid, out var containerManager))
+        {
+            foreach (var container in containerManager.Containers.Values)
+            {
+                _container.CleanContainer(container);
             }
         }
     }
