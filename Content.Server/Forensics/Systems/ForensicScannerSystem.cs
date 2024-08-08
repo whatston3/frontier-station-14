@@ -2,27 +2,24 @@ using System.Linq;
 using System.Text;
 using Content.Server.Paper;
 using Content.Server.Popups;
-using Content.Server.Stack;
-using Content.Server._NF.Smuggling;
-using Content.Server._NF.Smuggling.Components;
-using Content.Server.Radio.EntitySystems;
-using Content.Shared.Access.Components;
+using Content.Server.Stack; // Frontier
+using Content.Server._NF.Smuggling; // Frontier
+using Content.Server._NF.Smuggling.Components; // Frontier
+using Content.Server.Radio.EntitySystems; // Frontier
 using Content.Shared.UserInterface;
 using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
-using Content.Shared.Stacks;
-using Content.Shared.Radio;
-using Content.Shared.Access;
-using Content.Shared.Access.Systems;
-using Robust.Shared.Prototypes;
+using Content.Shared.Stacks; // Frontier
+using Content.Shared.Radio; // Frontier
+using Content.Shared.Access.Systems; // Frontier
+using Robust.Shared.Prototypes; // Frontier
 using Robust.Shared.Audio.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
-
 // todo: remove this stinky LINQy
 
 namespace Content.Server.Forensics
@@ -42,6 +39,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly RadioSystem _radio = default!;
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+        [Dependency] private readonly DeadDropSystem _deadDrop = default!; // Frontier
 
         private readonly List<EntityUid> _scannedDeadDrops = [];
         private int _amountScanned = 0;
@@ -59,6 +57,7 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<ForensicScannerComponent, ForensicScannerDoAfterEvent>(OnDoAfter);
         }
 
+        // Frontier: add dead drop rewards
         /// <summary>
         ///     Gives rewards in form of FUC to the detective for interacting with the dead drop system
         /// </summary>
@@ -73,6 +72,7 @@ namespace Content.Server.Forensics
             var channel = _prototypeManager.Index<RadioChannelPrototype>("Nfsd");
             _radio.SendRadioMessage(uidOrigin, msg, channel, uidOrigin);
         }
+        // Frontier: add dead drop rewards
 
         private void UpdateUserInterface(EntityUid uid, ForensicScannerComponent component)
         {
@@ -114,6 +114,7 @@ namespace Content.Server.Forensics
                     scanner.Residues = forensics.Residues.ToList();
                 }
 
+                // Frontier: checking for contraband scanners
                 var detective = false;
 
                 // Will only give FUC rewards to someone with the detective ID.
@@ -135,35 +136,36 @@ namespace Content.Server.Forensics
 
                 if (detective == true)
                 {
+                    EntityUid posterUid = args.Args.Target.Value;
                     // Prints FUC if you've successfully scanned a dead drop poster that has spawned a dead drop at least once
-                    if (HasComp<DeadDropComponent>(args.Args.Target))
+                    if (HasComp<DeadDropComponent>(posterUid))
                     {
-                        if (TryComp<DeadDropComponent>(args.Args.Target, out var deadDropComponent) &&
-                            deadDropComponent.DeadDropCalled && !deadDropComponent.PosterScanned)
+                        if (TryComp<DeadDropComponent>(posterUid, out var deadDropComponent) &&
+                            deadDropComponent.DeadDropCalled)
                         {
                             var amount = 3;
                             var msg = Loc.GetString("forensic-reward-poster", ("amount", amount));
 
-                            GiveReward(uid, args.Args.Target.Value, amount, msg);
+                            GiveReward(uid, posterUid, amount, msg);
 
                             // Makes the boolean true so you can't just keep scanning the same poster over and over again
-                            DeadDropSystem.ToggleScanned(deadDropComponent);
+                            _deadDrop.CompromiseDeadDrop(posterUid, deadDropComponent);
                         }
                     }
-                    else if (MetaData(Transform(args.Args.Target.Value).ParentUid).EntityName.Equals("Syndicate Supply Drop") &&
-                            !_scannedDeadDrops.Contains(Transform(args.Args.Target.Value).ParentUid) && _amountScanned <= 5)
+                    else if (MetaData(Transform(posterUid).ParentUid).EntityName.Equals("Syndicate Supply Drop") &&
+                            !_scannedDeadDrops.Contains(Transform(posterUid).ParentUid) && _amountScanned <= 5)
                     {
                         // Only works if you scan anything on the Syndicate Supply Drop and have scanned less than 5 times total
                         var amount = 6;
                         var msg = Loc.GetString("forensic-reward-drop", ("amount", amount));
 
-                        GiveReward(uid, args.Args.Target.Value, amount, msg);
+                        GiveReward(uid, posterUid, amount, msg);
 
-                        _scannedDeadDrops.Add(Transform(args.Args.Target.Value).ParentUid);
+                        _scannedDeadDrops.Add(Transform(posterUid).ParentUid);
                         _amountScanned++;
                     }
                 }
-            
+                // End Frontier: checking for contraband scanners
 
                 scanner.LastScannedName = MetaData(args.Args.Target.Value).EntityName;
             }

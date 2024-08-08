@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Content.Server.Procedural;
 using Content.Shared.Bank.Components;
+using Content.Server._NF.GameTicking.Events;
 using Content.Server.GameTicking.Events;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Procedural;
@@ -309,6 +310,8 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
             _meta.SetEntityName(tradeUids[0], "Trade Outpost", meta);
             _shuttle.SetIFFColor(tradeUids[0], depotColor);
         }
+
+        RaiseLocalEvent(EntityUid.Invalid, new StationsGeneratedEvent(), broadcast: true); // TODO: attach this to a meaningful entity.
 
         var dungenTypes = _prototypeManager.EnumeratePrototypes<DungeonConfigPrototype>();
 

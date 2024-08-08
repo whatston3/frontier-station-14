@@ -22,6 +22,7 @@
     - BaseStationJobsSpawning
     - BaseStationCargo
     - BaseStationSiliconLawFrontierShips
+    - BaseStationDeadDrops
   noSpawn: true
   components:
     - type: Transform
@@ -145,6 +146,13 @@
   abstract: true
   components:
     - type: StationEmpImmune
+
+- type: entity
+  id: BaseStationDeadDrops
+  abstract: true
+  components:
+    - type: StationDeadDrop
+      numDeadDrops: 2 # Just for testing.
 
 # Sector-wide news access, should be on stations with comms (radio station, telecomms)
 # TODO: move SectorNewsComponent to a SectorService
