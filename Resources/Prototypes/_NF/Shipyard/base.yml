@@ -24,6 +24,19 @@
     - BaseStationCargo
     - BaseStationSiliconLawFrontierShips
     - BaseStationDampening
+  noSpawn: true
+  components:
+    - type: Transform
+
+# TODO: move station definitions to be more suitable for the default worldgen categories
+- type: entity
+  id: DeadDropFrontierOutpost
+  parent:
+    - BaseStation
+    - BaseStationJobsSpawning
+    - BaseStationCargo
+    - BaseStationSiliconLawFrontierShips
+    - BaseStationDampening
     - BaseStationDeadDrops
   noSpawn: true
   components:
@@ -53,6 +66,16 @@
     - BaseStationSiliconLawFrontierShips # TODO: change this with pirate borgs?
     - BaseStationRecords
     - BaseStationDampening
+  noSpawn: true
+  components:
+    - type: Transform
+
+# TODO: move station definitions to be more suitable for the default worldgen categories
+- type: entity
+  id: SpawnableDeadDropFrontierOutpost
+  parent:
+    - SpawnableFrontierOutpost
+    - DeadDropFrontierOutpost
   noSpawn: true
   components:
     - type: Transform

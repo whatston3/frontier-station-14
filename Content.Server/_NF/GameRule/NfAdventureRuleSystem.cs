@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Content._NF.Shared.GameRule;
+using Content.Shared._NF.GameRule;
 using Content.Server.Procedural;
 using Content.Shared.Bank.Components;
 using Content.Shared.Procedural;
@@ -23,6 +23,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Map.Components;
 using Content.Shared.Shuttles.Components;
+using Content.Server._NF.GameTicking.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.GameTicking;
@@ -157,7 +158,9 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
 
         base.Started(uid, component, gameRule, args);
 
+        Log.Error("Raising StationsGeneratedEvent!");
         RaiseLocalEvent(EntityUid.Invalid, new StationsGeneratedEvent(), broadcast: true); // TODO: attach this to a meaningful entity.
+        Log.Error("Finished raising StationsGeneratedEvent!");
 
         var dungenTypes = _prototypeManager.EnumeratePrototypes<DungeonConfigPrototype>();
 
@@ -328,7 +331,8 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
                 new MapLoadOptions
                 {
                     Offset = offset,
-                    Rotation = _random.NextAngle()
+                    Rotation = _random.NextAngle(),
+                    DoMapInit = true
                 }))
         {
 

@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
 
-namespace Content._NF.Shared.GameRule;
+namespace Content.Shared._NF.GameRule;
 
 /// <summary>
 ///     Describes information for a single point of interest to be spawned in the world
