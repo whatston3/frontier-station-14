@@ -599,6 +599,8 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: MarketModifier
+    mod: 5.0
 
 - type: entity
   parent: [BaseStructureUnanchorable, BaseStructureIndestructible, VendingMachine]
