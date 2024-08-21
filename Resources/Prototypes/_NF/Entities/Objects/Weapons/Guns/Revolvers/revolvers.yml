@@ -53,53 +53,28 @@
   name: Customer Service Resolver
 
 - type: entity
-  parent: BaseItem
-  name: The Arbitrator
-  id: WeaponRevolverarbitrator
-  description: Based off of an older design. S.E.S.W.C decided to revamp and rechamber for a modern era  .45cal, .50cal, and .60cal. 
+  parent: BaseWeaponRevolver
+  name: Arbitrator
+  id: WeaponRevolverArbitrator
+  description: S.E.S.W.C has revamped this classic for the modern age! Civilian-grade, supports .45 and .60 cartridges and .50 shells.
   components:
   - type: Sprite
     scale: 0.75 , 0.75
     sprite: _NF/Objects/Weapons/Guns/Revolvers/arbitrator.rsi
-    state: icon
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Revolvers/arbitrator.rsi
-    quickEquip: false
-    slots:
-    - Belt
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Gun
     minAngle: 1
     maxAngle: 8
-    selectedMode: SemiAuto
     fireRate: 2
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
-  - type: AmmoCounter
   - type: RevolverAmmoProvider
-    proto: null
+    proto: ShellShotgun
     capacity: 4
-    chambers: [ null, null, null, null ]
+    chambers: [ True, True, True, True ]
     ammoSlots: [ null, null, null, null ]
-    soundEject:
-      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
     whitelist:
       tags:
       - ShellShotgun
       - CartridgeAntiMateriel
       - CartridgeMagnum
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
+      - SpeedLoaderMagnum

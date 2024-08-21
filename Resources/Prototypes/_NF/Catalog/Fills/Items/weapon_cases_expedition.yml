@@ -109,18 +109,16 @@
 
 - type: entity
   parent: WeaponCaseShort
-  id: WeaponCaseShortTheArbitrator
+  id: WeaponCaseShortArbitrator
   noSpawn: true
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRevolverarbitrator
+      - id: WeaponRevolverArbitrator
         amount: 1
-      - id: CartridgeMagnum
+      - id: SpeedLoaderMagnum
         amount: 1
-      - id: CartridgeAntiMateriel
-        amount: 1
-      - id: ShellShotgun
+      - id: MagazineBoxAntiMateriel
         amount: 1
 
 - type: entity
