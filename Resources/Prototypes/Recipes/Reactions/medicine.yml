@@ -9,6 +9,12 @@
       amount: 1
   products:
     Dylovene: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Dylovene: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Ethylredoxrazine
@@ -21,6 +27,12 @@
       amount: 1
   products:
     Ethylredoxrazine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Ethylredoxrazine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Cryptobiolin
@@ -33,6 +45,12 @@
       amount: 1
   products:
     Cryptobiolin: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Cryptobiolin: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Arithrazine
@@ -43,6 +61,12 @@
       amount: 1
   products:
     Arithrazine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Arithrazine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Bicaridine
@@ -53,6 +77,12 @@
       amount: 1
   products:
     Bicaridine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Bicaridine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Cryoxadone
@@ -65,6 +95,12 @@
       amount: 1
   products:
     Cryoxadone: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Cryoxadone: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Doxarubixadone
@@ -75,6 +111,12 @@
       amount: 1
   products:
     Doxarubixadone: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Doxarubixadone: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Epinephrine
@@ -89,6 +131,12 @@
       amount: 1
   products:
     Epinephrine: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Epinephrine: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Dermaline
@@ -101,6 +149,12 @@
       amount: 1
   products:
     Dermaline: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Dermaline: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Dexalin
@@ -112,6 +166,12 @@
       catalyst: true
   products:
     Dexalin: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Dexalin: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: DexalinPlus
@@ -124,6 +184,12 @@
       amount: 1
   products:
     DexalinPlus: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      DexalinPlus: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Hyronalin
@@ -134,6 +200,12 @@
       amount: 1
   products:
     Hyronalin: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Hyronalin: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Inaprovaline
@@ -146,6 +218,12 @@
       amount: 1
   products:
     Inaprovaline: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Inaprovaline: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Ipecac
@@ -158,6 +236,12 @@
       amount: 1
   products:
     Ipecac: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Ipecac: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: TranexamicAcid
@@ -170,6 +254,12 @@
       amount: 1
   products:
     TranexamicAcid: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      TranexamicAcid: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Kelotane
@@ -180,6 +270,12 @@
       amount: 1
   products:
     Kelotane: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Kelotane: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Leporazine
@@ -193,6 +289,12 @@
       catalyst: true
   products:
     Leporazine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Leporazine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Phalanximine
@@ -205,6 +307,12 @@
       amount: 1
   products:
     Phalanximine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Phalanximine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Ambuzol
@@ -217,6 +325,12 @@
       amount: 2
   products:
     Ambuzol: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Ambuzol: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: AmbuzolPlus
@@ -227,6 +341,12 @@
       amount: 5
   products:
     AmbuzolPlus: 10
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      AmbuzolPlus: 10 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Synaptizine
@@ -239,6 +359,12 @@
       amount: 1
   products:
     Synaptizine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Synaptizine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Tricordrazine
@@ -249,6 +375,12 @@
       amount: 1
   products:
     Tricordrazine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Synaptizine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: HeartbreakerToxin
@@ -259,6 +391,12 @@
       amount: 1
   products:
     HeartbreakerToxin: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      HeartbreakerToxin: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Impedrezene
@@ -272,6 +410,12 @@
       amount: 1
   products:
     Impedrezene: 1
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Impedrezene: 1 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Lexorin
@@ -285,6 +429,12 @@
       amount: 1
   products:
     Lexorin: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Lexorin: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Lipozine
@@ -297,6 +447,12 @@
       amount: 1
   products:
     Lipozine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Lipozine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Mannitol
@@ -309,6 +465,12 @@
       amount: 1
   products:
     Mannitol: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Mannitol: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: MindbreakerToxin
@@ -322,6 +484,12 @@
       amount: 1
   products:
     MindbreakerToxin: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      MindbreakerToxin: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: SpaceDrugs
@@ -334,6 +502,12 @@
       amount: 1
   products:
     SpaceDrugs: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      SpaceDrugs: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Ultravasculine
@@ -345,6 +519,12 @@
       catalyst: true
   products:
     Ultravasculine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Ultravasculine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Oculine
@@ -357,6 +537,12 @@
       amount: 2
   products:
     Oculine: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Oculine: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Siderlac
@@ -367,6 +553,12 @@
       amount: 1
   products:
     Siderlac: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Siderlac: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Cognizine
@@ -379,6 +571,12 @@
       amount: 1
   products:
     Cognizine: 1
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Cognizine: 1 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Sigynate
@@ -397,6 +595,12 @@
       amount: 1
   products:
     Sigynate: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Sigynate: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Saline
@@ -419,6 +623,12 @@
       amount: 1
   products:
     Lacerinol: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Lacerinol: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Puncturase
@@ -431,6 +641,12 @@
       amount: 1
   products:
     Puncturase: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Puncturase: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Bruizine
@@ -444,6 +660,12 @@
       amount: 1
   products:
     Bruizine: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Bruizine: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: BicarLacerinol # mixing any two brute medications will make Razorium
@@ -528,6 +750,12 @@
       amount: 1
   products:
     Diphenhydramine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Diphenhydramine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Pyrazine
@@ -542,6 +770,12 @@
       amount: 1
   products:
     Pyrazine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Pyrazine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Insuzine
@@ -556,6 +790,12 @@
       amount: 1
   products:
     Insuzine: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Insuzine: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Opporozidone
@@ -569,6 +809,12 @@
       amount: 1
   products:
     Opporozidone: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Opporozidone: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Necrosol
@@ -583,6 +829,12 @@
       amount: 2
   products:
     Necrosol: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Necrosol: 2 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Aloxadone
@@ -596,6 +848,12 @@
       amount: 2
   products:
       Aloxadone: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Aloxadone: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Psicodine
@@ -609,6 +867,12 @@
       amount: 2
   products:
       Psicodine: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Psicodine: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Lipolicide
@@ -621,6 +885,12 @@
       amount: 1
   products:
     Lipolicide: 3
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Lipolicide: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
 
 - type: reaction
   id: Happiness
@@ -636,3 +906,9 @@
       catalyst: true
   products:
     Happiness: 4
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Happiness: 4 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier

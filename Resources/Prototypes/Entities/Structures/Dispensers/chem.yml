@@ -37,6 +37,7 @@
     - Chemist
   - type: StealTarget
     stealGroup: ChemDispenser
+  - type: NFPrecisionMachine # Frontier
 
 - type: entity
   id: ChemDispenserEmpty
