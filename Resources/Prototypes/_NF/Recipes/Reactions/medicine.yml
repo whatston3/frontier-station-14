@@ -9,6 +9,12 @@
       amount: 1
   products:
     Traumoxadone: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Dylovene: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
     
 - type: reaction
   id: Stelloxadone
@@ -23,3 +29,9 @@
     Stelloxadone: 5
     Water: 3
     Fiber: 2
+  effects: # Frontier
+  - !type:LowYieldWhenImpreciseReaction # Frontier
+    affectedReagentRatios: # Frontier
+      Dylovene: 3 # Frontier
+    conditions: # Frontier
+    - !type:ImpreciseCondition # Frontier
