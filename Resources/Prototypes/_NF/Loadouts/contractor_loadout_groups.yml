@@ -85,6 +85,7 @@
   - ContractorClothingUniformJumpsuitGenetics
   - ContractorClothingUniformJumpskirtGenetics
   - ContractorClothingUniformJumpsuitPsychologist
+  - ContractorClothingUniformJumpskirtPsychologist
   - ContractorClothingUniformJumpsuitScientistFormal
   - ContractorClothingUniformJumpsuitRoboticist
   - ContractorClothingUniformJumpskirtRoboticist
@@ -102,6 +103,8 @@
   - ContractorClothingUniformJumpskirtSeniorPhysician
   - ContractorClothingUniformJumpsuitCMO
   - ContractorClothingUniformJumpskirtCMO
+  - ContractorClothingUniformTurtleneckCMO
+  - ContractorClothingUniformTurtleskirtCMO
   - ContractorClothingUniformJumpsuitSeniorResearcher
   - ContractorClothingUniformJumpskirtSeniorResearcher
   - ContractorClothingUniformJumpsuitResearchDirector
