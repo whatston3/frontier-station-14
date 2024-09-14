@@ -108,6 +108,7 @@
   - type: Contraband
     turnInValues:
       FrontierUplinkCoin: 5
+      Doubloon: 2
 
 - type: entity
   parent:

@@ -1,4 +1,3 @@
-
 - type: entity
   id: GroundTobaccoStonecut
   name: stonecut tobacco
@@ -80,3 +79,28 @@
       scale: 0.5,0.5
       offset: 0.0,-0.1
       color: "#748eaf"
+
+- type: entity
+  id: GroundTobaccoDrowsy
+  name: sweet dreams tobacco
+  parent: GroundTobacco
+  description: "A blend of tobacco ribbons. Feels sticky, smells like an old leather couch."
+  components:
+  - type: Stack
+    stackType: GroundTobaccoDrowsy
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 15
+        - ReagentId: Psicodine
+          Quantity: 7.5
+        - ReagentId: Haloperidol
+          Quantity: 7.5
+  - type: Sprite
+    layers:
+    - sprite: Objects/Misc/reagent_fillings.rsi
+      state: powderpile
+      color: "#966279"

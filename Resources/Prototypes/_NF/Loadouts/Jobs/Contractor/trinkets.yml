@@ -85,6 +85,16 @@
     - TobaccoPouchBlueFilled
 
 - type: loadout
+  id: ContractorTobaccoPouchPurpleFilled
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 600
+  storage:
+    back:
+    - TobaccoPouchPurpleFilled
+
+- type: loadout
   id: ContractorTobaccoPouchRedFilled
   effects:
   - !type:GroupLoadoutEffect
