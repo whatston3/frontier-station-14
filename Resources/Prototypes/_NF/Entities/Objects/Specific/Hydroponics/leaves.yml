@@ -103,4 +103,4 @@
     layers:
     - sprite: Objects/Misc/reagent_fillings.rsi
       state: powderpile
-      color: "#966279"
+      color: "#d0bad0"
