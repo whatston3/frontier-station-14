@@ -207,6 +207,11 @@
       - state: inhand-right-base
         color: "#e18bd5"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintScienceTechfab
+    - Document
+    - Paper
 
 - type: entity # Service
   parent: BaseBlueprintFaxable

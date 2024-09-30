@@ -107,6 +107,10 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver # Frontier
+    whitelist: # Frontier
+      tags: # Frontier
+      - NFBlueprintScienceTechfab # Frontier
 
 - type: entity
   parent: [ BaseLatheLube, BlueprintReceiverBase ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
@@ -266,6 +270,10 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver # Frontier
+    whitelist: # Frontier
+      tags: # Frontier
+      - NFBlueprintServiceTechfab # Frontier
 
 - type: entity
   parent: [ BaseLatheLube, BlueprintReceiverBase ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
