@@ -440,3 +440,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver # Frontier
+    whitelist: # Frontier
+      tags: # Frontier
+      - NFBlueprintEngineeringTechfab # Frontier

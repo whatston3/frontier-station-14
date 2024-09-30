@@ -970,10 +970,10 @@
           - Sheet
           - RawMaterial
           - Ingot
-  - type: BlueprintReceiver # Frontier
-    whitelist: # Frontier
-      tags: # Frontier
-      - NFBlueprintAmmoTechfab # Frontier
+    - type: BlueprintReceiver # Frontier
+      whitelist: # Frontier
+        tags: # Frontier
+        - NFBlueprintAmmoTechfab # Frontier
 
 - type: entity
   id: MedicalTechFab

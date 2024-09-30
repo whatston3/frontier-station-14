@@ -73,6 +73,7 @@ public sealed class BlueprintSystem : EntitySystem
     {
         if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, blueprint))
         {
+            _popup.PopupPredicted(Loc.GetString("blueprint-receiver-popup-invalid-type"), ent, user); // Frontier
             return false;
         }
 

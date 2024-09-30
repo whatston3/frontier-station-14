@@ -449,6 +449,8 @@
 - type: entity
   parent: BaseBlueprintExpedition
   id: BaseBlueprintExpeditionNfsd
+  abstract: true
+  components:
   - type: Tag
     tags:
     - NFBlueprintNfsdTechfab
@@ -458,6 +460,8 @@
 - type: entity
   parent: BaseBlueprintExpedition
   id: BaseBlueprintExpeditionAmmo
+  abstract: true
+  components:
   - type: Tag
     tags:
     - NFBlueprintNfsdTechfab
@@ -468,6 +472,8 @@
 - type: entity
   parent: BaseBlueprintExpedition
   id: BaseBlueprintExpeditionAmmoMerc
+  abstract: true
+  components:
   - type: Tag
     tags:
     - NFBlueprintNfsdTechfab
@@ -479,6 +485,8 @@
 - type: entity
   parent: BaseBlueprintExpedition
   id: BaseBlueprintExpeditionMerc
+  abstract: true
+  components:
   - type: Tag
     tags:
     - NFBlueprintNfsdTechfab
