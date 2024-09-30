@@ -3,7 +3,7 @@
   parent: NFBaseBlueprintService
   id: NFBlueprintAdvMopItem
   name: advanced mop blueprint
-  description: A blueprint with a schematic of an advanced mop. It can be inserted into an autolathe or a techfab.
+  description: A blueprint with a schematic of an advanced mop. It can be inserted into a salvage techfab.
   components:
   - type: Blueprint
     providedRecipes:
@@ -13,7 +13,7 @@
   parent: NFBaseBlueprintService
   id: NFBlueprintPlantAnalyzerEmpty
   name: plant analyzer blueprint
-  description: A blueprint with a schematic of a plant analyzer. It can be inserted into an autolathe or a techfab.
+  description: A blueprint with a schematic of a plant analyzer. It can be inserted into a salvage techfab.
   components:
   - type: Blueprint
     providedRecipes:
@@ -23,7 +23,7 @@
   parent: NFBaseBlueprintService
   id: NFBlueprintPlantBagOfHolding
   name: bluespace plant bag blueprint
-  description: A blueprint with a schematic of a bluespace plant bag. It can be inserted into an autolathe or a techfab.
+  description: A blueprint with a schematic of a bluespace plant bag. It can be inserted into a salvage techfab.
   components:
   - type: Blueprint
     providedRecipes:

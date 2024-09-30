@@ -96,3 +96,24 @@
 
 - type: Tag
   id: BrassKnucklesNF
+
+- type: Tag
+  id: NFBlueprintMedicalTechfab
+
+- type: Tag
+  id: NFBlueprintSalvageTechfab
+
+- type: Tag
+  id: NFBlueprintEngineeringTechfab
+
+- type: Tag
+  id: NFBlueprintScienceTechfab
+
+- type: Tag
+  id: NFBlueprintNfsdTechfab
+
+- type: Tag
+  id: NFBlueprintAmmoTechfab
+
+- type: Tag
+  id: NFBlueprintMercenaryTechfab

@@ -962,14 +962,18 @@
         - SpeedLoaderMagnumEmpty
         - SpeedLoaderRifleHeavy # Frontier
         - SpeedLoaderRifleHeavyEmpty # Frontier
-        - 10roundmagazine #frontier by VividPups
-        - 10roundmagazineempty #frontier by VividPups
+        - 10roundmagazine # Frontier
+        - 10roundmagazineempty # Frontier
     - type: MaterialStorage
       whitelist:
         tags:
           - Sheet
           - RawMaterial
           - Ingot
+  - type: BlueprintReceiver # Frontier
+    whitelist: # Frontier
+      tags: # Frontier
+      - NFBlueprintAmmoTechfab # Frontier
 
 - type: entity
   id: MedicalTechFab
@@ -1054,6 +1058,10 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: BlueprintReceiver # Frontier
+    whitelist: # Frontier
+      tags: # Frontier
+      - NFBlueprintMedicalTechfab # Frontier
 
 - type: entity
   parent: BaseLathe

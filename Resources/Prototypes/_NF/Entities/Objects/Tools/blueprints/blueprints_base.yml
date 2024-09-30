@@ -33,7 +33,7 @@
       - state: inhand-right-text
   - type: Tag
     tags:
-    - BlueprintAutolathe
+    - BlueprintAutolathe # If not redefined, will work in the autolathe.
     - Document
     - Paper
   - type: StaticPrice
@@ -131,6 +131,11 @@
       - state: inhand-right-base
         color: "#fff87c"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintEngineeringTechfab
+    - Document
+    - Paper
 
 - type: entity # Salvage / Cargo
   parent: BaseBlueprintFaxable
@@ -164,6 +169,11 @@
       - state: inhand-right-base
         color: "#e1ba8b"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintSalvageTechfab
+    - Document
+    - Paper
 
 - type: entity # Science
   parent: BaseBlueprintFaxable
@@ -230,6 +240,11 @@
       - state: inhand-right-base
         color: "#94e18b"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintServiceTechfab
+    - Document
+    - Paper
 
 - type: entity # Medical
   parent: BaseBlueprintFaxable
@@ -263,6 +278,11 @@
       - state: inhand-right-base
         color: "#97cae1"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintMedicalTechfab
+    - Document
+    - Paper
 
 - type: entity # Armory
   parent: BaseBlueprintFaxable
@@ -296,6 +316,49 @@
       - state: inhand-right-base
         color: "#e18b8b"
       - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - Document
+    - Paper
+
+# Armory
+- type: entity 
+  parent: NFBaseBlueprintArmory
+  id: NFBaseBlueprintArmoryMerc
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintMercenaryTechfab
+    - Document
+    - Paper
+
+- type: entity # Armory
+  parent: NFBaseBlueprintArmory
+  id: NFBaseBlueprintArmoryAmmo
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintAmmoTechfab
+    - Document
+    - Paper
+
+- type: entity # Armory
+  parent: NFBaseBlueprintArmory
+  id: NFBaseBlueprintArmoryAmmoMerc
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintAmmoTechfab
+    - NFBlueprintMercenaryTechfab
+    - Document
+    - Paper
 
 - type: entity # Church
   parent: BaseBlueprintFaxable
@@ -332,6 +395,12 @@
         color: "#525252"
       - state: inhand-right-text
         color: "#cbab00"
+  - type: Tag
+    tags:
+    - BlueprintAutolathe # No dedicated religious techfab, split between autolathe and service techfab
+    - NFBlueprintServiceTechfab
+    - Document
+    - Paper
 
 # Non-faxable variants (obtainable from expeditions)
 
@@ -376,3 +445,43 @@
       stampedName: stamp-component-stamped-name-rd
   - type: StaticPrice
     price: 1000
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: BaseBlueprintExpeditionNfsd
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - Document
+    - Paper
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: BaseBlueprintExpeditionAmmo
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintAmmoTechfab
+    - Document
+    - Paper
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: BaseBlueprintExpeditionAmmoMerc
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintAmmoTechfab
+    - NFBlueprintMercenaryTechfab
+    - Document
+    - Paper
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: BaseBlueprintExpeditionMerc
+  - type: Tag
+    tags:
+    - NFBlueprintNfsdTechfab
+    - NFBlueprintMercenaryTechfab
+    - Document
+    - Paper
