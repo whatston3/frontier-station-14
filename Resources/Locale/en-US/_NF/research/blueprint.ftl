@@ -1,1 +1,1 @@
-blueprint-receiver-popup-invalid-type = This blueprint can't be used on that machine!
+blueprint-receiver-popup-invalid-type = That blueprint can't be used on this machine!
