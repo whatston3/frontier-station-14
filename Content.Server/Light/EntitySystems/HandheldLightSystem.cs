@@ -247,12 +247,17 @@ namespace Content.Server.Light.EntitySystems
         public void TryUpdate(Entity<HandheldLightComponent> uid, float frameTime)
         {
             var component = uid.Comp;
-            if (!_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery, null) &&
-                !TryComp(uid, out battery))
+            // Frontier: assign battery UID when we _are_ the battery - check slots, then check self.
+            if (!_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery, null))
             {
-                TurnOff(uid, false);
-                return;
+                if (!TryComp(uid, out battery))
+                {
+                    TurnOff(uid, false);
+                    return;
+                }
+                batteryUid = uid;
             }
+            // End Frontier
 
             if (batteryUid == null)
                 return;

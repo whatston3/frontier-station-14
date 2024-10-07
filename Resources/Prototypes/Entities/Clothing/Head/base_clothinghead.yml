@@ -71,6 +71,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+    wattage: 3 # Frontier
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
