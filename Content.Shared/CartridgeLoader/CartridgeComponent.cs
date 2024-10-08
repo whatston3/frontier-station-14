@@ -21,6 +21,11 @@ public sealed partial class CartridgeComponent : Component
 
     [AutoNetworkedField]
     public InstallationStatus InstallationStatus = InstallationStatus.Cartridge;
+
+    // Frontier: destroy cartridges on install
+    [DataField]
+    public bool DestroyOnInstall = false;
+    // End Frontier
 }
 
 [Serializable, NetSerializable]

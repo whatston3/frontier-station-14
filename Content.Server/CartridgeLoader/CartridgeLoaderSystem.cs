@@ -178,7 +178,16 @@ public sealed class CartridgeLoaderSystem : SharedCartridgeLoaderSystem
 
         // For anyone stumbling onto this: Do not do this or I will cut you.
         var prototypeId = Prototype(cartridgeUid)?.ID;
-        return prototypeId != null && InstallProgram(loaderUid, prototypeId, loader: loader);
+
+        // Frontier: optionally destroy cartridge on install
+        if (prototypeId == null)
+            return false;
+        if (!InstallProgram(loaderUid, prototypeId, loader: loader))
+            return false;
+        if (loadedCartridge.DestroyOnInstall)
+            QueueDel(cartridgeUid);
+        return true;
+        // End Frontier
     }
 
     /// <summary>

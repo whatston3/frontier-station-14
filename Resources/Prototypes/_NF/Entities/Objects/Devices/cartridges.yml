@@ -19,6 +19,27 @@
     - type: AccessReader
       access: [["HeadOfSecurity"], ["HeadOfPersonnel"]]
 
+- type: entity
+  parent: BaseItem
+  id: MailMetricsCartridge
+  name: ledger cartridge
+  description: A cartridge that tracks sector ledger statistics.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Devices/cartridge.rsi
+    state: cart-ledger
+  - type: Icon
+    sprite: _NF/Objects/Devices/cartridge.rsi
+    state: cart-ledger
+  - type: UIFragment
+    ui: !type:LedgerStatsUi
+  - type: LedgerStatsCartridge
+  - type: Cartridge
+    programName: ledger-stats-program-name
+    icon:
+      sprite: _NF/Objects/Economy/cash.rsi
+      state: cash_1000
+
 # Not a PDA cartridge (then why is this here)
 - type: entity
   parent: BaseItem
