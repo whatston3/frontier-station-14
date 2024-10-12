@@ -19,8 +19,6 @@
   weight: 125
   displayWeight: 35
   canBeAntag: false
-  access:
-  - Medical
   accessGroups:
   - GeneralNfsdAccess
   special:

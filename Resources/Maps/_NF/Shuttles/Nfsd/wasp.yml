@@ -934,7 +934,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,5.5
       parent: 1
-- proto: AirlockMedicalGlass
+- proto: AirlockMedicalGlassSecurity
   entities:
   - uid: 16
     components:
@@ -1074,7 +1074,7 @@ entities:
       injecting: True
     - type: ContainerContainer
       containers:
-        AmeFuel: !type:ContainerSlot
+        fuelSlot: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: 38
