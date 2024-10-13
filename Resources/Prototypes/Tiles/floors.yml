@@ -1451,8 +1451,7 @@
   name: tiles-planet-grass-floor
   sprite: /Textures/Tiles/grass.png
   baseTurf: FloorDirt
-  #canCrowbar: false # Come back
-  # canShovel: true # Delta V # nuh uh frontier now
+  #canCrowbar: false # Frontier
   deconstructTools: [ Digging ] # Frontier
   isSubfloor: true
   footstepSounds:
@@ -1466,8 +1465,7 @@
   name: tiles-jungle-grass-floor
   sprite: /Textures/Tiles/grassjungle.png
   baseTurf: FloorDirt
-  #canCrowbar: false # Come back
-  # canShovel: true # Delta V # Frontier
+  #canCrowbar: false # Frontier
   deconstructTools: [ Digging ] # Frontier
   isSubfloor: true
   footstepSounds:
@@ -1487,8 +1485,7 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  #canCrowbar: false # Come back
-  # canShovel: true # Delta V # Frontier
+  #canCrowbar: false # Frontier
   deconstructTools: [ Digging ] # Frontier
   isSubfloor: true
   footstepSounds:
@@ -1508,8 +1505,7 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  #canCrowbar: false # Come back
-  # canShovel: true # Delta V # Frontier
+  #canCrowbar: false # Frontier
   deconstructTools: [ Digging ] # Frontier
   isSubfloor: true
   footstepSounds:
@@ -1529,8 +1525,7 @@
   - 1.0
   - 1.0
   baseTurf: FloorBedrock # Delta V
-  #canCrowbar: false # Come back
-  # canShovel: true # Delta V # Frontier
+  #canCrowbar: false # Frontier
   deconstructTools: [ Digging ] # Frontier
   footstepSounds:
     collection: FootstepAsteroid

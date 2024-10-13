@@ -15,6 +15,7 @@ namespace Content.Shared.Maps
     {
         [ValidatePrototypeId<ToolQualityPrototype>]
         public const string PryingToolQuality = "Prying";
+        [ValidatePrototypeId<ToolQualityPrototype>] // Frontier
         public const string DiggingToolQuality = "Digging"; // Frontier
 
         public const string SpaceID = "Space";
