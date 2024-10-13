@@ -30,10 +30,10 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: 'NFSD Outpost'
-        - type: ExtraStationInformation
+        - type: StationLobbyInformation
           iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
-          stationSubtext: 'frontier-lobby-nfsd-subtext'
-          stationDescription: 'frontier-lobby-nfsd-description'
+          stationSubtext: frontier-lobby-nfsd-subtext
+          stationDescription: frontier-lobby-nfsd-description
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:

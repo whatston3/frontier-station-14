@@ -29,7 +29,6 @@ public sealed partial class StationJobsSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -503,7 +502,7 @@ public sealed partial class StationJobsSystem : EntitySystem
             var stationNetEntity = GetNetEntity(station);
             var list = comp.JobList.ToDictionary(x => x.Key, x => x.Value);
 
-            // Frontier addition
+            // Frontier
             // Every station can have ExtraStationInformation, which can contain a subtext, description, and icon.
             // Typically shown for major stations, and not ships.
             // These are shown in the latejoin menu in the pre-round lobby.
@@ -513,8 +512,7 @@ public sealed partial class StationJobsSystem : EntitySystem
             var lobbySortOrder = 0;
             var isLateJoinStation = false;
 
-            // Frontier addition
-            if (EntityManager.TryGetComponent<ExtraStationInformationComponent>(station, out var extraStationInformation))
+            if (EntityManager.TryGetComponent<StationLobbyInformationComponent>(station, out var extraStationInformation))
             {
                 // Any station with ExtraStationInformation is considered a latejoin station.
                 isLateJoinStation = extraStationInformation.IsLateJoinStation;
@@ -524,7 +522,6 @@ public sealed partial class StationJobsSystem : EntitySystem
                 lobbySortOrder = extraStationInformation.LobbySortOrder;
             }
 
-            // Frontier addition
             var stationJobInformation = new StationJobInformation(
                 stationName: Name(station),
                 jobsAvailable: list,
@@ -535,6 +532,7 @@ public sealed partial class StationJobsSystem : EntitySystem
                 isLateJoinStation: isLateJoinStation
             );
             stationJobInformationList.Add(stationNetEntity, stationJobInformation);
+            // End Frontier
         }
         return new TickerJobsAvailableEvent(stationJobInformationList);
     }

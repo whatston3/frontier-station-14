@@ -15,10 +15,10 @@
 #          nameGenerator:
 #            !type:NanotrasenNameGenerator
 #            prefixCreator: '14'
-        - type: ExtraStationInformation
+        - type: StationLobbyInformation
           iconPath: /Textures/Logo/logo.png
-          stationSubtext: 'frontier-lobby-frontier-subtext'
-          stationDescription: 'frontier-lobby-frontier-description'
+          stationSubtext: frontier-lobby-frontier-subtext
+          stationDescription: frontier-lobby-frontier-description
           lobbySortOrder: 1
         - type: StationJobs
           availableJobs:

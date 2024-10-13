@@ -172,12 +172,12 @@ namespace Content.Client.LateJoin
                 {
                     var departmentName = Loc.GetString($"department-{department.ID}");
                     _jobCategories[id] = new Dictionary<string, BoxContainer>();
-                    var stationAvailable = _gameTicker.StationJobInformationList[id];
+                    var stationAvailable = _gameTicker.StationJobInformationList[id]; // Frontier: JobsAvailable<StationJobInformationList
                     var jobsAvailable = new List<JobPrototype>();
 
                     foreach (var jobId in department.Roles)
                     {
-                        if (!stationAvailable.JobsAvailable.ContainsKey(jobId))
+                        if (!stationAvailable.JobsAvailable.ContainsKey(jobId)) // Frontier: stationAvailable<stationAvailable.JobsAvailable
                             continue;
 
                         jobsAvailable.Add(_prototypeManager.Index<JobPrototype>(jobId));
@@ -226,8 +226,7 @@ namespace Content.Client.LateJoin
 
                     foreach (var prototype in jobsAvailable)
                     {
-                        // Frontier: stationAvailable[prototype.ID]; -> stationAvailable.JobsAvailable[prototype.ID];
-                        var value = stationAvailable.JobsAvailable[prototype.ID];
+                        var value = stationAvailable.JobsAvailable[prototype.ID]; // Frontier: stationAvailable<stationAvailable.JobsAvailable
 
                         var jobLabel = new Label
                         {
@@ -294,9 +293,10 @@ namespace Content.Client.LateJoin
             }
         }
 
+        // Frontier: change params to use StationJobInformation class.
         private void JobsAvailableUpdated(IReadOnlyDictionary<NetEntity, StationJobInformation> updatedJobs)
         {
-            // Frontier: Made this more readable with simplified comparisons and LINQ expressions.
+            // Made this more readable with simplified comparisons and LINQ expressions.
             // Feel free to replace this with upstream code whenever, just mind that
             // updatedJobs is now a dictionary of NetEntity to StationJobInformation.
             // I changed this: jobInformation.TryGetValue   to this: jobInformation.JobsAvailable.TryGetValue
@@ -317,6 +317,7 @@ namespace Content.Client.LateJoin
                 }
             }
         }
+        // End Frontier
 
         protected override void Dispose(bool disposing)
         {

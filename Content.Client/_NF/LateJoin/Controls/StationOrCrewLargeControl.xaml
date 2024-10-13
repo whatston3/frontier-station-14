@@ -3,6 +3,7 @@
                            xmlns:maths="clr-namespace:Robust.Shared.Maths;assembly=Robust.Shared.Maths"
                            xmlns:xNamespace="http://schemas.microsoft.com/winfx/2006/xaml"
                            xmlns:controls="clr-namespace:Content.Client._NF.LateJoin.Controls"
+                           xmlns:nfCustomControls="clr-namespace:Content.Client._NF.Administration.UI.CustomControls"
                            xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                            Access="Public"
                            HorizontalExpand="True"
@@ -37,7 +38,7 @@
                                  MaxSize="30 30"
                                  Stretch="KeepAspectCentered" />
                 </BoxContainer>
-                <customControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
+                <nfCustomControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
 
                 <RichTextLabel Text="{Loc 'frontier-lobby-station-subtext'}" />
 
@@ -72,7 +73,7 @@
                                  MaxSize="30 30"
                                  Stretch="KeepAspectCentered" />
                 </BoxContainer>
-                <customControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
+                <nfCustomControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
 
                 <RichTextLabel Text="{Loc 'frontier-lobby-crew-subtext'}" />
 

@@ -29,10 +29,10 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Expeditionary Lodge'
-        - type: ExtraStationInformation
+        - type: StationLobbyInformation
           iconPath: /Textures/_NF/Markers/jobs.rsi/mercenary.png
-          stationSubtext: 'frontier-lobby-exped-subtext'
-          stationDescription: 'frontier-lobby-exped-description'
+          stationSubtext: frontier-lobby-exped-subtext
+          stationDescription: frontier-lobby-exped-description
           lobbySortOrder: 3
         - type: StationJobs
           availableJobs:

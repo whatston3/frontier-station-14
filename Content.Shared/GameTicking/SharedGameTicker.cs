@@ -141,7 +141,7 @@ namespace Content.Shared.GameTicking
      * Frontier addition
      * This data cannot be retrieved locally since you cannot access the station entity from the client.
      * @param stationName The name of the station.
-     * @param jobsAvailable A dictionary of job prototypes and the number of jobs positions available for it.
+     * @param jobsAvailable A dictionary of job prototypes and the number of job positions available for it.
      * @param isLatejoinStation Whether or not this station is a latejoin station (== not a player ship) this is
      *                          based on if it has the extra information component value set to true or false.
      * @param lobbySortOrder The order in which this station should be displayed in the station picker.
@@ -168,6 +168,7 @@ namespace Content.Shared.GameTicking
         public LocId? StationDescription { get; } = stationDescription;
         public ResPath? StationIcon { get; } = stationIcon;
     }
+    // End Frontier
 
     [Serializable, NetSerializable]
     public sealed class TickerJobsAvailableEvent(
