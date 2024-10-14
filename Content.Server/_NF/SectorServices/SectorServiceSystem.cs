@@ -1,5 +1,7 @@
+using Content.Server.GameTicking;
 using Content.Shared._NF.SectorServices.Prototypes;
 using JetBrains.Annotations;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
 
@@ -12,8 +14,9 @@ namespace Content.Server._NF.SectorServices;
 [PublicAPI]
 public sealed class SectorServiceSystem : EntitySystem
 {
-    [Robust.Shared.IoC.Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Robust.Shared.IoC.Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     [ViewVariables(VVAccess.ReadOnly)]
     private EntityUid _entity = EntityUid.Invalid; // The station entity that's storing our services.
@@ -22,16 +25,18 @@ public sealed class SectorServiceSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentShutdown>(OnComponentShutdown);
+        //SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentStartup>(OnComponentStartup);
+        //SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<MapComponent, ComponentInit>(OnMapInit);
+        SubscribeLocalEvent<MapComponent, ComponentRemove>(OnMapRemove);
     }
 
-    private void OnComponentStartup(EntityUid uid, StationSectorServiceHostComponent component, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, MapComponent map, ComponentInit args)
     {
-        Log.Debug($"OnComponentStartup! Entity: {uid} internal: {_entity}");
-        if (_entity == EntityUid.Invalid)
+        Log.Debug($"OnMapInit! Entity: {uid} internal: {_entity}");
+        if (map.MapId == _gameTicker.DefaultMap)
         {
-            _entity = uid;
+            _entity = Spawn();
 
             foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
             {
@@ -41,16 +46,12 @@ public sealed class SectorServiceSystem : EntitySystem
         }
     }
 
-    private void OnComponentShutdown(EntityUid uid, StationSectorServiceHostComponent component, ComponentShutdown args)
+    private void OnMapRemove(EntityUid uid, MapComponent map, ComponentRemove args)
     {
-        Log.Debug($"OnComponentShutdown! Entity: {_entity}");
-        if (_entity != EntityUid.Invalid)
+        Log.Debug($"OnMapRemove! Entity: {_entity}");
+        if (map.MapId == _gameTicker.DefaultMap)
         {
-            foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
-            {
-                Log.Debug($"Removing component for service {servicePrototype.ID}");
-                _entityManager.RemoveComponents(_entity, servicePrototype.Components);
-            }
+            Del(_entity);
             _entity = EntityUid.Invalid;
         }
     }
