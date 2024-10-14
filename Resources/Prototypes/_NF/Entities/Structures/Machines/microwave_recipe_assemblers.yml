@@ -105,9 +105,18 @@
     board: ElectricRangeMachineCircuitboard
   - type: ContainerContainer
     containers:
-      microwave_entity_container: !type:Container
       machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
       machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      microwave_entity_container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: EmptyOnMachineDeconstruct
     containers:
     - microwave_entity_container
@@ -208,6 +217,20 @@
     powerLoad: 400
   - type: Machine
     board: KitchenAssemblerMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      microwave_entity_container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.AssemblerKey
   - type: UserInterface
@@ -256,6 +279,20 @@
     powerLoad: 500
   - type: Machine
     board: MedicalAssemblerMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      microwave_entity_container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.MedicalAssemblerKey
   - type: UserInterface

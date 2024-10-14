@@ -66,6 +66,8 @@
       groups:
         Brute: 1
   - type: FriedTrait
+  - type: DeepFried
+  - type: Appearance
 
 - type: entity
   name: dragon omelette

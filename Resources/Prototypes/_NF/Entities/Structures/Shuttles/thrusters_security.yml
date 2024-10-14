@@ -35,6 +35,7 @@
           acts: ["Destruction"]
   - type: Machine
     board: ThrusterSecurityMachineCircuitboard
+  - type: ContainerContainer
 
 - type: entity
   id: GyroscopeSecurity

@@ -231,6 +231,7 @@
           type: WiresBoundUserInterface
     - type: MarketModifier
       mod: 1
+    - type: ContainerContainer
       
 - type: entity
   name: cargo market computer
