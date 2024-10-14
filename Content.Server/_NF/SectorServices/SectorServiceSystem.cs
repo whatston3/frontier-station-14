@@ -25,10 +25,10 @@ public sealed class SectorServiceSystem : EntitySystem
     {
         base.Initialize();
 
-        //SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentStartup>(OnComponentStartup);
-        //SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<MapComponent, ComponentInit>(OnMapInit);
-        SubscribeLocalEvent<MapComponent, ComponentRemove>(OnMapRemove);
+        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentShutdown>(OnComponentShutdown);
+        //SubscribeLocalEvent<MapComponent, ComponentInit>(OnMapInit);
+        //SubscribeLocalEvent<MapComponent, ComponentRemove>(OnMapRemove);
     }
 
     private void OnMapInit(EntityUid uid, MapComponent map, ComponentInit args)
@@ -36,7 +36,10 @@ public sealed class SectorServiceSystem : EntitySystem
         Log.Debug($"OnMapInit! Entity: {uid} internal: {_entity}");
         if (map.MapId == _gameTicker.DefaultMap)
         {
-            _entity = Spawn();
+            if (_entity != EntityUid.Invalid)
+                return;
+
+            Spawn();
 
             foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
             {
