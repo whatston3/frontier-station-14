@@ -27,7 +27,7 @@
                     <Label
                         Text="{Loc 'frontier-lobby-station-title'}"
                         HorizontalExpand="True"
-                        StyleClasses="FancyWindowTitle" />
+                        StyleClasses="windowTitle" />
 
                     <TextureRect TexturePath="/Textures/_NF/Interface/Misc/arrow-right.png"
                                  HorizontalAlignment="Center"
@@ -38,7 +38,7 @@
                                  MaxSize="30 30"
                                  Stretch="KeepAspectCentered" />
                 </BoxContainer>
-                <nfCustomControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
+                <nfCustomControls:ColorHSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
 
                 <RichTextLabel Text="{Loc 'frontier-lobby-station-subtext'}" />
 
@@ -62,7 +62,7 @@
                     <Label
                         Text="{Loc 'frontier-lobby-crew-title'}"
                         HorizontalExpand="True"
-                        StyleClasses="FancyWindowTitle" />
+                        StyleClasses="windowTitle" />
 
                     <TextureRect TexturePath="/Textures/_NF/Interface/Misc/arrow-right.png"
                                  HorizontalAlignment="Center"
@@ -73,7 +73,7 @@
                                  MaxSize="30 30"
                                  Stretch="KeepAspectCentered" />
                 </BoxContainer>
-                <nfCustomControls:HSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
+                <nfCustomControls:ColorHSeparator SeparatorColor="#A3875A" StyleClasses="LowDivider" Margin="0 0 36 0" />
 
                 <RichTextLabel Text="{Loc 'frontier-lobby-crew-subtext'}" />
 

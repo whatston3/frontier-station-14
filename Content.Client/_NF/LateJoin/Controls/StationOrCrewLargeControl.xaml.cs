@@ -8,7 +8,7 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client._NF.LateJoin.Controls;
 
 [GenerateTypedNameReferences]
-public sealed partial class StationOrCrewLargeControl : PickerControl
+public sealed partial class StationOrCrewLargeControl : BasePickerControl
 {
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     private readonly ClientGameTicker _gameTicker;
@@ -20,7 +20,6 @@ public sealed partial class StationOrCrewLargeControl : PickerControl
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
-        _gameTicker.LobbyJobsAvailableUpdated += UpdateUi;
 
         StationButton.OnPressed += StationButtonOnOnPressed;
         CrewButton.OnPressed += CrewButtonOnOnPressed;
@@ -33,6 +32,12 @@ public sealed partial class StationOrCrewLargeControl : PickerControl
         NoStationsAvailableLabel.Visible = !StationJobInformationExtensions.IsAnyStationAvailable(obj);
         CrewButton.Disabled = !StationJobInformationExtensions.IsAnyCrewJobAvailable(obj);
         NoCrewsAvailableLabel.Visible = !StationJobInformationExtensions.IsAnyCrewJobAvailable(obj);
+    }
+
+    protected override void EnteredTree()
+    {
+        base.EnteredTree();
+        _gameTicker.LobbyJobsAvailableUpdated += UpdateUi;
     }
 
     protected override void ExitedTree()

@@ -10,13 +10,13 @@
                     MinSize="180 40">
                 <Label Name="StationTabLabel"
                        Text="{Loc 'frontier-lobby-station-title'}"
-                       StyleClasses="FancyWindowTitle" />
+                       StyleClasses="windowTitle" />
             </Button>
             <Button Name="CrewTabButton"
                     MinSize="180 40">
                 <Label Name="CrewTabLabel"
                        Text="{Loc 'frontier-lobby-crew-title'}"
-                       StyleClasses="FancyWindowTitle" />
+                       StyleClasses="windowTitle" />
             </Button>
         </BoxContainer>
         <PanelContainer VerticalExpand="True" HorizontalExpand="True">

@@ -8,14 +8,16 @@ public static class StationJobInformationExtensions
     public static bool IsAnyStationAvailable(IReadOnlyDictionary<NetEntity, StationJobInformation> obj)
     {
         return obj.Values.Any(station =>
-            station is { IsLateJoinStation: true, JobsAvailable.Count: > 0 }
+            station is { IsLateJoinStation: true } &&
+            (GetJobCount(station) > 0 || HasUnlimitedJobs(station))
         );
     }
 
     public static bool IsAnyCrewJobAvailable(IReadOnlyDictionary<NetEntity, StationJobInformation> obj)
     {
         return obj.Values.Any(station =>
-            station is { IsLateJoinStation: false, JobsAvailable.Count: > 0 }
+            station is { IsLateJoinStation: false } &&
+            (GetJobCount(station) > 0 || HasUnlimitedJobs(station))
         );
     }
 
@@ -57,25 +59,25 @@ public static class StationJobInformationExtensions
      * One source of truth for the logic of whether a station has unlimited positions in one of its jobs.
      * This is used to determine whether to display a "+" after the job count, or not to display the job count.
      */
-    private static bool HasUnlimitedJobs(this StationJobInformation stationJobInformation)
+    public static bool HasUnlimitedJobs(this StationJobInformation stationJobInformation)
     {
         return stationJobInformation.JobsAvailable.Values.Any(count => count == null);
     }
 
-    private static int? GetJobCount(this StationJobInformation stationJobInformation)
+    public static int? GetJobCount(this StationJobInformation stationJobInformation)
     {
         return stationJobInformation.JobsAvailable.Values.Sum();
     }
 
     public static string WrapJobCountInParentheses(this int? jobCount, bool hasUnlimitedJobs = false)
     {
-        if (jobCount is 0 or null)
+        if (jobCount is null)
         {
             return "";
         }
 
-        var jobCountString = jobCount > 0 ? $"{jobCount}" : "";
-        if (hasUnlimitedJobs && jobCount > 0)
+        var jobCountString = $"{jobCount}";
+        if (hasUnlimitedJobs)
         {
             jobCountString += "+";
         }

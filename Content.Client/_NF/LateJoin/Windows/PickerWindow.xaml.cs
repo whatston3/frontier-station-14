@@ -28,7 +28,7 @@ public sealed partial class PickerWindow : FancyWindow
         Station,
     }
 
-    public record PickerTab(PickerType Type, PickerControl Control);
+    public record PickerTab(PickerType Type, BasePickerControl Control);
 
     private PickerTab? _currentTab;
 
@@ -37,7 +37,6 @@ public sealed partial class PickerWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
-        _gameTicker.LobbyJobsAvailableUpdated += UpdateUi;
         _sawmill = Logger.GetSawmill("latejoin");
 
         CrewTabButton.OnPressed += _ =>
@@ -62,8 +61,14 @@ public sealed partial class PickerWindow : FancyWindow
         // This is the place to change the default tab.
         if (_currentTab == null)
         {
-            SetCurrentTab(PickerType.StationOrCrewLarge);
+            SetCurrentTab(PickerType.Station);
         }
+    }
+
+    protected override void EnteredTree()
+    {
+        base.EnteredTree();
+        _gameTicker.LobbyJobsAvailableUpdated += UpdateUi;
     }
 
     protected override void ExitedTree()
@@ -113,12 +118,12 @@ public sealed partial class PickerWindow : FancyWindow
                 stationOrCrewLargeControl.OnTabChange ??= SetCurrentTab;
                 break;
             case PickerType.Crew:
-                var crewPickerControl = new CrewPickerControl();
+                var crewPickerControl = new PickerControl(PickerType.Crew);
                 _currentTab = new PickerTab(pickerType, crewPickerControl);
                 crewPickerControl.OnJobJoined ??= JoinGame;
                 break;
             case PickerType.Station:
-                var stationPickerControl = new StationPickerControl();
+                var stationPickerControl = new PickerControl(PickerType.Station);
                 _currentTab = new PickerTab(pickerType, stationPickerControl);
                 stationPickerControl.OnJobJoined ??= JoinGame;
                 break;

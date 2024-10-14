@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client._NF.LateJoin.Interfaces;
 using Content.Client._NF.LateJoin.ListItems;
+using Content.Client._NF.LateJoin.Windows;
 using Content.Client.Lobby;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
@@ -14,7 +15,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Client._NF.LateJoin.Controls;
 
 [GenerateTypedNameReferences]
-public sealed partial class CrewPickerControl : PickerControl
+public sealed partial class PickerControl : BasePickerControl
 {
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
@@ -22,16 +23,27 @@ public sealed partial class CrewPickerControl : PickerControl
     [Dependency] private readonly JobRequirementsManager _jobReqs = default!;
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
     private readonly SpriteSystem _spriteSystem;
+    private readonly PickerWindow.PickerType _pickerType;
 
-    public CrewPickerControl()
+    // Default ctor assumes crew picker type
+    public PickerControl()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
+        _pickerType = PickerWindow.PickerType.Crew;
+    }
+
+    public PickerControl(PickerWindow.PickerType pickerType)
+    {
+        RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
+        _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
+        _pickerType = pickerType;
     }
 
     private Dictionary<NetEntity, StationJobInformation> _lobbyJobs = new();
-    private CrewListItem.ViewState? _lastSelectedStation;
+    private LateJoinListItem.ViewState? _lastSelectedStation;
     public Action<NetEntity, string>? OnJobJoined;
 
     public override void UpdateUi(IReadOnlyDictionary<NetEntity, StationJobInformation> obj)
@@ -41,7 +53,7 @@ public sealed partial class CrewPickerControl : PickerControl
 
         foreach (var stationViewState in BuildStationViewStateList(_lobbyJobs))
         {
-            var item = new CrewListItem(stationViewState);
+            var item = new LateJoinListItem(_pickerType, stationViewState);
             item.StationButton.OnPressed += _ => OnStationPressed(stationViewState);
             StationItemList.AddChild(item);
         }
@@ -58,13 +70,13 @@ public sealed partial class CrewPickerControl : PickerControl
             StationJobItemList.AddChild(item);
         }
 
-        StationName.Text = _lastSelectedStation?.StationName ?? "";
+        StationName.Text = _lastSelectedStation?.StationDisplayName ?? "";
         StationDescription.Text = _lastSelectedStation?.StationDescription ?? "";
     }
 
-    private void OnStationPressed(CrewListItem.ViewState stationItemViewState)
+    private void OnStationPressed(LateJoinListItem.ViewState viewState)
     {
-        _lastSelectedStation = stationItemViewState;
+        _lastSelectedStation = viewState;
         UpdateUi(_lobbyJobs);
     }
 
@@ -115,16 +127,17 @@ public sealed partial class CrewPickerControl : PickerControl
      * @param stationNames Dictionary of station entities to station names.
      * @return List of view states for each station.
      */
-    private List<CrewListItem.ViewState> BuildStationViewStateList(
+    private List<LateJoinListItem.ViewState> BuildStationViewStateList(
         IReadOnlyDictionary<NetEntity, StationJobInformation> obj)
     {
-        var stationList = obj.Where(kvp => !kvp.Value.IsLateJoinStation).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-        var viewStateList = new List<CrewListItem.ViewState>();
+        var stationList = obj.Where(kvp => IncludeStationPredicate(kvp.Value)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        var viewStateList = new List<LateJoinListItem.ViewState>();
 
         foreach (var (stationEntity, stationJobInformation) in stationList)
         {
-            var viewState = new CrewListItem.ViewState(
+            var viewState = new LateJoinListItem.ViewState(
                 stationEntity,
+                stationJobInformation.StationName,
                 stationJobInformation.GetStationNameWithJobCount(),
                 stationJobInformation.StationSubtext != null
                     ? _loc.GetString(stationJobInformation.StationSubtext)
@@ -133,6 +146,7 @@ public sealed partial class CrewPickerControl : PickerControl
                     ? _loc.GetString(stationJobInformation.StationDescription)
                     : "",
                 _lastSelectedStation?.StationEntity == stationEntity,
+                GetStationVisible(stationJobInformation),
                 stationJobInformation.StationIcon?.CanonPath
             );
 
@@ -154,5 +168,28 @@ public sealed partial class CrewPickerControl : PickerControl
                 ? int.MaxValue
                 : obj[viewState.StationEntity].LobbySortOrder)
             .ToList();
+    }
+
+    // Return whether a given station should be visible or not
+    private bool GetStationVisible(StationJobInformation? jobInfo)
+    {
+        if (jobInfo == null)
+            return false;
+
+        // All stations should be visible.
+        if (_pickerType == PickerWindow.PickerType.Station)
+            return true;
+
+        // If picking for crew (also default behavior), only show ships with active jobs
+        return jobInfo.GetJobCount() > 0 || jobInfo.HasUnlimitedJobs();
+    }
+
+    // Whether or not to include the station
+    private bool IncludeStationPredicate(StationJobInformation jobInfo)
+    {
+        if (_pickerType == PickerWindow.PickerType.Station)
+            return jobInfo.IsLateJoinStation;
+        else
+            return !jobInfo.IsLateJoinStation;
     }
 }
