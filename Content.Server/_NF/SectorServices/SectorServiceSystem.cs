@@ -25,34 +25,32 @@ public sealed class SectorServiceSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentInit>(OnMapInit);
+        SubscribeLocalEvent<StationSectorServiceHostComponent, ComponentRemove>(OnMapRemove);
         //SubscribeLocalEvent<MapComponent, ComponentInit>(OnMapInit);
         //SubscribeLocalEvent<MapComponent, ComponentRemove>(OnMapRemove);
     }
 
-    private void OnMapInit(EntityUid uid, MapComponent map, ComponentInit args)
+    private void OnMapInit(EntityUid uid, StationSectorServiceHostComponent map, ComponentInit args)
     {
         Log.Debug($"OnMapInit! Entity: {uid} internal: {_entity}");
-        if (map.MapId == _gameTicker.DefaultMap)
+
+        if (_entity != EntityUid.Invalid)
+            return;
+
+        Spawn();
+
+        foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
         {
-            if (_entity != EntityUid.Invalid)
-                return;
-
-            Spawn();
-
-            foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
-            {
-                Log.Debug($"Adding components for service {servicePrototype.ID}");
-                _entityManager.AddComponents(_entity, servicePrototype.Components, false); // removeExisting false - do not override existing components.
-            }
+            Log.Debug($"Adding components for service {servicePrototype.ID}");
+            _entityManager.AddComponents(_entity, servicePrototype.Components, false); // removeExisting false - do not override existing components.
         }
     }
 
-    private void OnMapRemove(EntityUid uid, MapComponent map, ComponentRemove args)
+    private void OnMapRemove(EntityUid uid, StationSectorServiceHostComponent map, ComponentRemove args)
     {
         Log.Debug($"OnMapRemove! Entity: {_entity}");
-        if (map.MapId == _gameTicker.DefaultMap)
+        if (_entity != EntityUid.Invalid)
         {
             Del(_entity);
             _entity = EntityUid.Invalid;
