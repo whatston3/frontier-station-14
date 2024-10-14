@@ -152,7 +152,8 @@ public sealed partial class PickerControl : BasePickerControl
 
             // Always select the first station in the list if none is selected yet.
             // This is because otherwise the right side of the screen would then be a blank space.
-            if (_lastSelectedStation == null)
+            if (_lastSelectedStation == null &&
+                (stationJobInformation.GetJobCount() > 0 || stationJobInformation.HasUnlimitedJobs()))
             {
                 _lastSelectedStation = viewState;
                 viewState.Selected = true;

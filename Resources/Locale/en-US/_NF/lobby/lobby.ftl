@@ -1,4 +1,4 @@
-﻿frontier-lobby-station-title = Stations
+frontier-lobby-station-title = Stations
 frontier-lobby-available-jobs = Available Jobs
 frontier-lobby-no-stations-available = There are no stations available at this time.
 frontier-lobby-no-crews-available = Currently there are no captains looking for crew.

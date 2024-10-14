@@ -295,7 +295,7 @@ namespace Content.Client.LateJoin
         // Frontier: change params to use StationJobInformation class.
         private void JobsAvailableUpdated(IReadOnlyDictionary<NetEntity, StationJobInformation> updatedJobs)
         {
-            // Made this more readable with simplified comparisons and LINQ expressions.
+            // Made this more readable with simplified comparisons and
             // Feel free to replace this with upstream code whenever, just mind that
             // updatedJobs is now a dictionary of NetEntity to StationJobInformation.
             // I changed this: jobInformation.TryGetValue   to this: jobInformation.JobsAvailable.TryGetValue
