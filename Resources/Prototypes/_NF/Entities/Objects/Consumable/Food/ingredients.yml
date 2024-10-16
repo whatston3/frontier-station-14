@@ -203,6 +203,7 @@
   - type: Construction
     graph: Coffee
     node: dark roasted coffee
+    defaultTarget: Null
 
 - type: reagent
   id: OilVegetable

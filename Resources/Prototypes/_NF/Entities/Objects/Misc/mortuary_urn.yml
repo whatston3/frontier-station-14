@@ -30,8 +30,17 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: []
-      ashes_slot: !type:ContainerSlot {}
+      ashes_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      paper_label: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: Appearance
   - type: GenericVisualizer
     visuals:
