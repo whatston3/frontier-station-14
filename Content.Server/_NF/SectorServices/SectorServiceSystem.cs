@@ -33,12 +33,17 @@ public sealed class SectorServiceSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, StationSectorServiceHostComponent map, ComponentInit args)
     {
-        Log.Debug($"OnMapInit! Entity: {uid} internal: {_entity}");
+        Log.Debug($"OnMapInit! Entity: {uid.Id} internal: {_entity.Id}");
 
         if (_entity != EntityUid.Invalid)
             return;
 
-        Spawn();
+        _entity = Spawn();
+        if (!_entity.Valid)
+        {
+            Log.Error($"OnMapInit! Invalid host returned for Spawn.");
+            return;
+        }
 
         foreach (var servicePrototype in _prototypeManager.EnumeratePrototypes<SectorServicePrototype>())
         {
@@ -49,7 +54,7 @@ public sealed class SectorServiceSystem : EntitySystem
 
     private void OnMapRemove(EntityUid uid, StationSectorServiceHostComponent map, ComponentRemove args)
     {
-        Log.Debug($"OnMapRemove! Entity: {_entity}");
+        Log.Debug($"OnMapRemove! Entity: {_entity.Id}");
         if (_entity != EntityUid.Invalid)
         {
             Del(_entity);

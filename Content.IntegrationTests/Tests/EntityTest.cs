@@ -102,11 +102,21 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Select(p => p.ID)
                     .ToList();
+                bool anyException = false;
                 foreach (var protoId in protoIds)
                 {
                     Logger.Info($"Spawning proto {protoId}");
-                    entityMan.SpawnEntity(protoId, map.GridCoords);
+                    try
+                    {
+                        entityMan.SpawnEntity(protoId, map.GridCoords);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.Info($"Exception while spawning proto {protoId}: \"{e.Message}\" {e.StackTrace}");
+                        anyException = true;
+                    }
                 }
+                Assert.That(anyException, Is.EqualTo(false), "One or more exceptions occurred during entity spawn.");
             });
             await server.WaitRunTicks(15);
             await server.WaitPost(() =>
@@ -121,12 +131,25 @@ namespace Content.IntegrationTests.Tests
                     }
                 }
 
+                bool anyException = false;
                 var entityMetas = Query<MetaDataComponent>(entityMan).ToList();
                 foreach (var (uid, meta) in entityMetas)
                 {
-                    if (!meta.EntityDeleted)
-                        entityMan.DeleteEntity(uid);
+                    Logger.Info($"Deleting entity {meta.EntityPrototype?.ID ?? "null"} ({uid})");
+                    try
+                    {
+                        if (!meta.EntityDeleted)
+                            entityMan.DeleteEntity(uid);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.Info($"Exception while deleting entity {meta.EntityPrototype?.ID ?? "null"} ({uid}): \"{e.Message}\" {e.StackTrace}");
+                        anyException = true;
+                    }
                 }
+
+                Assert.That(anyException, Is.EqualTo(false), "One or more exceptions occurred during entity deletion.");
+
 
                 Assert.That(entityMan.EntityCount, Is.Zero);
             });
