@@ -8,6 +8,7 @@
     singleUser: true
   - type: Computer
     board: Null
+  - type: ItemSlots
 
 - type: entity
   name: bank ATM
@@ -32,7 +33,6 @@
     interfaces:
       enum.BankATMMenuUiKey.ATM:
         type: BankATMMenuBoundUserInterface
-  - type: ItemSlots
   - type: ContainerContainer
     containers:
       board: !type:Container

@@ -52,6 +52,7 @@
   #   key: enum.CardUiKey.Key # Frontier
   - type: StaticPrice # Frontier
     price: 0.01 # Frontier
+  - type: ContainerContainer # Frontier
 
 - type: entity
   parent: BaseItem

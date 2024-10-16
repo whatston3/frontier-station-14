@@ -22,6 +22,10 @@
         decal2:
           True: { visible: false }
           False: { visible: true }
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
 
 # Fuel / materials storage
 - type: entity
