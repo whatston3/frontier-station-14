@@ -17,7 +17,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
-using FastAccessors;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.IntegrationTests.Tests._NF;
@@ -45,7 +44,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_NF/Shuttles/Bus/publicts.yml",
         };
 
-        private static readonly string[] GameMaps = FrontierConstants.GameMapPrototypes; // Frontier: use test constants
+        private static readonly string[] GameMaps = FrontierConstants.GameMapPrototypes; // Frontier: not inline constants
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
