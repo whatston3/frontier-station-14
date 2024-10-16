@@ -104,6 +104,7 @@ namespace Content.IntegrationTests.Tests
                     .ToList();
                 foreach (var protoId in protoIds)
                 {
+                    Logger.Info($"Spawning proto {protoId}");
                     entityMan.SpawnEntity(protoId, map.GridCoords);
                 }
             });
