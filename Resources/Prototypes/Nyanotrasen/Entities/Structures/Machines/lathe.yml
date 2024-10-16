@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseLatheLube, BlueprintReceiverBase ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
+  parent: [ BlueprintReceiverBase, BaseLatheLube ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
   id: ScienceTechFab
   name: science techfab
   description: Prints equipment for use by the epistemics department.
@@ -107,25 +107,9 @@
         - Sheet
         - RawMaterial
         - Ingot
-  # Frontier
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      blueprint: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-  # End Frontier
 
 - type: entity
-  parent: [ BaseLatheLube, BlueprintReceiverBase ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
+  parent: [ BlueprintReceiverBase, BaseLatheLube ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
   id: ServiceTechFab
   name: service techfab
   description: Prints equipment for service staff.
@@ -284,7 +268,7 @@
         - Ingot
 
 - type: entity
-  parent: [ BaseLatheLube, BlueprintReceiverBase ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
+  parent: [ BlueprintReceiverBase, BaseLatheLube ] # Frontier: Protolathe<BaseLatheLube, added BlueprintReceiverBase
   id: EngineeringTechFab
   name: engineering techfab
   description: Prints equipment for engineers.

@@ -232,6 +232,8 @@
     - type: MarketModifier
       mod: 1
     - type: ContainerContainer
+      containers:
+        board: !type:Container
       
 - type: entity
   name: cargo market computer

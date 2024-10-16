@@ -191,7 +191,7 @@
 # Other: Chemistry wall locker
 - type: entity
   id: LockerWallChemistry
-  parent: [LockerWallMedical, BaseStructureWallmount]
+  parent: [BaseStructureWallmount, LockerWallMedical]
   name: chemistry wall locker
   components:
   - type: Sprite
@@ -201,7 +201,10 @@
     stateBaseClosed: med
     stateDoorOpen: med_open
     stateDoorClosed: chem_door
-
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
   
 - type: entity
   id: ClosetWallN2
