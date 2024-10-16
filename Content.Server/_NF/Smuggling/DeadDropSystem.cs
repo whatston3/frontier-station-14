@@ -198,9 +198,7 @@ public sealed class DeadDropSystem : EntitySystem
         // Remove the dead drop.
         RemComp<DeadDropComponent>(uid);
 
-        // Get our station: FIXME - check lifecycle on entities before adding another drop.
         var station = _station.GetOwningStation(uid);
-
         // If station is terminating, or if we aren't on one, nothing to do here.
         if (station == null ||
             !station.Value.Valid ||
@@ -209,7 +207,7 @@ public sealed class DeadDropSystem : EntitySystem
             return;
         }
 
-        // Find a new potential dead drop to spawn.
+        //Find a new potential dead drop to spawn.
         var deadDropQuery = EntityManager.EntityQueryEnumerator<PotentialDeadDropComponent>();
         List<(EntityUid ent, PotentialDeadDropComponent comp)> potentialDeadDrops = new();
         while (deadDropQuery.MoveNext(out var ent, out var potentialDeadDrop))
@@ -229,6 +227,12 @@ public sealed class DeadDropSystem : EntitySystem
         if (potentialDeadDrops.Count > 0)
         {
             var item = _random.Pick(potentialDeadDrops);
+
+            // If the item is tearing down, do nothing for now.
+            // FIXME: separate sector-wide scheduler?
+            if (MetaData(item.ent).EntityLifeStage >= EntityLifeStage.Terminating)
+                return;
+
             AddDeadDrop(item.ent);
             _sawmill.Debug($"Dead drop at {uid} compromised, new drop at {item.ent}!");
         }
