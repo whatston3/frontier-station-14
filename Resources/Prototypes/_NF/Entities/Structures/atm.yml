@@ -8,7 +8,11 @@
     singleUser: true
   - type: Computer
     board: Null
+<<<<<<< HEAD
   - type: ItemSlots
+=======
+  - type: ItemSlots # TODO: move ItemSlot to be nullable, withdraw shouldn't have one at all
+>>>>>>> erhard/2024-10-Recyclable-Clothing
   - type: ContainerContainer
     containers:
       board: !type:Container

@@ -80,9 +80,6 @@
   - type: ContainerContainer
     containers:
       paper_label: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
 
 - type: entity
   parent: DrinkKegBase

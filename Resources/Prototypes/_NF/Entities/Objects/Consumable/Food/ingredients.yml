@@ -203,7 +203,7 @@
   - type: Construction
     graph: Coffee
     node: dark roasted coffee
-    defaultTarget: Null
+    defaultTarget: Null # Overwriting light target
 
 - type: reagent
   id: OilVegetable

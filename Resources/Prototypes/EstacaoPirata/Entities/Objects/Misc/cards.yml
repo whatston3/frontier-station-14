@@ -31,9 +31,15 @@
   - type: StaticPrice # Frontier
     price: 200 # Frontier
 
+<<<<<<< HEAD
 # Frontier: 
 - type: entity
   parent: BaseItem
+=======
+# Frontier: base stack for card stack component
+- type: entity
+  parent: [BaseItem, RecyclableItemNoMats] # Frontier: added RecyclableItemNoMats
+>>>>>>> erhard/2024-10-Recyclable-Clothing
   id: CardStackBase
   name: stack of cards
   abstract: true
@@ -47,7 +53,11 @@
 # End Frontier
 
 - type: entity
+<<<<<<< HEAD
   parent: CardStackBase # Frontier: BaseItem<CardStackBase
+=======
+  parent: CardStackBase
+>>>>>>> erhard/2024-10-Recyclable-Clothing
   id: CardHandBase
   categories: [ HideSpawnMenu ]
   name: hand of cards
@@ -66,7 +76,11 @@
     price: 0.01 # Frontier
 
 - type: entity
+<<<<<<< HEAD
   parent: CardStackBase # Frontier: BaseItem<CardStackBase
+=======
+  parent: CardStackBase
+>>>>>>> erhard/2024-10-Recyclable-Clothing
   id: CardDeckBase
   categories: [ HideSpawnMenu ]
   name: deck of cards
@@ -77,6 +91,10 @@
   - type: Item
     size: Normal
   - type: CardDeck
+<<<<<<< HEAD
+=======
+
+>>>>>>> erhard/2024-10-Recyclable-Clothing
 
 - type: entity
   parent: CardBoxBase
@@ -193,7 +211,11 @@
   - type: StaticPrice # Frontier
     price: 0.01 # Frontier
 
+<<<<<<< HEAD
 # region Black Deck
+=======
+# region Black Cards
+>>>>>>> erhard/2024-10-Recyclable-Clothing
 
 - type: entity
   parent: CardBase
@@ -783,4 +805,8 @@
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: black_joker
 
+<<<<<<< HEAD
 # endregion Black Deck
+=======
+# endregion Black Deck
+>>>>>>> erhard/2024-10-Recyclable-Clothing

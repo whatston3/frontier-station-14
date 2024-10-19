@@ -37,7 +37,7 @@
     board: ThrusterSecurityMachineCircuitboard
   - type: ContainerContainer
     containers:
-      machine_board: !type:Container
+      machine_board: !type:Container # FIXME: Why do these need to be defined here?  What's missing?
       machine_parts: !type:Container
 
 - type: entity
@@ -62,7 +62,7 @@
     board: GyroscopeSecurityMachineCircuitboard
   - type: ContainerContainer
     containers:
-      machine_board: !type:Container
+      machine_board: !type:Container # FIXME: Why do these need to be defined here?  What's missing?
       machine_parts: !type:Container
 
 - type: entity

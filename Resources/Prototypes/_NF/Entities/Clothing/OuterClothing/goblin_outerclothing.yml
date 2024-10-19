@@ -38,13 +38,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
       storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
   - type: StaticPrice
     price: 65
   - type: Construction
