@@ -6,7 +6,7 @@ using System.Text;
 using Content.Shared.Chat;
 using System.Linq;
 using Content.Shared.Audio;
-using Content.Shared.CCVar;
+using CCVars = Content.Shared._EE.CCVar.EECCVars; // Frontier
 
 namespace Content.Server.Supermatter.Systems;
 
