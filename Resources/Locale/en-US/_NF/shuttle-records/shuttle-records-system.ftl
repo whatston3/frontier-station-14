@@ -3,8 +3,8 @@ shuttle-records-copy-deed-button = Copy Deed to ID Card
 shuttle-records-shuttle-name-label = Shuttle Name: {$name}
 shuttle-records-shuttle-owner-label = Purchased by: {$owner}
 shuttle-records-shuttle-status = Shuttle Status: {$status}
-shuttle-records-shuttle-status-active = Recent activity found
-shuttle-records-shuttle-status-inactive = No recent activity
+shuttle-records-shuttle-status-active = Active in sector
+shuttle-records-shuttle-status-inactive = Sold or deleted
 shuttle-records-transactions = List of Transactions
 shuttle-records-detail-title = Selected Shuttle Details
 shuttle-records-no-idcard = No ID card present.
@@ -15,3 +15,5 @@ shuttle-records-no-access = Access denied.
 shuttle-records-transaction-cost = Transaction Cost: {$cost}
 shuttle-records-search = Search ship or captain
 shuttle-records-time-of-purchase = Time of purchase: [color=white]{ $time }[/color]
+shuttle-records-show-active-only = Only show active ships
+shuttle-records-purchased-voucher = Shuttle was purchased on a voucher.
