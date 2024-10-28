@@ -21,7 +21,12 @@ public sealed partial class IdCardComponent : Component
     [DataField]
     [AutoNetworkedField]
     [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
-    public string? JobTitle;
+    public LocId? JobTitle; // Cherry-picked from #32338
+
+    private string? _jobTitle; // Cherry-picked from #32338
+
+    [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWriteExecute)] // Cherry-picked from #32338
+    public string? LocalizedJobTitle { set => _jobTitle = value; get => _jobTitle ?? Loc.GetString(JobTitle ?? string.Empty); } // Cherry-picked from #32338
 
     /// <summary>
     /// The state of the job icon rsi.
