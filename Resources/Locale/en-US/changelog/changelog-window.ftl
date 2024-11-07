@@ -12,4 +12,5 @@ changelog-button-new-entries = Changelog (new!)
 
 # Frontier: Changelog<Upstream
 changelog-tab-title-Changelog = Upstream
-changelog-tab-title-Admin = Admin
+# Frontier: Admin<"Upstream Admin"
+changelog-tab-title-Admin = Upstream Admin
