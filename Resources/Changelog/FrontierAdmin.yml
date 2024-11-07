@@ -1,0 +1,11 @@
+AdminOnly: true
+Name: FrontierAdmin
+Entries:
+- author: whatston3
+  changes:
+  - message: Added a Frontier Admin changelog tab.
+    type: Add
+  id: 1
+  time: '2024-11-07T16:00:00.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/2359#issuecomment-2453274010
+Order: 2

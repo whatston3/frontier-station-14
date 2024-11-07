@@ -8,8 +8,18 @@ if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `
 
 // Regexes
 const HeaderRegex = /^\s*(?::cl:|🆑) *([a-z0-9_\- ]+)?\s+/im; // :cl: or 🆑 [0] followed by optional author name [1]
+const HeaderFileRegex = /^\s*(?::page_with_curl:|📃) *([a-z0-9_\- ]+)\s+/im; // :page_with_curl: or 📃 [0] followed by changelog name [1]
 const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img; // * or - followed by change type [0] and change message [1]
 const CommentRegex = /<!--.*?-->/gs; // HTML comments
+
+const MaxEntries = 500
+const DefaultFile = "frontier"
+
+// Set of valid header files and their values.
+const FileNames = {
+    "frontier": "Frontier",
+    "admin": "FrontierAdmin"
+}
 
 // Main function
 async function main() {
@@ -33,9 +43,21 @@ async function main() {
         author = user.login;
     }
 
-    // Get all changes from the body
-    const entries = getChanges(commentlessBody);
+    // Get changelog key
+    const headerFileMatch = HeaderFileRegex.exec(commentlessBody);
+    let headerFile = DefaultFile
+    if (headerFileMatch) {
+        headerFile = headerFileMatch[1].toLowerCase();
+    }
 
+    // If changelog key is invalid, we have no file to write to.
+    if (!(headerFile in FileNames)) {
+        console.log(`No changelog file found for file key ${fileMatch}, skipping.`);
+        return;
+    }
+
+    // Get all changes from the body
+    const changes = getChanges(commentlessBody);
 
     // Time is something like 2021-08-29T20:00:00Z
     // Time should be something like 2023-02-18T00:00:00.0000000+00:00
@@ -50,17 +72,37 @@ async function main() {
         return;
     }
 
+    // Read changelog file if it exists
+    const changelogFilePath = `../../${process.env.CHANGELOG_DIR}/${changelogFile}.yml`;
+    data = null;
+    if (fs.existsSync(changelogFilePath)) {
+        const file = fs.readFileSync(changelogFilePath, "utf8");
+        data = yaml.load(file);
+    }
+
+    // Get list of CL numbers
+    if (!data)
+        data = { Entries: [] }
+    entries = data && data.Entries ? Array.from(data.Entries) : [];
 
     // Construct changelog yml entry
     const entry = {
         author: author,
-        changes: entries,
+        changes: changes,
         id: getHighestCLNumber() + 1,
         time: time,
     };
 
-    // Write changelogs
-    writeChangelog(entry);
+    // Truncate file to known length
+    data.Entries.push(entry);
+    if (data.Entries.length() > MaxEntries)
+        data.Entries = data.Entries.slice(data.Entries.length() - MaxEntries);
+
+    // Write updated changelogs file
+    fs.writeFileSync(
+        changelogFilePath,
+        yaml.dump(data, { indent: 2 }).replace(/^---/, "")
+    );
 
     console.log(`Changelog updated with changes from PR #${process.env.PR_NUMBER}`);
 }
@@ -82,7 +124,6 @@ function getChanges(body) {
         console.log("No changes found, skipping");
         return;
     }
-
 
     // Check change types and construct changelog entry
     matches.forEach((entry) => {
@@ -117,36 +158,12 @@ function getChanges(body) {
 }
 
 // Get the highest changelog number from the changelogs file
-function getHighestCLNumber() {
-    // Read changelogs file
-    const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
-
+function getHighestCLNumber(entries) {
     // Get list of CL numbers
-    const data = yaml.load(file);
-    const entries = data && data.Entries ? Array.from(data.Entries) : [];
     const clNumbers = entries.map((entry) => entry.id);
 
     // Return highest changelog number
     return Math.max(...clNumbers, 0);
-}
-
-function writeChangelog(entry) {
-    let data = { Entries: [] };
-
-    // Create a new changelogs file if it does not exist
-    if (fs.existsSync(`../../${process.env.CHANGELOG_DIR}`)) {
-        const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
-        data = yaml.load(file);
-    }
-
-    data.Entries.push(entry);
-
-    // Write updated changelogs file
-    fs.writeFileSync(
-        `../../${process.env.CHANGELOG_DIR}`,
-        "Entries:\n" +
-            yaml.dump(data.Entries, { indent: 2 }).replace(/^---/, "")
-    );
 }
 
 // Run main
