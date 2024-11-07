@@ -12,8 +12,8 @@ const HeaderFileRegex = /^\s*(?::page_with_curl:|📃) *([a-z0-9_\- ]+)\s+/im; /
 const EntryRegex = /^ *[*-]? *(add|remove|tweak|fix): *([^\n\r]+)\r?$/img; // * or - followed by change type [0] and change message [1]
 const CommentRegex = /<!--.*?-->/gs; // HTML comments
 
-const MaxEntries = 500
-const DefaultFile = "frontier"
+const MaxEntries = 500;
+const DefaultFile = "frontier";
 
 // Set of valid header files and their values.
 const FileNames = {
@@ -45,7 +45,7 @@ async function main() {
 
     // Get changelog key
     const headerFileMatch = HeaderFileRegex.exec(commentlessBody);
-    let headerFile = DefaultFile
+    let headerFile = DefaultFile;
     if (headerFileMatch) {
         headerFile = headerFileMatch[1].toLowerCase();
     }
