@@ -6,31 +6,43 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/cryogenics.rsi
-    drawdepth: Mobs
-    noRot: true
+    drawdepth: OverMobs # Frontier: Mobs<OverMobs - note: overwritten in CryoPodSystem
+    granularLayersRendering: true # Frontier
+    noRot: true # Frontier
     offset: 0, 0.5
     layers:
-      - sprite: Structures/Piping/Atmospherics/pipe.rsi
-        state: pipeHalf
+      - sprite: _NF/Structures/Piping/Atmospherics/pipe.rsi # Frontier: _NF prefix
+        state: pipeHalfSouth # Frontier: pipeHalf<pipeHalfSouth
         offset: 0, -0.5
         map: [ "enum.PipeVisualLayers.Pipe" ]
+        renderingStrategy: SnapToCardinals # Frontier
+      - sprite: Structures/Piping/Atmospherics/pipe.rsi # Frontier
+        state: pipeConnector # Frontier
+        offset: 0, -0.5 # Frontier
+        map: [ "enum.PipeConnectionLayer.SouthConnection" ] # Frontier
+        #renderingStrategy: SnapToCardinals # Frontier: throws exceptions
+        renderingStrategy: Default # Frontier
       - state: pod-open
         map: [ "enum.CryoPodVisualLayers.Base" ]
+        renderingStrategy: NoRotation # Frontier
       - state: cover-on
         map: [ "enum.CryoPodVisualLayers.Cover" ]
         visible: false
+        renderingStrategy: NoRotation # Frontier
       - state: pod-panel
         map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
         visible: false
+        renderingStrategy: NoRotation # Frontier
   - type: InteractionOutline
   - type: Transform
-    noRot: true
+    noRot: false # Frontier: true<false
+    anchored: true # Frontier
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.90"
+          bounds: "-0.5,-0.5,0.5,0.5" # Frontier: last number 0.90<0.50
         density: 200
         mask:
           - MachineMask
@@ -113,3 +125,10 @@
   - type: GuideHelp
     guides:
     - Cryogenics
+  - type: PipeColorVisuals # Frontier
+  - type: PipeAppearance # Frontier
+    offset: 0.0, -0.5 # Frontier
+  - type: AtmosPipeColor # Frontier
+  - type: PipeRestrictOverlap # Frontier
+  - type: Anchorable # Frontier
+  - type: Rotatable # Frontier

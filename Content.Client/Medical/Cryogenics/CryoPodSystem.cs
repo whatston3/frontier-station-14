@@ -63,11 +63,11 @@ public sealed class CryoPodSystem: SharedCryoPodSystem
         {
             args.Sprite.LayerSetState(CryoPodVisualLayers.Base, "pod-open");
             args.Sprite.LayerSetVisible(CryoPodVisualLayers.Cover, false);
-            args.Sprite.DrawDepth = (int) DrawDepth.Objects;
+            args.Sprite.DrawDepth = (int) DrawDepth.OverMobs; // Frontier: Objects<OverMobs
         }
         else
         {
-            args.Sprite.DrawDepth = (int) DrawDepth.Mobs;
+            args.Sprite.DrawDepth = (int) DrawDepth.OverMobs; // Frontier: Mobs<OverMobs
             args.Sprite.LayerSetState(CryoPodVisualLayers.Base, isOn ? "pod-on" : "pod-off");
             args.Sprite.LayerSetState(CryoPodVisualLayers.Cover, isOn ? "cover-on" : "cover-off");
             args.Sprite.LayerSetVisible(CryoPodVisualLayers.Cover, true);
