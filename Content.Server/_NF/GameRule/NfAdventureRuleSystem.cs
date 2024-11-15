@@ -436,27 +436,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponen
                     shuttle.LinearDamping = dampingStrength;
                 }
 
-                if (proto.BusStop)
-                {
-                    EnsureComp<StationTransitComponent>(grid);
-                }
-
-                if (proto.GridProtection != GridProtectionFlags.None)
-                {
-                    var prot = EnsureComp<ProtectedGridComponent>(grid);
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.FloorRemoval))
-                        prot.PreventFloorRemoval = true;
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.FloorPlacement))
-                        prot.PreventFloorPlacement = true;
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.RcdUse))
-                        prot.PreventRCDUse = true;
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.EmpEvents))
-                        prot.PreventEmpEvents = true;
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.Explosions))
-                        prot.PreventExplosions = true;
-                    if (proto.GridProtection.HasFlag(GridProtectionFlags.ArtifactTriggers))
-                        prot.PreventArtifactTriggers = true;
-                }
+                EntityManager.AddComponents(grid, proto.GridComponents);
             }
 
             // Rename warp points after set up if needed

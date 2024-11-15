@@ -16,8 +16,9 @@
   IFFColor: "#37C837" #green like the color of money
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepot.yml
-  gridProtection:
-    - ArtifactTriggers
+  gridComponents:
+  - type: ProtectedGrid
+    preventArtifactTriggers: true
 
 - type: pointOfInterest
   id: CargoDepotAlt
@@ -27,8 +28,9 @@
   IFFColor: "#37C837" #green like the color of money
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepotalt.yml
-  gridProtection:
-    - ArtifactTriggers
+  gridComponents:
+  - type: ProtectedGrid
+    preventArtifactTriggers: true
 
 - type: gameMap
   id: CargoDepot
@@ -53,4 +55,3 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Cargo Depot' # Has a letter appended in NfAdventureSystem
-  

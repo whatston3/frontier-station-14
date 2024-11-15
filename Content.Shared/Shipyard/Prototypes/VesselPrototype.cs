@@ -1,6 +1,4 @@
-using Content.Shared._NF.GameRule;
 using Content.Shared.Guidebook;
-using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -144,4 +142,19 @@ public enum VesselEngine : byte
     Plasma,
     Uranium,
     Bananium,
+}
+
+/// <summary>
+///     A set of flags showing what events a grid should be protected form.
+/// </summary>
+[Flags]
+public enum GridProtectionFlags : byte
+{
+    None = 0,
+    FloorRemoval = 1,
+    FloorPlacement = 2,
+    RcdUse = 4, // Rapid construction device use (quickly building/deconstructing walls, windows, etc.)
+    EmpEvents = 8,
+    Explosions = 16,
+    ArtifactTriggers = 32
 }

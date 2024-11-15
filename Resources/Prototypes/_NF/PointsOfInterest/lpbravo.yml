@@ -1,5 +1,5 @@
 # Author Info
-# GitHub: 
+# GitHub:
 # Discord: Checkraze
 
 # Maintainer Info
@@ -19,6 +19,8 @@
   hideWarp: true
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_NF/POI/lpbravo.yml
+  gridComponents:
+  - type: SyndicateFOB
 
 - type: gameMap
   id: LPBravo

@@ -1,5 +1,5 @@
 # Author Info
-# GitHub: 
+# GitHub:
 # Discord: MagnusCrowe
 
 # Maintainer Info
@@ -13,13 +13,14 @@
   name: Trade Outpost
   rangeMin: 1500
   rangeMax: 2500
-  IFFColor: "#37C837" 
+  IFFColor: "#37C837"
   spawnGroup: MarketStation
   gridPath: /Maps/_NF/POI/trade.yml
-  busStop: true
-  gridProtection:
-    - ArtifactTriggers
-  
+  gridComponents:
+  - type: StationTransit
+  - type: ProtectedGrid
+    preventArtifactTriggers: true
+
 - type: gameMap
   id: Trade
   mapName: 'Trade Outpost'
@@ -33,4 +34,3 @@
           mapNameTemplate: 'Trade Outpost'
         - type: StationDeadDrop
           maxDeadDrops: 3 # Many here, it's huge.
- 

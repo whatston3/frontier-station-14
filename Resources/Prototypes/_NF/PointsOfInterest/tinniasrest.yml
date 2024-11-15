@@ -16,7 +16,8 @@
   IFFColor: "#ffa600" #yellorange for faction style
   spawnGroup: RestStop
   gridPath: /Maps/_NF/POI/tinnia.yml
-  busStop: true
+  gridComponents:
+  - type: StationTransit
 
 - type: gameMap
   id: Tinnia

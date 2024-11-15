@@ -16,7 +16,8 @@
   IFFColor: "#3737C8" #blue the color of NT
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/lodge.yml
-  busStop: true
+  gridComponents:
+  - type: StationTransit
 
 - type: gameMap
   id: Lodge

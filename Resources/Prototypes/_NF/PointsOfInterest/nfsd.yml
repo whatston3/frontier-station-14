@@ -16,8 +16,9 @@
   IFFColor: "#8e6444" #brown to match the color of uniform and the color of the pants of the nearest pirates
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/nfsd.yml
-  gridProtection:
-  - EmpEvents
+  gridComponents:
+  - type: ProtectedGrid
+    preventEmpEvents: true
 
 - type: gameMap
   id: Nfsd

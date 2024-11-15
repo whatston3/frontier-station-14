@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared.Shuttles.Components;
 
@@ -9,7 +8,7 @@ namespace Content.Shared._NF.GameRule;
 ///     Describes information for a single point of interest to be spawned in the world
 /// </summary>
 [Prototype("pointOfInterest")]
-[Serializable, NetSerializable]
+[Serializable]
 public sealed partial class PointOfInterestPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -29,7 +28,7 @@ public sealed partial class PointOfInterestPrototype : IPrototype
     public bool NameWarp { get; set; } = true;
 
     /// <summary>
-    /// Should we set the warppoint name based on the grid name.
+    /// If true, makes the warp point admin-only (hiding it for players).
     /// </summary>
     [DataField]
     public bool HideWarp { get; set; } = false;
@@ -71,12 +70,6 @@ public sealed partial class PointOfInterestPrototype : IPrototype
     public bool CanMove { get; private set; }
 
     /// <summary>
-    ///     Whether or not the POI is shown on IFF.
-    /// </summary>
-    [DataField]
-    public GridProtectionFlags GridProtection { get; private set; } = GridProtectionFlags.None;
-
-    /// <summary>
     ///     If the POI does not belong to a pre-defined group, it will default to the "unique" internal category and will
     ///     use this float from 0-1 as a raw chance to spawn each round.
     /// </summary>
@@ -85,7 +78,7 @@ public sealed partial class PointOfInterestPrototype : IPrototype
 
     /// <summary>
     ///     The group that this POI belongs to. Currently, the default groups are:
-    ///     "CargoDepot" 
+    ///     "CargoDepot"
     ///     "MarketStation"
     ///     "Required"
     ///     "Optional"
@@ -105,23 +98,8 @@ public sealed partial class PointOfInterestPrototype : IPrototype
     public ResPath GridPath { get; private set; } = default!;
 
     /// <summary>
-    ///     Should the public transit stop here? If true, this will be added to the list of bus stops.
+    ///     A list of components that should be added to each of the POI's grids.
     /// </summary>
     [DataField]
-    public bool BusStop { get; private set; }
-}
-
-/// <summary>
-///     A set of flags showing what events a grid should be protected form.
-/// </summary>
-[Flags]
-public enum GridProtectionFlags : byte
-{
-    None = 0,
-    FloorRemoval = 1,
-    FloorPlacement = 2,
-    RcdUse = 4, // Rapid construction device use (quickly building/deconstructing walls, windows, etc.)
-    EmpEvents = 8,
-    Explosions = 16,
-    ArtifactTriggers = 32
+    public ComponentRegistry GridComponents { get; } = new();
 }
