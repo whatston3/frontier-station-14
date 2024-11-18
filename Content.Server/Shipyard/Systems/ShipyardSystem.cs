@@ -146,16 +146,21 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     /// </summary>
     /// <param name="shuttlePath">The path to the grid file to load. Must be a grid file!</param>
     /// <returns>Returns the EntityUid of the shuttle</returns>
-    private bool TryAddShuttle(string shuttlePath, [NotNullWhen(true)] out EntityUid? shuttleGrid)
+    public bool TryAddShuttle(string shuttlePath, [NotNullWhen(true)] out EntityUid? shuttleGrid, Vector2? position = null)
     {
         shuttleGrid = null;
         SetupShipyardIfNeeded();
         if (ShipyardMap == null)
             return false;
 
+        if (position == null)
+        {
+            position = new Vector2(500f + _shuttleIndex, 1f);
+        }
+
         var loadOptions = new MapLoadOptions()
         {
-            Offset = new Vector2(500f + _shuttleIndex, 1f)
+            Offset = position.Value
         };
 
         if (!_map.TryLoad(ShipyardMap.Value, shuttlePath, out var gridList, loadOptions) ||
@@ -312,9 +317,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             Dirty(uid, shuttleDeed);
 
             var fullName = GetFullName(shuttleDeed);
-            _station.RenameStation(shuttleStation, fullName, loud: false);
-            _metaData.SetEntityName(shuttle.Value, fullName);
-            _metaData.SetEntityName(shuttleStation, fullName);
+            RenameShuttle(shuttle.Value, shuttleStation, fullName);
         }
         else
         {
@@ -330,6 +333,24 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             record.Suffix = newSuffix ?? "";
             _shuttleRecordsSystem.TryUpdateRecord(record);
         }
+
+        return true;
+    }
+
+    // <summary>
+    // Renames a shuttle entity
+    // </summary>
+    public bool RenameShuttle(EntityUid shuttle, EntityUid? shuttleStation, string fullName)
+    {
+        if (shuttleStation == null)
+        {
+            shuttleStation = _station.GetOwningStation(shuttle);
+            if (shuttleStation == null)
+                return false;
+        }
+        _station.RenameStation(shuttleStation.Value, fullName, loud: false);
+        _metaData.SetEntityName(shuttle, fullName);
+        _metaData.SetEntityName(shuttleStation.Value, fullName);
 
         return true;
     }

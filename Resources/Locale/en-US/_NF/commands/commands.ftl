@@ -1,0 +1,19 @@
+cmd-loadpoi-desc = Loads a POI from a prototype at a given position, optionally with an arbitrary name.
+cmd-loadpoi-help = loadpoi <poi> <x> <y> [name]
+cmd-loadpoi-not-enough-args = Not enough arguments.
+cmd-loadpoi-invalid-poi = Not a valid point of interest.
+cmd-loadpoi-invalid-x = X coordinate isn't valid.
+cmd-loadpoi-invalid-y = Y coordinate isn't valid.
+cmd-loadpoi-no-gamerule = The Adventure rule was not accessible. POI was not spawned.
+cmd-hint-loadpoi-success = POI {$poi} loaded at ({$x}, {$y}) - grid UID {$gridUid}
+cmd-hint-loadpoi-error = POI {$poi} failed to load.
+cmd-hint-loadpoi-x-position = <x-position>
+cmd-hint-loadpoi-y-position = <y-position>
+cmd-hint-loadpoi-name = [name]
+
+# cmd-loadvessel-desc = Loads a vessel from a prototype at a given position, optionally with an arbitrary name.
+# cmd-loadvessel-help = loadvessel <vessel> <x> <y> [name]
+# cmd-hint-loadvessel-name = You cannot load into map 0.
+# cmd-hint-loadvessel-x-position = <x-position>
+# cmd-hint-loadvessel-y-position = <y-position>
+# cmd-hint-loadvessel-name = [name]
