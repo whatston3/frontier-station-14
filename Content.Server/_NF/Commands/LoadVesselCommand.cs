@@ -64,7 +64,7 @@ namespace Robust.Server.Console.Commands
                 {
                     shipyard.RenameShuttle(gridUid.Value, null, overrideName);
                 }
-                shell.WriteError(Loc.GetString("cmd-loadvessel-gen-success", ("vessel", vessel.ID), ("x", x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
+                shell.WriteError(Loc.GetString("cmd-loadvessel-success", ("vessel", vessel.ID), ("x", x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
             }
             else
             {
