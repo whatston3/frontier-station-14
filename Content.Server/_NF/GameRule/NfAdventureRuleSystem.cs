@@ -7,21 +7,12 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Content.Shared._NF.GameRule;
 using Content.Server._NF.GameTicking.Events;
-<<<<<<< Updated upstream
-=======
-using Content.Shared.Procedural;
->>>>>>> Stashed changes
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-<<<<<<< Updated upstream
-=======
-using Robust.Shared.Map.Components;
-using Content.Shared.Shuttles.Components;
->>>>>>> Stashed changes
 using Content.Server.Shuttles.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.GameTicking;

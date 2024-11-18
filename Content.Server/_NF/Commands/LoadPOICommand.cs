@@ -24,6 +24,7 @@ namespace Robust.Server.Console.Commands
             if (args.Length < 3)
             {
                 shell.WriteError(Loc.GetString("cmd-loadpoi-not-enough-args"));
+                shell.WriteError(Loc.GetString("cmd-loadpoi-help"));
                 return;
             }
 
@@ -60,11 +61,11 @@ namespace Robust.Server.Console.Commands
 
             if (adventure.TrySpawnPoiGrid(poi, new Vector2(x, y), out var gridUid, overrideName))
             {
-                shell.WriteError(Loc.GetString("cmd-loadpoi-gen-success", ("poi", poi.ID), ("x",x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
+                shell.WriteError(Loc.GetString("cmd-loadpoi-success", ("poi", poi.ID), ("x",x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
             }
             else
             {
-                shell.WriteError(Loc.GetString("cmd-loadpoi-gen-failure", ("poi", poi.ID)));
+                shell.WriteError(Loc.GetString("cmd-loadpoi-error", ("poi", poi.ID)));
             }
         }
 

@@ -58,17 +58,17 @@ namespace Robust.Server.Console.Commands
                 return;
             }
 
-            if (shipyard.TryAddShuttle(vessel.ShuttlePath, out var gridUid, new Vector2(x, y)))
+            if (shipyard.TryAddShuttle(vessel.ShuttlePath.ToString(), out var gridUid, new Vector2(x, y)))
             {
                 if (overrideName != null)
                 {
-                    shipyard.RenameShuttle(gridUid, null, overrideName);
+                    shipyard.RenameShuttle(gridUid.Value, null, overrideName);
                 }
-                shell.WriteError(Loc.GetString("cmd-loadvessel-gen-success", ("poi", poi.ID), ("x",x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
+                shell.WriteError(Loc.GetString("cmd-loadvessel-gen-success", ("vessel", vessel.ID), ("x", x), ("y", y), ("gridUid", gridUid?.ToString() ?? "null")));
             }
             else
             {
-                shell.WriteError(Loc.GetString("cmd-loadvessel-gen-failure", ("poi", poi.ID)));
+                shell.WriteError(Loc.GetString("cmd-loadvessel-error", ("vessel", vessel.ID)));
             }
         }
 
