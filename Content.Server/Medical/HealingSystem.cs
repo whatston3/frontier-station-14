@@ -56,33 +56,43 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        if (healing.DamageContainers is not null &&
+        TryComp<BloodstreamComponent>(entity, out var bloodstream); // Frontier
+
+        bool canHealDamage = healing.DamageContainers is not null &&
             entity.Comp.DamageContainerID is not null &&
-            !healing.DamageContainers.Contains(entity.Comp.DamageContainerID))
-        {
+            healing.DamageContainers.Contains(entity.Comp.DamageContainerID);
+
+        bool canHealBloodLoss = bloodstream != null &&
+            healing.BloodlossModifier != 0 &&
+            bloodstream.BleedAmount > 0;
+
+        bool canRestoreBlood = bloodstream != null &&
+            healing.ModifyBloodLevel != 0 &&
+            _bloodstreamSystem.GetBloodLevelPercentage(entity.Owner, bloodstream) < 100.0f;
+
+        if (!canHealDamage && !canHealBloodLoss && !canRestoreBlood)
             return;
-        }
 
         // Heal some bloodloss damage.
-        if (healing.BloodlossModifier != 0)
+        if (canHealBloodLoss)
         {
-            if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
-                return;
-            var isBleeding = bloodstream.BleedAmount > 0;
+            //if (!TryComp<BloodstreamComponent>(entity, out var bloodstream)) // Frontier
+            //    return; // Frontier
+            var isBleeding = bloodstream!.BleedAmount > 0;
             _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
-            if (isBleeding != bloodstream.BleedAmount > 0)
+            if (isBleeding != bloodstream!.BleedAmount > 0)
             {
                 _popupSystem.PopupEntity(Loc.GetString("medical-item-stop-bleeding"), entity, args.User);
             }
         }
 
         // Restores missing blood
-        if (healing.ModifyBloodLevel != 0)
+        if (canRestoreBlood)
             _bloodstreamSystem.TryModifyBloodLevel(entity.Owner, healing.ModifyBloodLevel);
 
         var healed = _damageable.TryChangeDamage(entity.Owner, healing.Damage, true, origin: args.Args.User);
 
-        if (healed == null && healing.BloodlossModifier != 0)
+        if (healed == null && healing.BloodlossModifier != 0 && !canRestoreBlood)
             return;
 
         var total = healed?.GetTotal() ?? FixedPoint2.Zero;
