@@ -328,7 +328,7 @@
 - type: entity
   id: ShuttleGunKinetic
   parent: [ ShuttleGunBase, ConstructibleMachine]
-  name: PTK-800 "Matter Dematerializer"
+  name: PTK-3000e "Matter Dematerializer" # Frontier: PTK
   description: Salvage stationary mining turret. Gradually accumulates charges on its own, extremely effective for asteroid excavation.
   suffix: DO NOT MAP
   components:
@@ -379,4 +379,4 @@
     board: ShuttleGunKineticCircuitboard
   - type: ExtensionCableReceiver # Frontier
   - type: ApcPowerReceiver # Frontier
-    powerLoad: 8000 # Frontier
+    powerLoad: 3000 # Frontier
