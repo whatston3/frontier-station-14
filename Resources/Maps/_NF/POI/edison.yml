@@ -1779,9 +1779,11 @@ entities:
           -1,2:
             0: 65529
           0,3:
-            0: 48056
+            0: 65535
           -1,3:
-            0: 48051
+            0: 65535
+          0,4:
+            0: 65535
           1,0:
             0: 49535
           1,1:
@@ -1790,8 +1792,6 @@ entities:
             0: 65521
           1,3:
             0: 46079
-          0,4:
-            0: 65528
           1,-1:
             0: 65279
           1,4:
@@ -1883,7 +1883,7 @@ entities:
           -1,-1:
             0: 40191
           -1,4:
-            0: 65523
+            0: 65535
           -5,-1:
             1: 15
             0: 65280
@@ -1930,7 +1930,7 @@ entities:
             1: 15
             0: 65280
           -1,-8:
-            0: 61320
+            0: 65416
           -1,-7:
             0: 34959
           -1,-6:
@@ -1944,9 +1944,9 @@ entities:
           0,-6:
             0: 13107
           0,-9:
-            0: 8192
+            0: 12288
           1,-8:
-            0: 256
+            0: 4352
           1,-7:
             0: 1
           -5,4:
@@ -3530,6 +3530,57 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 37.5,-1.5
+      parent: 2
+  - uid: 2090
+    components:
+    - type: Transform
+      pos: -32.5,-4.5
+      parent: 2
+  - uid: 2093
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -36.5,-0.5
+      parent: 2
+  - uid: 2123
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,3.5
+      parent: 2
+  - uid: 2124
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,3.5
+      parent: 2
+  - uid: 2130
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,-0.5
+      parent: 2
+  - uid: 2131
+    components:
+    - type: Transform
+      pos: 33.5,-4.5
+      parent: 2
+  - uid: 2133
+    components:
+    - type: Transform
+      pos: 0.5,-32.5
+      parent: 2
+  - uid: 2134
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-28.5
+      parent: 2
+  - uid: 2135
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-28.5
       parent: 2
   - uid: 3927
     components:
