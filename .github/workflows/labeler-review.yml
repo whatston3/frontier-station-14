@@ -1,5 +1,8 @@
 name: "Labels: Approved"
-on: pull_request_target
+
+on:
+- pull_request_target
+
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
