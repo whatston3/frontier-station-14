@@ -1,8 +1,7 @@
 name: "Labels: Approved"
-
 on:
-- pull_request_target
-
+  pull_request_review:
+    types: [submitted]
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
@@ -18,7 +17,7 @@ jobs:
       with:
         username: ${{ github.actor }}
         organization: new-frontiers-14
-        team: content-maintainers
+        team: "content-maintainers,junior-maintainers"
         GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
     - if: ${{ steps.checkUserMember.outputs.isTeamMember == 'true' }}
       uses: actions-ecosystem/action-add-labels@v1
