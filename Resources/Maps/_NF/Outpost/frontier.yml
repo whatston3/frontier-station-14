@@ -6288,7 +6288,7 @@ entities:
     - type: Transform
       pos: -5.5340576,21.663313
       parent: 2173
-- proto: CableApcExtension
+- proto: CableApcExtensionUncuttable
   entities:
   - uid: 209
     components:
@@ -11165,7 +11165,7 @@ entities:
     - type: Transform
       pos: 22.5,21.5
       parent: 2173
-- proto: CableHV
+- proto: CableHVUncuttable
   entities:
   - uid: 440
     components:
@@ -11917,7 +11917,7 @@ entities:
     - type: Transform
       pos: 38.5,19.5
       parent: 2173
-- proto: CableMV
+- proto: CableMVUncuttable
   entities:
   - uid: 417
     components:
@@ -13304,7 +13304,7 @@ entities:
     - type: Transform
       pos: 38.5,18.5
       parent: 2173
-- proto: CableTerminal
+- proto: CableTerminalUncuttable
   entities:
   - uid: 1620
     components:
