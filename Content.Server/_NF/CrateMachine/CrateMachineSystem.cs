@@ -5,6 +5,7 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared._NF.CrateMachine;
 using Content.Shared._NF.CrateMachine.Components;
 using Content.Shared.Maps;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
 namespace Content.Server._NF.CrateMachine;
@@ -19,6 +20,7 @@ public sealed partial class CrateMachineSystem : SharedCrateMachineSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly EntityStorageSystem _storage = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     /// <summary>
     /// Checks if there is a crate on the crate machine.
@@ -56,8 +58,8 @@ public sealed partial class CrateMachineSystem : SharedCrateMachineSystem
         if (maxDistance < 0)
             return false;
 
-        var fromGridUid = Transform(from).GridUid;
-        if (fromGridUid == null)
+        var fromXform = Transform(from);
+        if (fromXform.GridUid == null)
             return false;
 
         var crateMachineQuery = AllEntityQuery<CrateMachineComponent, TransformComponent>();
@@ -65,13 +67,13 @@ public sealed partial class CrateMachineSystem : SharedCrateMachineSystem
         while (crateMachineQuery.MoveNext(out var crateMachineUid, out var comp, out var compXform))
         {
             // Skip crate machines that aren't mounted on a grid.
-            if (Transform(crateMachineUid).GridUid == null)
+            if (compXform.GridUid == null)
                 continue;
             // Skip crate machines that are not on the same grid.
-            if (Transform(crateMachineUid).GridUid! != fromGridUid)
+            if (compXform.GridUid != fromXform.GridUid)
                 continue;
 
-            var isTooFarAway = Vector2.Distance(compXform.Coordinates.Position, Transform(from).Coordinates.Position) > maxDistance;
+            var isTooFarAway = !_transform.InRange(compXform.Coordinates, fromXform.Coordinates, maxDistance);
             var isBusy = IsOccupied(crateMachineUid, comp);
 
             if (!compXform.Anchored || isTooFarAway || isBusy)
