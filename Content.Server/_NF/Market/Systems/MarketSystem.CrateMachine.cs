@@ -1,4 +1,5 @@
 ﻿using Content.Server._NF.CrateMachine;
+using Content.Shared._NF.CrateMachine.Components;
 using Content.Server._NF.Market.Components;
 using Content.Server._NF.Market.Extensions;
 using Content.Shared._NF.Market;
@@ -7,7 +8,6 @@ using Content.Shared._NF.Market.Events;
 using Content.Shared.Bank.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using CrateMachineComponent = Content.Shared._NF.CrateMachine.Components.CrateMachineComponent;
 
 namespace Content.Server._NF.Market.Systems;
 
@@ -31,11 +31,7 @@ public sealed partial class MarketSystem
             marketMod = marketModComponent.Mod;
         }
 
-        // Stop here if we don't have a grid.
-        if (Transform(consoleUid).GridUid == null)
-            return;
-
-        if (!_crateMachine.FindNearestUnoccupied(consoleUid, component.MaxCrateMachineDistance, out var machineUid) || !_entityManager.TryGetComponent<CrateMachineComponent> (machineUid, out var comp))
+        if (!_crateMachine.FindNearestUnoccupied(consoleUid, component.MaxCrateMachineDistance, out var machineUid) || !_entityManager.TryGetComponent<CrateMachineComponent>(machineUid, out var comp))
         {
             _popup.PopupEntity(Loc.GetString("market-no-crate-machine-available"), consoleUid, Filter.PvsExcept(consoleUid), true);
             _audio.PlayPredicted(component.ErrorSound, consoleUid, null, AudioParams.Default.WithMaxDistance(5f));

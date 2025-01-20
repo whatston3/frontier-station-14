@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Numerics;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._NF.CrateMachine;
 using Content.Shared._NF.CrateMachine.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
@@ -12,9 +14,8 @@ namespace Content.Server._NF.CrateMachine;
 /// When calling <see cref="OpenFor"/>, the machine will open the door and give a callback to the given
 /// <see cref="ICrateMachineDelegate"/> when it is done opening.
 /// </summary>
-public sealed partial class CrateMachineSystem
+public sealed partial class CrateMachineSystem : SharedCrateMachineSystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly EntityStorageSystem _storage = default!;
@@ -28,7 +29,7 @@ public sealed partial class CrateMachineSystem
     /// <returns>False if not occupied, true if it is.</returns>
     public bool IsOccupied(EntityUid crateMachineUid, CrateMachineComponent component, bool ignoreAnimation = false)
     {
-        if (!_entityManager.TryGetComponent<TransformComponent>(crateMachineUid, out var crateMachineTransform))
+        if (!TryComp(crateMachineUid, out TransformComponent? crateMachineTransform))
             return true;
         var tileRef = crateMachineTransform.Coordinates.GetTileRef(EntityManager, _mapManager);
         if (tileRef == null)
@@ -39,27 +40,12 @@ public sealed partial class CrateMachineSystem
 
         // Finally check if there is a crate intersecting the crate machine.
         return _lookup.GetLocalEntitiesIntersecting(tileRef.Value, flags: LookupFlags.All | LookupFlags.Approximate)
-            .Any(entity => _entityManager.GetComponent<MetaDataComponent>(entity).EntityPrototype?.ID ==
+            .Any(entity => MetaData(entity).EntityPrototype?.ID ==
                            component.CratePrototype);
     }
 
     /// <summary>
-    /// Calculates distance between two EntityCoordinates on the same grid.
-    /// Used to check for cargo pallets around the console instead of on the grid.
-    /// </summary>
-    /// <param name="point1">the first point</param>
-    /// <param name="point2">the second point</param>
-    /// <returns></returns>
-    private static double CalculateDistance(EntityCoordinates point1, EntityCoordinates point2)
-    {
-        var xDifference = point2.X - point1.X;
-        var yDifference = point2.Y - point1.Y;
-
-        return Math.Sqrt(xDifference * xDifference + yDifference * yDifference);
-    }
-
-    /// <summary>
-    /// Find the nearest unoccupied crate machine, that is anchored.
+    /// Find the nearest unoccupied anchored crate machine on the same grid.
     /// </summary>
     /// <param name="from">The Uid of the entity to find the nearest crate machine from</param>
     /// <param name="maxDistance">The maximum distance to search for a crate machine</param>
@@ -70,19 +56,22 @@ public sealed partial class CrateMachineSystem
         if (maxDistance < 0)
             return false;
 
+        var fromGridUid = Transform(from).GridUid;
+        if (fromGridUid == null)
+            return false;
+
         var crateMachineQuery = AllEntityQuery<CrateMachineComponent, TransformComponent>();
-        var consoleGridUid = Transform(from).GridUid!.Value;
+
         while (crateMachineQuery.MoveNext(out var crateMachineUid, out var comp, out var compXform))
         {
             // Skip crate machines that aren't mounted on a grid.
             if (Transform(crateMachineUid).GridUid == null)
                 continue;
             // Skip crate machines that are not on the same grid.
-            if (Transform(crateMachineUid).GridUid!.Value != consoleGridUid)
+            if (Transform(crateMachineUid).GridUid! != fromGridUid)
                 continue;
-            var currentDistance = CalculateDistance(compXform.Coordinates, Transform(from).Coordinates);
 
-            var isTooFarAway = currentDistance > maxDistance;
+            var isTooFarAway = Vector2.Distance(compXform.Coordinates.Position, Transform(from).Coordinates.Position) > maxDistance;
             var isBusy = IsOccupied(crateMachineUid, comp);
 
             if (!compXform.Anchored || isTooFarAway || isBusy)
