@@ -11,6 +11,10 @@ adventure-webhook-top-loss = lost a total of {$amount}.
 
 adventure-webhook-ledger-start = Ledger Summary
 
+adventure-webhook-footer =
+    Server: {$serverName}
+    Round: #{$roundId}
+
 nf-adventure-title = Adventure
 nf-adventure-description = Join a ship crew or buy your own and explore, research, salvage, or haul your way to riches!
 
@@ -35,6 +39,6 @@ shuttle-ftl-too-many = Too many shuttles already on expedition!
 changelog-tab-title-Upstream = Upstream Changelog
 multiauth-already-connected = Already connected to Frontier Official servers.
 
-public-transit-shuttle-name = Public Transport Shuttle
+public-transit-shuttle-name = Bus {$number}{$suffix}
 public-transit-departure = Now departing for {$destination}. Estimated travel time: {$flytime} seconds.
-public-transit-arrival = Thank you for choosing NT Public Transit. Next transfer to {$destination} departs in {$waittime} seconds.
+public-transit-arrival = Thank you for choosing NT Public Transit. Next stop: {$destination}. Bus departs in {$waittime} seconds.

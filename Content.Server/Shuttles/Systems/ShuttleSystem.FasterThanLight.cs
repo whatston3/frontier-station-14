@@ -62,7 +62,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Space between grids within hyperspace.
     /// </summary>
-    private const float Buffer = 5f;
+    private const float Buffer = 500f; // Frontier: 5 < 500
 
     /// <summary>
     /// How many times we try to proximity warp close to something before falling back to map-wideAABB.
@@ -712,9 +712,10 @@ public sealed partial class ShuttleSystem
         EntityUid shuttleUid,
         ShuttleComponent component,
         EntityUid targetUid,
-        string? priorityTag = null)
+        string? priorityTag = null,
+        DockType dockType = DockType.Airlock) // Frontier
     {
-        return TryFTLDock(shuttleUid, component, targetUid, out _, priorityTag);
+        return TryFTLDock(shuttleUid, component, targetUid, out _, priorityTag, dockType); // Frontier: add dockType
     }
 
     /// <summary>
@@ -726,7 +727,8 @@ public sealed partial class ShuttleSystem
         ShuttleComponent component,
         EntityUid targetUid,
         [NotNullWhen(true)] out DockingConfig? config,
-        string? priorityTag = null)
+        string? priorityTag = null,
+        DockType dockType = DockType.Airlock) // Frontier
     {
         config = null;
 
@@ -738,7 +740,7 @@ public sealed partial class ShuttleSystem
             return false;
         }
 
-        config = _dockSystem.GetDockingConfig(shuttleUid, targetUid, priorityTag);
+        config = _dockSystem.GetDockingConfig(shuttleUid, targetUid, priorityTag, dockType); // Frontier: add dockType
 
         if (config != null)
         {
