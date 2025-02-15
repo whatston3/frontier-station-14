@@ -15,6 +15,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using static Content.Shared.Access.Components.AccessOverriderComponent;
+using Content.Shared._NF.Access.Components; // Frontier
 
 namespace Content.Server.Access.Systems;
 
@@ -72,6 +73,19 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
 
         if (args.Args.Target != null)
         {
+            // Frontier: grid-based access configuration
+            if (component.GridTag != null
+                && TryComp(args.Args.Target, out TransformComponent? xform)
+                && xform.GridUid != null
+                && (!TryComp(xform.GridUid, out GridAccessComponent? gridAccess)
+                || !gridAccess.Tags.Contains(component.GridTag)))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("access-overrider-nf-grid-protected"), args.User, args.User);
+                args.Handled = true;
+                return;
+            }
+            // End Frontier: grid-based access configuration
+
             component.TargetAccessReaderId = args.Args.Target.Value;
             _userInterface.OpenUi(uid, AccessOverriderUiKey.Key, args.User);
             UpdateUserInterface(uid, component, args);

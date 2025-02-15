@@ -1,0 +1,8 @@
+- type: entity
+  parent: AccessConfigurator
+  id: AccessConfiguratorNfsd
+  name: NFSD access configurator
+  description: Used to modify the access level requirements for airlocks and other lockable devices.
+  components:
+    - type: AccessOverrider
+      gridTag: NFSD

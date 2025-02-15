@@ -492,6 +492,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/vodkabottle.rsi
   - type: Sealable
+  - type: ReplaceEntityOnSolutionEmpty
+    solution: drink
+    replacementEntity: DrinkWhiskeyBottleFull
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
@@ -510,6 +513,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
   - type: Sealable
+  - type: ReplaceEntityOnSolutionEmpty
+    solution: drink
+    replacementEntity: DrinkVodkaBottleFull
 
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]

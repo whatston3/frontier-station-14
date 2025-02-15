@@ -21,6 +21,8 @@
     color: "#ae7d57"
   - type: ProtectedGrid
     preventEmpEvents: true
+  - type: GridAccess
+    tags: [ NFSD ]
 
 - type: gameMap
   id: Nfsd

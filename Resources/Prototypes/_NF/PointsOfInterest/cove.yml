@@ -23,6 +23,8 @@
     color: "#C83737"
     flags: [HideLabel]
     readOnly: false
+  - type: GridAccess
+    tags: [ Pirate ]
 
 - type: gameMap
   id: Cove

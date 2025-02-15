@@ -1,6 +1,6 @@
 - type: vessel
   id: Schooner
-  parent: BaseVesselAntag
+  parent: BaseVesselPirate
   name: Schooner
   description: A small wooden ship with 2 central cargo bays.
   price: 60000

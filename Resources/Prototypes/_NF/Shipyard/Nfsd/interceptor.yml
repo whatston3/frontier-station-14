@@ -1,6 +1,6 @@
 - type: vessel
   id: Interceptor
-  parent: BaseVessel
+  parent: BaseVesselNfsd
   name: NSF Interceptor
   description: A small security vessel specializing in crime scene forensics.
   price: 21350

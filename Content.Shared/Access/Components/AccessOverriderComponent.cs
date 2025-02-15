@@ -40,6 +40,11 @@ public sealed partial class AccessOverriderComponent : Component
     [DataField]
     public float DoAfter;
 
+    // Frontier
+    [DataField, AutoNetworkedField]
+    public string? GridTag;
+    // End Frontier
+
     [Serializable, NetSerializable]
     public sealed class AccessOverriderBoundUserInterfaceState : BoundUserInterfaceState
     {

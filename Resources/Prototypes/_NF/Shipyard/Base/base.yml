@@ -13,9 +13,25 @@
     flags: [IsPlayerShuttle]
 
 - type: vessel
-  id: BaseVesselAntag
-  abstract: true
+  id: BaseVesselNfsd
   parent: BaseVessel
+  abstract: true
+  addComponents:
+  - type: GridAccess
+    tags: [ NFSD ]
+
+- type: vessel
+  id: BaseVesselAntag
+  parent: BaseVessel
+  abstract: true
   addComponents:
   - type: IFF
     flags: [IsPlayerShuttle, HideLabel]
+
+- type: vessel
+  id: BaseVesselPirate
+  parent: BaseVesselAntag
+  abstract: true
+  addComponents:
+  - type: GridAccess
+    tags: [ Pirate ]
