@@ -1,10 +1,10 @@
-<p align="center"> <img alt="Frontier Station 14" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" /></p>
+<p align="center"> <img alt="Frontier Station" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" /></p>
 
-Frontier Station 14 is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14) that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
+Frontier Station is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14) that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
 
-This is the primary repo for Frontier Station 14.
+This is the primary repo for Frontier Station.
 
-If you want to host or create content for FS14, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
+If you want to host or create content for Frontier Station, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
 
 ## Links
 
@@ -12,7 +12,7 @@ If you want to host or create content for FS14, this is the repo you need. It co
 
 ## Documentation/Wiki
 
-Our [wiki](https://frontierstation.wiki.gg/) has documentation on FS14's content.
+Our [wiki](https://frontierstation.wiki.gg/) has documentation on Frontier Station's content.
 
 ## Contributing
 
