@@ -1,10 +1,6 @@
 <p align="center"> <img alt="Frontier Station" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" /></p>
 
-Frontier Station is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14) that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
-
-This is the primary repo for Frontier Station.
-
-If you want to host or create content for Frontier Station, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
+Frontier Station is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14) that runs on the [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine, all written in C#.
 
 ## Links
 
@@ -12,16 +8,15 @@ If you want to host or create content for Frontier Station, this is the repo you
 
 ## Documentation/Wiki
 
-Our [wiki](https://frontierstation.wiki.gg/) has documentation on Frontier Station's content.
+Our [wiki](https://frontierstation.wiki.gg/) has documentation on Frontier Station's content (e.g. guides to gameplay, server rules).
 
 ## Contributing
 
-We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of ideas](https://discord.com/channels/1123826877245694004/1127017858833068114) that can be done and anybody can pick them up. Don't be afraid to ask for help either!
+We are happy to accept contributions from anybody. Join our Discord if you want to help. We've got a [list of ideas](https://discord.com/channels/1123826877245694004/1127017858833068114) that can be done, and anybody can pick them up. Don't be afraid to ask for help either!
 
 We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
 
-If you make any contributions, please make sure to read the markers section in [MARKERS.md](https://github.com/new-frontiers-14/frontier-station-14/blob/master/MARKERS.md)
-Any changes made to files belonging to our upstream should be properly marked in accordance to what is specified there.
+If you make any contributions, make sure to read [CONTRIBUTING.md](https://github.com/new-frontiers-14/frontier-station-14/blob/master/CONTRIBUTING.md), _particularly making note of [how to comment changes](https://github.com/new-frontiers-14/frontier-station-14/blob/master/CONTRIBUTING.md#examples-of-comments-in-upstream-or-ported-files)_, and if you're making a shipyard submission, please refer to the [Ship Submission Guidelines](https://frontierstation.wiki.gg/wiki/Ship_Submission_Guidelines) page on the wiki.
 
 ## Building
 
@@ -46,7 +41,9 @@ Note that some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](ht
 
 When we pull content from other forks, we organize their content to repo-specific subfolders to better track attribution and limit merge conflicts.
 
-Content under these subdirectories originate from their respective forks and may contain modifications. These modifications are denoted by comments around the modified lines.
+Content under these subdirectories originate from their respective forks and are licensed under their fork's entry in the table below.
+
+Note that any Frontier-specific modifications are denoted by comments in code/data with `Frontier` and/or `End Frontier` around the modified lines, and are licensed under the terms described in License above depending on the date of submission.
 
 | Subdirectory | Fork Name | Fork Repository | License |
 |--------------|-----------|-----------------|---------|
