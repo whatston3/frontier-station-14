@@ -2,6 +2,7 @@
 # Guns
 
 - type: listing
+  abstract: true # Frontier: moved to _NF uplink catalog
   id: UplinkPistolViper
   name: uplink-pistol-viper-name
   description: uplink-pistol-viper-desc
@@ -15,6 +16,7 @@
   - UplinkWeaponry
 
 - type: listing
+  abstract: true # Frontier: moved to _NF uplink catalog
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
@@ -29,6 +31,7 @@
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
+  abstract: true # Frontier: moved to _NF uplink catalog
   id: UplinkPistolCobra
   name: uplink-pistol-cobra-name
   description: uplink-pistol-cobra-desc
@@ -43,6 +46,7 @@
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
+  abstract: true # Frontier: moved to _NF uplink catalog
   id: UplinkRifleMosin
   name: uplink-rifle-mosin-name
   description: uplink-rifle-mosin-desc
@@ -488,10 +492,10 @@
 # For the Cobra
 - type: listing
   id: UplinkMagazinePistolCaselessRifle
-  name: uplink-pistol-magazine-caseless-name
-  description: uplink-pistol-magazine-caseless-desc
+  name: uplink-pistol-magazine-cobra-name # Frontier: uplink-pistol-magazine-caseless-name<uplink-pistol-magazine-cobra-name
+  description: uplink-pistol-magazine-cobra-desc # Frontier: uplink-pistol-magazine-caseless-desc<uplink-pistol-magazine-cobra-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolCaselessRifle
+  productEntity: NFMagazinePistol45 # Frontier:  MagazinePistolCaselessRifle<NFMagazinePistol45
   cost:
     Telecrystal: 1
   categories:
@@ -500,10 +504,10 @@
 # For the Python
 - type: listing
   id: UplinkSpeedLoaderMagnumAP
-  name: uplink-speedloader-magnum-name
-  description: uplink-speedloader-magnu-desc
+  name: uplink-speedloader-magnum-non-ap-name # Frontier: uplink-speedloader-magnum-name<uplink-speedloader-magnum-non-ap-name
+  description: uplink-speedloader-magnum-non-ap-desc # Frontier: uplink-speedloader-magnu-desc<uplink-speedloader-magnum-non-ap-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
-  productEntity: SpeedLoaderMagnumAP
+  productEntity: NFSpeedLoaderPistol45 # Frontier: SpeedLoaderMagnumAP<NFSpeedLoaderPistol45
   cost:
     Telecrystal: 3
   categories:
@@ -1726,7 +1730,7 @@
   id: UplinkRevolverCapGun
   name: uplink-revolver-cap-gun-name
   description: uplink-revolver-cap-gun-desc
-  productEntity: RevolverCapGun
+  productEntity: NFRevolverCapGun
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 2
@@ -1883,7 +1887,7 @@
     Telecrystal: 10 # Frontier: 6<10 (all the time in the world)
   categories:
   - UplinkWeaponry # Frontier: UplinkJob<UplinkWeaponry
-  # conditions: # Frontier: 
+  # conditions: # Frontier:
   # - !type:BuyerJobCondition
   #   whitelist:
   #   - Botanist
@@ -1964,7 +1968,7 @@
   id: uplinkRevolverCapGunFake
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
-  productEntity: RevolverCapGunFake
+  productEntity: NFRevolverCapGunFake # Frontier: NFRevolverCapGunFake<NFRevolverCapGunFake
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -1991,7 +1995,7 @@
 #     Telecrystal: 2
 #   categories:
 #   - UplinkJob
-#   conditions: 
+#   conditions:
 #   - !type:BuyerJobCondition
 #     whitelist:
 #     - Clown
