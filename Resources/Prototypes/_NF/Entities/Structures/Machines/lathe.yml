@@ -48,6 +48,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NFServiceTechfabDeprecatedEmagStatic
+  - type: OreSiloClient
 
 - type: entity
   parent: [ BlueprintReceiverBase, BaseLatheLube ]
@@ -78,6 +79,7 @@
     - NFEngineeringTechfabDeprecatedStatic
     dynamicPacks:
     - NFEngineeringTechfabDeprecated
+  - type: OreSiloClient
 
 - type: entity
   parent: [ BlueprintReceiverBase, BaseLatheLube ]
@@ -111,6 +113,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NFSalvageTechfabDeprecatedEmag
+  - type: OreSiloClient
 
 - type: entity
   id: NfsdTechFab
@@ -176,6 +179,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NFMercenaryTechfabDeprecatedEmag
+  - type: OreSiloClient
 
 - type: entity
   id: MercenaryTechFabHacked
@@ -189,10 +193,9 @@
   - type: Sprite
     sprite: _NF/Structures/Machines/techfab.rsi
     layers:
-    - state: icon
+    - state: mercenary-hacked
       map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: mercenary
-    - state: unlit
+    - state: unlit-hacked
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
@@ -209,15 +212,17 @@
   - type: PointLight
     radius: 1.5
     energy: 2
+    color: "#85daeb"
   - type: RgbLightController
     layers: [ 0 ]
   - type: Lathe
-    idleState: icon
-    runningState: icon
+    idleState: mercenary-hacked
+    runningState: mercenary-hacked
     staticPacks:
     - NFHackedMercenaryTechfabDeprecatedStatic
     dynamicPacks:
     - NFHackedMercenaryTechfabDeprecated
+  - type: OreSiloClient
 
 - type: entity
   parent: [BaseStructureDisableToolUse, BaseLathe]
@@ -295,6 +300,7 @@
     dynamicPacks:
     - NFBlueprints
   - type: RequireProjectileTarget
+  - type: OreSiloClient
 
 - type: entity
   id: ScrapProcessor
@@ -329,6 +335,7 @@
     productValueModifier: null
     staticPacks:
     - NFScrapStatic
+  - type: OreSiloClient
 
 - type: entity
   id: BiogeneratorFill
