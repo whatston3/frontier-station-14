@@ -282,6 +282,12 @@
       - id: JetpackMiniFilled # Frontier JetpackBlackFilled<JetpackMiniFilled
     - id: PowerCellAntiqueProto # Frontier
     - id: NFShovel # Frontier
+    - !type:GroupSelector
+      children:
+      - id: PKAUpgradeDamage
+      - id: PKAUpgradeRange
+      - id: PKAUpgradeFireRate
+
 
 - type: entityTable
   id: RandomGeneratorTable

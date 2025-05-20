@@ -451,6 +451,8 @@
   - type: Extractable
     grindableSolutionName: food
   - type: SpaceGarbage
+  - type: Food
+    requiresSpecialDigestion: true
 
 - type: entity
   name: baked banana peel
@@ -2582,7 +2584,13 @@
     tags:
     - ClothMade
     - CottonBoll
+<<<<<<< HEAD
   - type: MothFood # Frontier
+=======
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: CottonBol
+>>>>>>> 494861dc3d938b752567bead5bf40132fba03107
 
 - type: entity
   name: pyrotton boll
@@ -2616,6 +2624,9 @@
     - CottonBoll
   - type: Extractable
     grindableSolutionName: food
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: PyrottonBol
   - type: MothFood # Frontier
 
 - type: entity

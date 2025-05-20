@@ -10,8 +10,6 @@
   tier: 1
   cost: 7500 # Delta Price. 5000 is pre-adjustment.
   recipeUnlocks:
-  - BorgModuleGardening
-  - BorgModuleHarvesting
   - PlantBagOfHolding #DeltaV
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
@@ -76,19 +74,6 @@
     - JukeboxCircuitBoard
 
 - type: technology
-  id: RoboticCleanliness
-  name: research-technology-robotic-cleanliness
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: janitor
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedCleaning
-  - PortablePumpMachineCircuitBoard # Frontier
-
-- type: technology
   id: MeatManipulation
   name: research-technology-meat-manipulation
   icon:
@@ -136,7 +121,7 @@
   - CryostasisBeaker
   - SyringeCryostasis
 
-- type: technology
+- type: technology # Merge with other T2 medical research if possible!
   id: MechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
@@ -146,8 +131,7 @@
   tier: 2
   cost: 5000
   recipeUnlocks:
-  # - BorgModuleAdvancedTreatment # Frontier
-  # - BorgModuleDefibrillator # Frontier
+  - BorgModuleAdvancedChemical
   - BorgModuleAdvancedParamedic # Frontier
 
 - type: technology
@@ -162,6 +146,8 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  - BorgModuleAdvancedCleaning
+  - PortablePumpMachineCircuitBoard # Frontier
   - NFBlueprintAdvMopItem # Frontier
   - ReinforcedJug # Frontier
 
@@ -198,19 +184,33 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
 
-# Tier 3
+# Frontier
+# - type: technology
+#   id: BluespaceCargoTransport
+#   name: research-technology-bluespace-cargo-transport
+#   icon:
+#     sprite: Structures/cargo_telepad.rsi
+#     state: display
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 15000
+#   recipeUnlocks:
+#   - CargoTelepadMachineCircuitboard
+# End Frontier
 
-# - type: technology # Frontier
-  # id: BluespaceCargoTransport
-  # name: research-technology-bluespace-cargo-transport
-  # icon:
-    # sprite: Structures/cargo_telepad.rsi
-    # state: display
-  # discipline: CivilianServices
-  # tier: 3
-  # cost: 15000
-  # recipeUnlocks:
-  # - CargoTelepadMachineCircuitboard
+- type: technology
+  id: PushHorn
+  name: research-technology-clowning-utilities
+  icon:
+    sprite: Objects/Fun/push_horn.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 4000
+  recipeUnlocks:
+  - PushHorn
+
+# Tier 3
 
 - type: technology
   id: QuantumFiberWeaving
