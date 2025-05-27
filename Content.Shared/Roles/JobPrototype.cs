@@ -206,8 +206,9 @@ namespace Content.Shared.Roles
     /// Sorts <see cref="JobPrototype"/>s appropriately for display in the UI,
     /// respecting their <see cref="JobPrototype.Weight"/>.
     /// </summary>
+    [DataDefinition]
     [Serializable, NetSerializable]
-    public sealed class JobRequirementSet
+    public sealed partial class JobRequirementSet
     {
         /// <summary>
         /// The set of job requirements to check.

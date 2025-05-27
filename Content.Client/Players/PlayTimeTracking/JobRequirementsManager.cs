@@ -126,20 +126,25 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         {
             foreach (var alternateSet in altReqs)
             {
+                bool whitelistPassed = alternateSet.Whitelisted && _whitelisted;
                 // Suppress reasons on alternate requirement sets
-                if (CheckRoleRequirements(alternateSet.Requirements, profile, out var altReason))
+                if (CheckRoleRequirements(alternateSet.Requirements, profile, out var altReason)
+                    && whitelistPassed)
                 {
                     return true;
                 }
                 reason.PushNewline();
                 reason.AddMarkupPermissive(Loc.GetString("role-requirement-alternative"));
-                reason.PushNewline();
-                if (alternateSet.Whitelisted)
+                if (!whitelistPassed)
                 {
-                    reason.AddMarkupPermissive(Loc.GetString("role-requirement-whitelisted"));
                     reason.PushNewline();
+                    reason.AddMarkupPermissive(Loc.GetString("role-requirement-whitelisted"));
                 }
-                reason.AddMarkupPermissive(altReason.ToMarkup());
+                if (altReason != null)
+                {
+                    reason.PushNewline();
+                    reason.AddMarkupPermissive(altReason.ToMarkup());
+                }
             }
         }
         return false;
