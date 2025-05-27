@@ -14,7 +14,8 @@ public static class JobRequirements
         [NotNullWhen(false)] out FormattedMessage? reason,
         IEntityManager entManager,
         IPrototypeManager protoManager,
-        HumanoidCharacterProfile? profile)
+        HumanoidCharacterProfile? profile,
+        bool isWhitelisted) // DeltaV
     {
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetJobRequirement(job);
@@ -37,12 +38,16 @@ public static class JobRequirements
             return true;
 
         var altRequirementsSets = sys.GetAlternateJobRequirements(job) ?? new();
-        foreach (var requirementSet in altRequirementsSets.Values)
+        foreach (var requirementSet in altRequirementsSets)
         {
             success = true;
-            foreach (var requirement in requirementSet)
+
+            if (requirementSet.Whitelisted && !isWhitelisted)
+                continue;
+
+            foreach (var requirement in requirementSet.Requirements)
             {
-                // Frontier: do not accumulate reasons for alternate job requirements.
+                // Do not accumulate reasons for alternate job requirements.
                 if (!requirement.Check(entManager, protoManager, profile, playTimes, out _))
                 {
                     success = false;
@@ -53,11 +58,11 @@ public static class JobRequirements
                 return true;
         }
 
-        // If this happens, something's gone wrong.  Only for error suppression.
+        // If this happens, something's gone wrong, but we'll suppress errors.
         if (reason == null)
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-no-reason-given"));
 
-        // Frontier: check alternate requirement times
+        // End Frontier: check alternate requirement times
         return false;
 
     }

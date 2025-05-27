@@ -3,6 +3,7 @@ using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Roles
@@ -55,7 +56,7 @@ namespace Content.Shared.Roles
         /// Alternate sets of requirements - one must be matched in order to spawn as this job.
         /// </summary>
         [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
-        public Dictionary<string, HashSet<JobRequirement>>? AlternateRequirementSets;
+        public List<JobRequirementSet> AlternateRequirementSets = new();
         // End Frontier: alternate requirement sets
 
         /// <summary>
@@ -199,4 +200,28 @@ namespace Content.Shared.Roles
             return string.Compare(x.ID, y.ID, StringComparison.Ordinal);
         }
     }
+
+    // Frontier: whitelistable, alternate requirement sets
+    /// <summary>
+    /// Sorts <see cref="JobPrototype"/>s appropriately for display in the UI,
+    /// respecting their <see cref="JobPrototype.Weight"/>.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class JobRequirementSet
+    {
+        /// <summary>
+        /// The set of job requirements to check.
+        /// </summary>
+        [DataField]
+        public HashSet<JobRequirement> Requirements = new();
+        /// <summary>
+        /// Whether or not this user has to be globally whitelisted to use this set.
+        /// </summary>
+        /// <remarks>
+        /// Note that this does not work for job-specific whitelists!
+        /// </remarks>
+        [DataField]
+        public bool Whitelisted = false;
+    }
+    // Frontier: whitelistable, alternate requirement sets
 }

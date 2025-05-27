@@ -645,12 +645,12 @@ public abstract class SharedRoleSystem : EntitySystem
     }
 
     // Frontier: alternate requirement sets
-    public Dictionary<string, HashSet<JobRequirement>>? GetAlternateJobRequirements(JobPrototype job)
+    public List<JobRequirementSet> GetAlternateJobRequirements(JobPrototype job)
     {
         return job.AlternateRequirementSets;
     }
 
-    public Dictionary<string, HashSet<JobRequirement>>? GetAlternateJobRequirements(ProtoId<JobPrototype> job)
+    public List<JobRequirementSet> GetAlternateJobRequirements(ProtoId<JobPrototype> job)
     {
         return _prototypes.Index(job).AlternateRequirementSets;
     }

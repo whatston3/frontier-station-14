@@ -124,16 +124,21 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         var altReqs = _entManager.System<SharedRoleSystem>().GetAlternateJobRequirements(job);
         if (altReqs != null)
         {
-            foreach (var alternateSet in altReqs.Values)
+            foreach (var alternateSet in altReqs)
             {
                 // Suppress reasons on alternate requirement sets
-                if (CheckRoleRequirements(alternateSet, profile, out var altReason))
+                if (CheckRoleRequirements(alternateSet.Requirements, profile, out var altReason))
                 {
                     return true;
                 }
                 reason.PushNewline();
                 reason.AddMarkupPermissive(Loc.GetString("role-requirement-alternative"));
                 reason.PushNewline();
+                if (alternateSet.Whitelisted)
+                {
+                    reason.AddMarkupPermissive(Loc.GetString("role-requirement-whitelisted"));
+                    reason.PushNewline();
+                }
                 reason.AddMarkupPermissive(altReason.ToMarkup());
             }
         }

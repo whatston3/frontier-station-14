@@ -10,9 +10,8 @@
       department: Security
       time: 21600 # 6 hours
   alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 360000 # 100 hours
+    - whitelisted: true
+      requirements: []
   startingGear: NFDetectiveGear
   icon: JobIconNFDetective
   supervisors: job-supervisors-bailiff
