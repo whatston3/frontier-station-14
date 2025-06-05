@@ -2,7 +2,7 @@
   parent: BaseItem
   id: TreasureDatadiskEncrypted
   name: encrypted datadisk
-  description: An old data disk. Someone savvier than you could unencrypt it and learn something juicy. All you can do is sell it.
+  description: An old data disk. You could sell it, or you could reprocess it for whatever's on it. # Frontier: sell or reprocess
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -18,12 +18,15 @@
     color: "#0000ff"
   - type: StaticPrice
     price: 500
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 350 # Frontier
 
 - type: entity
   parent: BaseItem
   id: TreasureHardDiskDrive
   name: hard disk drive
-  description: A disk drive designed for old Earth technology, circa 1980. There's probably some kind of collector who might want to get their paws on this.
+  description: A disk drive designed for old Earth technology, circa 1980. There's probably some kind of collector who might want to get their paws on this, who knows what's on it? # Frontier: add "who knows..."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -40,6 +43,9 @@
         harddisk_micro: ""
   - type: StaticPrice
     price: 275
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 200 # Frontier
 
 - type: entity
   parent: BaseItem
@@ -55,6 +61,9 @@
     storedRotation: -90
   - type: StaticPrice
     price: 350
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 250 # Frontier
 
 - type: entity
   parent: BaseItem
@@ -70,12 +79,15 @@
     storedRotation: -90
   - type: StaticPrice
     price: 300
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 200 # Frontier
 
 - type: entity
   parent: BaseItem
   id: TreasureCPUSupercharged
   name: supercharged CPU
-  description: Some kind of super alien space tech. Shame all the computers already come with CPUs nowadays.
+  description: Some kind of super alien space tech. Shame all the computers already come with CPUs nowadays. Maybe you could learn something by reprocessing it? # Frontier: reverse engineer?
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -85,6 +97,9 @@
     size: Tiny
   - type: StaticPrice
     price: 750
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 500 # Frontier
 
 - type: entity
   parent: BaseItem
@@ -108,6 +123,9 @@
         stabilizer: ""
   - type: StaticPrice
     price: 120
+  - type: PhysicalComposition # Frontier
+    materialComposition: # Frontier
+      RawScrapTech: 100 # Frontier
 
 - type: entityTable
   id: TreasureCoinPile
