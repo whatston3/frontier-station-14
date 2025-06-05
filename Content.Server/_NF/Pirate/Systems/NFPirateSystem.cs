@@ -1,5 +1,7 @@
 using Content.Server._NF.Pirate.Components;
+using Content.Server._NF.Roles.Components;
 using Content.Server.Antag;
+using Content.Server.Roles;
 using Content.Shared.Mind.Components;
 using Robust.Server.Player;
 
@@ -9,6 +11,7 @@ namespace Content.Server._NF.Pirate.Systems;
 public sealed class AutoPirateSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
@@ -25,6 +28,7 @@ public sealed class AutoPirateSystem : EntitySystem
         if (!_player.TryGetSessionById(args.Mind.Comp.UserId, out var session))
             return;
 
-        _antag.ForceMakeAntag<AutoPirateComponent>(session, "NFPirate");
+        if (!_role.MindHasRole<NFPirateRoleComponent>(args.Mind))
+            _antag.ForceMakeAntag<AutoPirateComponent>(session, "NFPirate");
     }
 }
