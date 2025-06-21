@@ -3,6 +3,7 @@ using Content.Server.DeviceNetwork;
 using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Lock; // Frontier
 
 namespace Content.Server.DeviceLinking.Systems;
 
@@ -10,6 +11,7 @@ public sealed class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly LockSystem _lock = default!; // Frontier
 
     public override void Initialize()
     {
@@ -28,6 +30,9 @@ public sealed class SignalSwitchSystem : EntitySystem
     {
         if (args.Handled || !args.Complex)
             return;
+
+        if (_lock.IsLocked(uid)) // Frontier
+            return; // Frontier
 
         comp.State = !comp.State;
         _deviceLink.InvokePort(uid, comp.State ? comp.OnPort : comp.OffPort);
