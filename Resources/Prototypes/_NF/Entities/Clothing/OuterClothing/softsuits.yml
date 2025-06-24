@@ -28,7 +28,7 @@
     materialComposition:
       Durathread: 100
       Cloth: 50
-  - type: Tag
+  - type: NFTag
     removeTags:
     - MonkeyWearable
 
