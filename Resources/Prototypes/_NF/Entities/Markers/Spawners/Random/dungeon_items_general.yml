@@ -9,8 +9,9 @@
   components:
   - type: Transform
     anchored: false
-  - type: Tag
-    tags: []
+  - type: NFTag
+    removeTags:
+    - ForceFixRotations
 
 # Clutter
 - type: entity

@@ -29,9 +29,8 @@
       Durathread: 100
       Cloth: 50
   - type: Tag
-    tags:
-    - SuitEVA
-    - WhitelistChameleon
+    removeTags:
+    - MonkeyWearable
 
 #FSB suit
 

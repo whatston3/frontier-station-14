@@ -60,9 +60,6 @@
       allowed:
         - SlowedDown
         - Electrocution
-    - type: Tag
-      tags:
-        - DoorBumpOpener # Allow opening doors by bumping into them
     - type: CombatMode
     - type: MeleeWeapon
       damage:

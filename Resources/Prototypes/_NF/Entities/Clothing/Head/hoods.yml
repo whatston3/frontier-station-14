@@ -21,9 +21,9 @@
     sprite: _NF/Clothing/Head/Hoods/rosy.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/rosy.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
+  - type: NFTag
+    removeTags:
+    - ClothMade
   - type: HideLayerClothing
     slots:
     - Hair
