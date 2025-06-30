@@ -35,8 +35,9 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 2
     unequipDelay: 2
-  - type: Tag
-    tags:
-    - WhitelistChameleon
+  - type: NFTag
+    addTags:
     - HelmetEVA
+    removeTags:
+    - ClothMade
   - type: IdentityBlocker

@@ -7,8 +7,8 @@
   - type: Sprite
     sprite: _NF/Objects/Materials/rosymothroach.rsi
     state: hiderosymothroach
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
     - MaterialHideRosyMothroach
 
 - type: entity
