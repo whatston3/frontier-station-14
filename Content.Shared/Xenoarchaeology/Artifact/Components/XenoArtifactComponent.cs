@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Audio;
@@ -138,8 +139,17 @@ public sealed partial class XenoArtifactComponent : Component
     [DataField]
     public EntityTableSelector EffectsTable = new NestedSelector
     {
-        TableId = "XenoArtifactEffectsDefaultTable"
+        TableId = "PlaceholderXenoArchEffects" // Frontier: XenoArtifactEffectsDefaultTable<PlaceholderXenoArchEffects
     };
+
+    // Frontier: multiple effects tables (two-step generation)
+    /// <summary>
+    /// Effects that can be used during this artifact generation.
+    /// </summary>
+    [DataField(required: true)]
+    public List<ProtoId<EntityTablePrototype>> EffectsTables;
+
+    // End Frontier: multiple effects tables
 
     /// <summary>
     /// Triggers that can be used during this artefact generation.

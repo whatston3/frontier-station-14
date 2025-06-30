@@ -54,14 +54,21 @@
     graph: Artifact
     node: done
   - type: XenoArtifact
-    effectsTable: !type:GroupSelector
-      children:
-      - !type:NestedSelector
-        tableId: XenoArtifactEffectsDefaultTable
-        weight: 54
-      - !type:NestedSelector
-        tableId: XenoArtifactEffectsHandheldOnlyTable
-        weight: 2
+    # Frontier: custom effects table
+    # effectsTable: !type:GroupSelector
+    #   children:
+    #   - !type:NestedSelector
+    #     tableId: XenoArtifactEffectsDefaultTable
+    #     weight: 54
+    #   - !type:NestedSelector
+    #     tableId: XenoArtifactEffectsHandheldOnlyTable
+    #     weight: 2
+    effectsTables:
+    - XenoArtifactEffectsHylicItem
+    - XenoArtifactEffectsPsychicItem
+    - XenoArtifactEffectsNoumenalItem
+    - XenoArtifactEffectsArchonItem
+    # End Frontier
 
 - type: entity
   parent: BaseXenoArtifactItem

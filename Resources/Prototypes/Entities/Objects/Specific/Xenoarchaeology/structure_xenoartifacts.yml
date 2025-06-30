@@ -47,4 +47,11 @@
     nodeCount:
       min: 9
       max: 13
+    # Frontier: custom effects tables
+    effectsTables:
+    - XenoArtifactEffectsHylic
+    - XenoArtifactEffectsPsychic
+    - XenoArtifactEffectsNoumenal
+    - XenoArtifactEffectsArchon
+    # End Frontier: custom effects tables
 

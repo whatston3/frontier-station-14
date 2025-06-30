@@ -1,0 +1,288 @@
+- type: entityTable
+  id: PlaceholderXenoArchEffects
+  table: !type:GroupSelector
+    children:
+    - id: PlaceholderXenoArtifactEffect
+
+# region Effects by table (will be weighted)
+- type: entityTable
+  id: XenoArchTier1Effects
+  table: !type:GroupSelector
+    children:
+    - id: XenoArtifactEffectBadFeeling
+    - id: XenoArtifactEffectGoodFeeling
+    - id: XenoArtifactEffectJunkSpawn
+    - id: XenoArtifactEffectLightFlicker
+    - id: XenoArtifactPotassiumWave
+    - id: XenoArtifactThrowThingsAround
+    - id: XenoArtifactChemicalPuddle
+    - id: XenoArtifactPointLight
+
+- type: entityTable
+  id: XenoArchTier2Effects
+  table: !type:GroupSelector
+    children:
+    - id: XenoArtifactFloraSpawn
+    - id: XenoArtifactColdWave
+    - id: XenoArtifactHeatWave
+    - id: XenoArtifactFoamMild
+    - id: XenoArtifactRandomInstrumentSpawn
+    - id: XenoArtifactMonkeySpawn
+    - id: XenoArtifactChargeBattery
+    - id: XenoArtifactRadioactive
+    - id: XenoArtifactKnock
+    - id: XenoArtifactMagnet
+    - id: XenoArtifactMagnetNegative
+
+- type: entityTable
+  id: XenoArchTier3Effects
+  table: !type:GroupSelector
+    children: # ~16 weight total
+    - id: XenoArtifactStealth
+    - id: XenoArtifactExplosionScary
+    - id: XenoArtifactRareMaterialSpawnSilver
+      weight: 0.25
+    - id: XenoArtifactRareMaterialSpawnPlasma
+      weight: 0.35
+    - id: XenoArtifactRareMaterialSpawnGold
+      weight: 0.25
+    - id: XenoArtifactRareMaterialSpawnUranium
+      weight: 0.15
+    - id: XenoArtifactAngryCarpSpawn
+    - id: XenoArtifactFaunaSpawn
+    - id: XenoArtifactCashSpawn
+    - id: XenoArtifactShatterWindows
+    - id: XenoArtifactEffectCreationGasPlasma
+      weight: 0.125
+    - id: XenoArtifactEffectCreationGasTritium
+      weight: 0.125
+    - id: XenoArtifactEffectCreationGasAmmonia
+      weight: 0.1875
+    - id: XenoArtifactEffectCreationGasFrezon
+      weight: 0.0625
+    - id: XenoArtifactEffectCreationGasNitrousOxide
+      weight: 0.25
+    - id: XenoArtifactEffectCreationGasCarbonDioxide
+      weight: 0.25
+    - id: XenoArtifactTeleport
+    - id: XenoArtifactFoamGood
+    - id: XenoArtifactPuddleRare
+    - id: XenoArtifactEmp
+    - id: XenoArtifactPolyMonkey
+    - id: XenoArtifactPolyLizard
+    # hijacks use key, prevents from using artifact, sadly
+    #- id: XenoArtifactEffectUniversalIntercom
+    #- id: XenoArtifactStorage
+    # - id: XenoArtifactPhasing # Frontier: prevents sale
+    - id: XenoArtifactWandering
+    - id: XenoArtifactSolutionStorage
+
+- type: entityTable
+  id: XenoArchTier3EffectsItemOnly
+  table: !type:GroupSelector
+    children:
+    - id: XenoArtifactSpeedUp # should really be item only
+
+- type: entityTable
+  id: XenoArchTier4Effects
+  table: !type:GroupSelector
+    children: # ~16 weight total
+    - id: XenoArtifactPolyLuminous
+    - id: XenoArtifactHealAll
+    - id: XenoArtifactRadioactiveStrong
+    - id: XenoArtifactMaterialSpawnGlass
+      weight: 0.333
+    - id: XenoArtifactMaterialSpawnSteel
+      weight: 0.333
+    - id: XenoArtifactMaterialSpawnPlastic
+      weight: 0.333
+    - id: XenoArtifactShuffle
+    - id: XenoArtifactFoamDangerous
+    - id: XenoArtifactIgnite
+    - id: XenoArtifactArtifactSpawn
+    - id: XenoArtifactAnomalySpawn
+    - id: XenoArtifactBoom
+    - id: XenoArtifactPortal
+    - id: XenoArtifactGenerateEnergy
+    #- id: XenoArtifactGun #it conflicts with default interaction - it should activate artifact nodes
+    - id: XenoArtifactGhost
+    # the funny
+    #- id: XenoArtifactTesla
+    #- id: XenoArtifactSingularity
+    #- id: XenoArtifactBecomeRandomInstrument
+    - id: NFXenoArtifactEffectAnomaliteSpawn
+    - id: NFXenoArtifactEffectSpawnGrimforgedConstruct
+    - id: NFXenoArtifactEffectSpawnBluespaceComponents
+
+- type: entityTable
+  id: XenoArchTier4EffectsItemOnly
+  table: !type:GroupSelector
+    children:
+    - id: XenoArtifactDrill
+    - id: XenoArtifactOmnitool
+
+# All values based on a normal distribution, 0 mean, 0.75 stdev
+# Values expressed as f(x)
+# region Hylic
+- type: entityTable
+  id: XenoArtifactEffectsHylic
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.531923 # f(0)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.21868 # f(1)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.0151948 # f(2)
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.00017844 # f(3)
+
+- type: entityTable
+  id: XenoArtifactEffectsHylicItem
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.531923 # f(0)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.21868 # f(1)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.0143008 # f(2) * 16/17
+    - !type:NestedSelector
+      tableId: XenoArchTier3EffectsItemOnly
+      weight: 0.000893803 # f(2) * 1/17
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.0001586136 # f(3) * 16/18
+    - !type:NestedSelector
+      tableId: XenoArchTier4EffectsItemOnly
+      weight: 0.0000198267 # f(3) * 2/18
+
+# region Psychic
+- type: entityTable
+  id: XenoArtifactEffectsPsychic
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.21868 # f(-1)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.531923 # f(0)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.21868 # f(1)
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.0151948 # f(2)
+
+- type: entityTable
+  id: XenoArtifactEffectsPsychicItem
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.21868 # f(-1)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.531923 # f(0)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.205817 # f(1) * 16/17
+    - !type:NestedSelector
+      tableId: XenoArchTier3EffectsItemOnly
+      weight: 0.0128635 # f(1) * 1/17
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.01350635 # f(2) * 16/18
+    - !type:NestedSelector
+      tableId: XenoArchTier4EffectsItemOnly
+      weight: 0.001688294 # f(2) * 2/18
+
+# region Noumenal
+- type: entityTable
+  id: XenoArtifactEffectsNoumenal
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.0151948 # f(-2)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.21868 # f(-1)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.531923 # f(0)
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.21868 # f(1)
+
+- type: entityTable
+  id: XenoArtifactEffectsNoumenalItem
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.0151948 # f(-2)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.21868 # f(-1)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.500633 # f(0) * 16/17
+    - !type:NestedSelector
+      tableId: XenoArchTier3EffectsItemOnly
+      weight: 0.03128959 # f(0) * 1/17
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.19438231 # f(1) * 16/18
+    - !type:NestedSelector
+      tableId: XenoArchTier4EffectsItemOnly
+      weight: 0.0242977888 # f(1) * 2/18
+
+# region Archon+
+- type: entityTable
+  id: XenoArtifactEffectsArchon
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.00017844 # f(-3)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.0151948 # f(-2)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.21868 # f(-1)
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.531923 # f(0)
+
+- type: entityTable
+  id: XenoArtifactEffectsArchonItem
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: XenoArchTier1Effects
+      weight: 0.00017844 # f(-3)
+    - !type:NestedSelector
+      tableId: XenoArchTier2Effects
+      weight: 0.0151946 # f(-2)
+    - !type:NestedSelector
+      tableId: XenoArchTier3Effects
+      weight: 0.205816564 # f(-1) * 16/17
+    - !type:NestedSelector
+      tableId: XenoArchTier3EffectsItemOnly
+      weight: 0.012863535 # f(-1) * 1/17
+    - !type:NestedSelector
+      tableId: XenoArchTier4Effects
+      weight: 0.47282048 # f(0) * 16/18
+    - !type:NestedSelector
+      tableId: XenoArchTier4EffectsItemOnly
+      weight: 0.05910256 # f(0) * 2/18
