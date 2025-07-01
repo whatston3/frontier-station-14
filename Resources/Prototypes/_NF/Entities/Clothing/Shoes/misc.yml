@@ -14,8 +14,9 @@
   - type: NFMoonBoots
   - type: StaticPrice
     price: 75
-  - type: Tag
-    tags: [ ]
+  - type: NFTag
+    removeTags:
+    - ClothMade
   - type: ToggleClothing
     action: ActionToggleMoonBoots
   - type: Appearance

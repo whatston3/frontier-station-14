@@ -146,10 +146,9 @@
     needsHands: false
   - type: ReplacementAccent
     accent: genericAggressive
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
     - CannotSuicide
-    - DoorBumpOpener
   - type: ActionGun
     action: ActionDragonsBreathBaby
     gunProto: BabyDragonsSparkGun

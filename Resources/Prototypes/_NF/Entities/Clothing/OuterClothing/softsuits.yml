@@ -28,10 +28,9 @@
     materialComposition:
       Durathread: 100
       Cloth: 50
-  - type: Tag
-    tags:
-    - SuitEVA
-    - WhitelistChameleon
+  - type: NFTag
+    removeTags:
+    - MonkeyWearable
 
 #FSB suit
 

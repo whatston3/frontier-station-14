@@ -8,8 +8,8 @@
     sprite: _NF/Clothing/Neck/Medals/star_gold.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/star_gold.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -22,8 +22,8 @@
     sprite: _NF/Clothing/Neck/Medals/shield_gold.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/shield_gold.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -36,8 +36,8 @@
     sprite: _NF/Clothing/Neck/Medals/shield_silver.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/shield_silver.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -50,8 +50,8 @@
     sprite: _NF/Clothing/Neck/Medals/shield_bronze.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/shield_bronze.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -64,8 +64,8 @@
     sprite: _NF/Clothing/Neck/Medals/star_civviesilver.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/star_civviesilver.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -78,8 +78,8 @@
     sprite: _NF/Clothing/Neck/Medals/shield_civviegold.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/shield_civviegold.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 - type: entity
@@ -92,8 +92,8 @@
     sprite: _NF/Clothing/Neck/Medals/blood_drop.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/blood_drop.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
 
 # just a little joke :)
@@ -107,8 +107,8 @@
     sprite: _NF/Clothing/Neck/Medals/glorious_order.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Medals/glorious_order.rsi
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
       - Medal
   - type: Construction
     graph: ClothingNeckMedalGloriousOrder
