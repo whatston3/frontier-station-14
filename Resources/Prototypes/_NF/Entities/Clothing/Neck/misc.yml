@@ -14,8 +14,10 @@
     mixMessage: "bible-mixing-success"
     reactionTypes:
     - Holy
-  - type: Tag
-    tags:
+  - type: NFTag
+    removeTags:
+    - ClothMade
+    addTags:
     - ObjectOfSpiritualSignificance
     - Crucifix
 
@@ -60,8 +62,10 @@
     rechargeCooldown: 440
     rechargeSound:
       path: /Audio/_NF/Effects/silence.ogg
-  - type: Tag
-    tags:
+  - type: NFTag
+    removeTags:
+    - ClothMade
+    addTags:
     - ObjectOfSpiritualSignificance
   - type: PirateBountyItem
     id: ClothingNeckAmuletBloodCult

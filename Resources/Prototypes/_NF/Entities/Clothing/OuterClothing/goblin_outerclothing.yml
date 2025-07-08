@@ -22,10 +22,6 @@
   name: goblin EVA suit
   description: Traditional robes of goblinkind made EVA-capable. Very regal.
   components:
-  - type: Tag
-    tags:
-    - SuitEVA
-    - WhitelistChameleon
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Suits/goblin_eva_robes.rsi
   - type: Clothing

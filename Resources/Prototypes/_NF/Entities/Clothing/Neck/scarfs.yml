@@ -4,8 +4,8 @@
   name: chaplain's stole
   description: A necessary evil for ordained priests outfit. Gives at least +2 to your holiness.
   components:
-  - type: Tag
-    tags:
+  - type: NFTag
+    addTags:
     - ObjectOfSpiritualSignificance
   - type: Sprite
     sprite: _NF/Clothing/Neck/Scarfs/chaplain_stole.rsi
